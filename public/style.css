@@ -1,11 +1,11 @@
 body {
   font-family: 'Ubuntu', sans-serif;
+  color: 	#888888;
 }
 
 /* grid items */
 .item1 { 
   grid-area: navbar;
-  padding: 20px 0;
  }
 
 .item2 { grid-area: menu; }
@@ -26,8 +26,8 @@ body {
     'menu footer footer footer footer footer';
   grid-template-columns: 200px auto;
   grid-template-rows: 80px 400px 400px auto;
-  grid-gap: 2px;
-  background-color: rgb(8, 8, 8);
+  grid-gap: 1px;
+  background-color:	#A9A9A9;
   padding: 2px;
   height: 100%;
   width: 100%;
@@ -36,9 +36,46 @@ body {
 
 .grid-container > div {
   background-color: rgb(255, 255, 255);
-  
   font-size: 30px;
 }
 .logo-1 {
   height:125px;
+}
+
+/* nav bar */
+
+.header_text {
+  display: flex;
+  justify-content: center;
+  padding: 5px 0px;
+  font-size: 20px;
+}
+
+.header_item {
+  font-size: 20px ;
+  flex-direction: row;
+  padding: 0px 27px;
+  position: relative;
+  right: 20px;
+}
+
+.data_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.data_text {
+  flex-direction: row;
+  padding: 0px 40px;
+  font-size: 40px;
+}
+
+.middleone {
+  position: relative;
+  left: 37px;
+}
+
+.lasttwo {
+  position: relative;
+  left: 50px;
 }

@@ -31,10 +31,12 @@ class App extends React.Component {
   
 
   render() {
+    const { indoor_hum, indoor_temp, outdoor_hum, outdoor_temp, water_temp, far, cels } = this.state.currentState;
+
     return (
       <div className="grid-container">
         <div className="item1">
-          <Navbar />
+          <Navbar intemp={indoor_temp} inhum={indoor_hum} outtemp={outdoor_temp} outhum={outdoor_hum} watertemp={water_temp} far={far} cels={cels} />
         </div>
         <div className="item2">
           <Menu />
