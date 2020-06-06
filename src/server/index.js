@@ -22,5 +22,4 @@ app.get('/', function (req, res) {
 })
  
 //app.use('/data', Router);
-
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));

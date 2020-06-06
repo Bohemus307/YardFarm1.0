@@ -9,6 +9,13 @@ module.exports = {
     path: DIST_DIR
   },
   module : {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ["babel-loader", "eslint-loader"]
+      }
+    ],
     loaders : [
       {
         test : /\.jsx?/,

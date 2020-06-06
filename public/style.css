@@ -1,0 +1,44 @@
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* grid items */
+.item1 { 
+  grid-area: navbar;
+  padding: 20px 0;
+ }
+
+.item2 { grid-area: menu; }
+
+.item3 { grid-area: main; }
+
+.item4 { grid-area: second; }
+
+.item5 { grid-area: footer; }
+
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'menu navbar navbar navbar navbar navbar'
+    'menu main main main main main'
+    'menu second second second second second'
+    'menu footer footer footer footer footer';
+  grid-template-columns: 200px auto;
+  grid-template-rows: 80px 400px 400px auto;
+  grid-gap: 2px;
+  background-color: rgb(8, 8, 8);
+  padding: 2px;
+  height: 100%;
+  width: 100%;
+  
+}
+
+.grid-container > div {
+  background-color: rgb(255, 255, 255);
+  
+  font-size: 30px;
+}
+.logo-1 {
+  height:125px;
+}
