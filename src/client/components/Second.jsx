@@ -63,8 +63,8 @@ class Second extends React.Component {
             <input className="notes_button" type="submit" value="Submit" />
           </form>
         </div>
-        <span className="chart_label_nutrients">Nutrients</span>
         <div className="chart_div">
+          <span className="chart_label_nutrients">Weekly Nutrients Avg</span>
           <div id="chart4" />
         </div>
       </div>

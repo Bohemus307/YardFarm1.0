@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import c3 from 'c3';
+import d3 from 'd3';
 import React from 'react';
 
 class Main extends React.Component {
@@ -22,7 +23,6 @@ class Main extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   updateChart() {
-
     const chart = c3.generate({
       bindto: '#chart',
       data: {
@@ -41,6 +41,18 @@ class Main extends React.Component {
         // onclick(d, i) { console.log('onclick', d, i); },
         // onmouseover(d, i) { console.log('onmouseover', d, i); },
         // onmouseout(d, i) { console.log('onmouseout', d, i); },
+      },
+      pie: {
+        label: {
+          format: (value, ratio) => {
+            return `${Math.floor(value)}°`;
+          },
+        },
+      },
+      tooltip: {
+        format: {
+          value: (value, ratio) => `${Math.floor(value)}°`,
+        },
       },
       size: {
         width: 340,
@@ -64,6 +76,18 @@ class Main extends React.Component {
         // onclick(d, i) { console.log('onclick', d, i); },
         // onmouseover(d, i) { console.log('onmouseover', d, i); },
         // onmouseout(d, i) { console.log('onmouseout', d, i); },
+      },
+      pie: {
+        label: {
+          format: (value, ratio) => {
+            return `${Math.floor(value)}°`;
+          },
+        },
+      },
+      tooltip: {
+        format: {
+          value: (value, ratio) => `${Math.floor(value)}°`,
+        },
       },
       size: {
         width: 340,
