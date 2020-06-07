@@ -1,8 +1,11 @@
+/* eslint-disable camelcase */
+/* eslint-disable max-len */
 import React from 'react';
 import axios from 'axios';
 
 import Menu from './Menu.jsx';
 import Navbar from './Navbar.jsx';
+import Main from './Main.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,14 +27,17 @@ class App extends React.Component {
         ec: 15.4,
         ppm: 1148,
         tds: 56,
-        water_temp: 47
-      }
-    }
+        water_temp: 47,
+      },
+    };
   }
-  
+
 
   render() {
-    const { indoor_hum, indoor_temp, outdoor_hum, outdoor_temp, water_temp, far, cels } = this.state.currentState;
+    const {
+      indoor_hum, indoor_temp, outdoor_hum, outdoor_temp, water_temp, far, cels,
+    // eslint-disable-next-line react/destructuring-assignment
+    } = this.state.currentState;
 
     return (
       <div className="grid-container">
@@ -41,10 +47,12 @@ class App extends React.Component {
         <div className="item2">
           <Menu />
         </div>
-        <div className="item3">Main</div>  
+        <div className="item3">
+          <Main />
+        </div>
         <div className="item4">Second</div>
         <div className="item5">Footer</div>
-      </div> 
+      </div>
     );
   }
 }

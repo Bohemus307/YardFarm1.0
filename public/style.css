@@ -40,6 +40,8 @@ body {
 }
 .logo-1 {
   height:125px;
+  position: relative;
+  left: 10px;
 }
 
 /* nav bar */
@@ -78,4 +80,50 @@ body {
 .lasttwo {
   position: relative;
   left: 50px;
+}
+/* menu */
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.logo_text {
+  color: black;
+  font-size: 37px;
+  position: relative;
+  left: 12px; bottom: 10px;
+}
+
+.search-container {
+  position: relative;
+  left: 10px;
+}
+
+/* main */
+.charts {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#chart {
+  padding: 10px 50px;
+  color: black;
+}
+
+#chart2 {
+  color: black;
+}
+
+.chart_label {
+  display: flex;
+  flex-direction: row;
+}
+
+.label1 {
+  padding: 0px 80px;
+}
+.label2 {
+  padding: 0px 30px;
 }
