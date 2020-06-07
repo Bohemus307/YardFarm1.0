@@ -6,6 +6,7 @@ import axios from 'axios';
 import Menu from './Menu.jsx';
 import Navbar from './Navbar.jsx';
 import Main from './Main.jsx';
+import Second from './Second.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -50,7 +51,9 @@ class App extends React.Component {
         <div className="item3">
           <Main />
         </div>
-        <div className="item4">Second</div>
+        <div className="item4">
+          <Second />
+        </div>
         <div className="item5">Footer</div>
       </div>
     );
