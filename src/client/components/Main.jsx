@@ -22,6 +22,7 @@ class Main extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   updateChart() {
+
     const chart = c3.generate({
       bindto: '#chart',
       data: {
@@ -45,6 +46,7 @@ class Main extends React.Component {
         width: 340,
       },
     });
+
     const chart2 = c3.generate({
       bindto: '#chart2',
       data: {
@@ -67,6 +69,27 @@ class Main extends React.Component {
         width: 340,
       },
     });
+
+    const chart3 = c3.generate({
+      bindto: '#chart3',
+      data: {
+        columns: [
+          ['Day', 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
+          ['Night', 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
+        ],
+        type: 'donut',
+        colors: {
+          Day: '#F4A460',
+          Night: '#87CEEB',
+        },
+        onclick(d, i) { console.log('onclick', d, i); },
+        onmouseover(d, i) { console.log('onmouseover', d, i); },
+        onmouseout(d, i) { console.log('onmouseout', d, i); },
+      },
+      size: {
+        width: 340,
+      },
+    });
   }
 
 
@@ -76,10 +99,12 @@ class Main extends React.Component {
         <div className="charts">
           <div className="chart_1" id="chart" />
           <div className="chart_2" id="chart2" />
+          <div className="chart_3" id="chart3" />
         </div>
         <div className="chart_label">
           <div className="label1">Daily Average Temp</div>
           <div className="label2">Weekly Average Temp</div>
+          <div className="label3">Daily Humidity Average</div>
         </div>
       </div>
     );

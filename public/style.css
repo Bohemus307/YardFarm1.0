@@ -91,7 +91,7 @@ body {
   color: black;
   font-size: 37px;
   position: relative;
-  left: 12px; bottom: 10px;
+  left: 15px; bottom: 10px;
 }
 
 .search-container {
@@ -116,6 +116,12 @@ body {
   color: black;
 }
 
+#chart3 {
+  color: black;
+  position: relative;
+  left: 90px; top: 0px; 
+}
+
 .chart_label {
   display: flex;
   flex-direction: row;
@@ -126,4 +132,9 @@ body {
 }
 .label2 {
   padding: 0px 30px;
+}
+
+.label3 {
+  position: relative;
+  left: 100px;
 }
