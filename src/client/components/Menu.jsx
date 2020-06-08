@@ -17,7 +17,9 @@ const Menu = () => {
           <button type="submit"><i className="fa fa-search" /></button>
         </form>
       </div>
+      <hr />
       <div className="switch_panel">
+        <span className="switch_title">Farm Controls</span>
         <div className="switch_div">
           <label className="switch">
             <input type="checkbox" />

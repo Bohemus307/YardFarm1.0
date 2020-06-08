@@ -228,7 +228,6 @@ body {
   display: inline-block;
   width: 60px;
   height: 34px;
-  padding: 5px 5px;
 }
 
 /* Hide default HTML checkbox */
@@ -246,7 +245,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #F4A460;
+  background-color: tomato;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -287,9 +286,13 @@ input:checked + .slider:before {
 }
 
 .switch_panel {
-  padding: 20px 10px;
+  padding: 0px 10px;
   display: flex;
   flex-direction: column;
+}
+
+.switch_title {
+  font-size: 27px;
 }
 
 .small_icon {
