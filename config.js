@@ -9,14 +9,10 @@ const dev = {
   db: {
     host: process.env.DEV_DB_HOST || 'localhost',
     port: parseInt(process.env.DEV_DB_PORT, 10) || 5432,
-    database: process.env.DEV_DB_NAME || 'yard-farm',
+    database: process.env.DEV_DB_NAME || 'dataMoments',
     user: process.env.USER,
     password: null,
   },
-  // cache: {
-  //   port: 6379,
-  //   host: 'localhost',
-  // },
 };
 
 const prod = {
@@ -26,13 +22,7 @@ const prod = {
   db: {
     host: process.env.PROD_DB_HOST || 'database',
     port: parseInt(process.env.TEST_DB_PORT, 10) || 5432,
-    database: process.env.TEST_DB_NAME || 'relatedartists',
-    user: process.env.PGUSER,
-    password: process.env.PG_AWS_PASSWORD,
-  },
-  cache: {
-    port: 6379,
-    host: 'cache',
+    database: process.env.TEST_DB_NAME || 'dataMoments',
   },
 };
 

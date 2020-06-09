@@ -6,7 +6,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon src/server/index.js",
-    "seed-db": "node src/mongo/scripts/seed.js"
+    "seed-db": "node src/mongo/scripts/seed.js && mongoimport -d dataMoments -c moments --type csv --file moments.csv --headerline"
   },
   "repository": {
     "type": "git",

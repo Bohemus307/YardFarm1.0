@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 /* eslint-disable camelcase */
 /* eslint-disable max-len */
 import React from 'react';
@@ -7,6 +8,7 @@ import Menu from './Menu.jsx';
 import Navbar from './Navbar.jsx';
 import Main from './Main.jsx';
 import Second from './Second.jsx';
+import Footer from './Footer.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -33,7 +35,6 @@ class App extends React.Component {
     };
   }
 
-
   render() {
     const {
       indoor_hum, indoor_temp, outdoor_hum, outdoor_temp, water_temp, far, cels,
@@ -54,7 +55,9 @@ class App extends React.Component {
         <div className="item4">
           <Second />
         </div>
-        <div className="item5">Footer</div>
+        <div className="item5">
+          <Footer />
+        </div>
       </div>
     );
   }

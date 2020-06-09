@@ -1,10 +1,12 @@
 const router = require('express').Router();
-// const mongoControllers = require('../controllers/mongoControllers');
+const controllers = require('../server/controllers/controllers.js');
 
-router.get('/data', );
+router.get('/day', controllers.getDayOfData);
 
-router.post('/data', );
+router.get('/week', controllers.getWeekOfData);
 
-router.delete('/data', );
+// router.post('/data', );
+
+// router.delete('/data', );
 
 module.exports = router;

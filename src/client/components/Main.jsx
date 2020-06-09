@@ -2,23 +2,42 @@
 import c3 from 'c3';
 import d3 from 'd3';
 import React from 'react';
+import axios from 'axios';
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       week: [],
-      day: [],
+      currentDay: [],
     };
     this.updateChart = this.updateChart.bind(this);
+    this.getDayOfData = this.getDayOfData.bind(this);
   }
 
   componentDidMount() {
+    this.getDayOfData();
     this.updateChart();
   }
 
   componentDidUpdate() {
     this.updateChart();
+  }
+
+  getDayOfData() {
+    axios.get('/data/day', {
+      params: {
+        date: 1,
+      },
+    })
+      .then((response) => {
+        this.setState({
+          currentDay: response.data.moments,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -79,9 +98,7 @@ class Main extends React.Component {
       },
       pie: {
         label: {
-          format: (value, ratio) => {
-            return `${Math.floor(value)}°`;
-          },
+          format: (value, ratio) => `${Math.floor(value)}°`,
         },
       },
       tooltip: {
@@ -116,8 +133,8 @@ class Main extends React.Component {
     });
   }
 
-
   render() {
+    console.log(this.state);
     return (
       <div>
         <div className="charts">

@@ -16,7 +16,7 @@ class Second extends React.Component {
   }
 
   handleSubmit(event) {
-    alert(`Notes were submitted: ${this.state.value}`);
+    alert(`Your notes were saved: ${this.state.value}`);
     event.preventDefault();
   }
 
@@ -60,7 +60,7 @@ class Second extends React.Component {
         <div>
           <form className="note_pad" onSubmit={this.handleSubmit}>
             <textarea placeholder="Notes..." className="input_area" type="textarea" value={this.state.value} onChange={this.handleChange} />
-            <input className="notes_button" type="submit" value="Submit" />
+            <input className="notes_button" type="submit" value="Save" />
           </form>
         </div>
         <div className="chart_div">

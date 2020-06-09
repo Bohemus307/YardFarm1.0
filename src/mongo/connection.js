@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = require('bluebird');
 
+mongoose.connect('mongodb://localhost/dataMoments', { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
+
 const db = mongoose.connection;
 
 // Bind connection to error event (to get notification of connection errors)

@@ -6,9 +6,10 @@ const writeMoments = fs.createWriteStream('moments.csv');
 writeMoments.write('id,time,date,intemp,outemp,inhumid,outhumid,ph,ec,ppm,wtemp\n', 'utf8');
 
 function writeUsers(writer, encoding, callback) {
-  let i = 1000000;
+  let i = 525600;
   let id = 0;
   let time = 1;
+  let date = 1;
   function write() {
     let ok = true;
     do {
@@ -16,40 +17,44 @@ function writeUsers(writer, encoding, callback) {
       id += 1;
       if (time === 1440) {
         time = 0;
+        date += 1;
+      }
+      if (date === 365) {
+        date = 0;
       }
       time += 1;
-      const date = faker.date.between('2019-01-01', '2020-06-15');
+      // const date = faker.date.between('2019-01-01', '2020-06-15');
       const intemp = faker.random.number({
-        min: 55,
-        max: 90,
+        min: 65,
+        max: 85,
       });
       const outtemp = faker.random.number({
-        min: 0,
-        max: 100,
+        min: 45,
+        max: 90,
       });
       const inhumid = faker.random.number({
-        min: 30,
-        max: 80,
+        min: 40,
+        max: 60,
       });
       const outhumid = faker.random.number({
-        min: 15,
+        min: 30,
         max: 70,
       });
       const ph = faker.random.number({
-        min: 4,
-        max: 9,
+        min: 5,
+        max: 7,
       });
       const ec = faker.random.number({
         min: 1.0,
         max: 2.0,
       });
       const ppm = faker.random.number({
-        min: 500,
-        max: 1800,
+        min: 800,
+        max: 1200,
       });
       const wtemp = faker.random.number({
-        min: 30,
-        max: 60,
+        min: 40,
+        max: 50,
       });
       const data = `${id},${time},${date},${intemp},${outtemp},${inhumid},${outhumid},${ph},${ec},${ppm},${wtemp}\n`;
       if (i === 0) {

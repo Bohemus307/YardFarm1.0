@@ -2,11 +2,10 @@ const mongoose = require('mongoose');
 const Promise = require('bluebird');
 const db = require('../connection.js');
 
-
-const dataMoment = mongoose.schema({
+const dataMoment = mongoose.Schema({
   _id: String,
   time: Number,
-  date: Date,
+  date: Number,
   intemp: Number,
   outtemp: Number,
   inhumid: Number,
@@ -16,11 +15,31 @@ const dataMoment = mongoose.schema({
   ppm: Number,
   tds: Number,
   wtemp: Number,
+  notes: Array,
 });
 
 // create model
-const moments = mongoose.model('moments', dataMoment, 'dataMoment');
+const moments = mongoose.model('moments', dataMoment, 'moments');
 
-module.exports = { dataMoment, moments,
+module.exports = {
+  dataMoment,
+  moments,
+  getDayOfMoments: async (date) => {
+    try {
+      const data = await moments.find({ date: parseInt(date, 0) });
+      return data;
+    } catch (err) {
+      return console.log('Error in models', err);
+    }
+  },
+
+  getWeekOfMoments: async (start, end) => {
+    try {
+      const data = await moments.find({ date: parseInt(start, end, 0) });
+      return data;
+    } catch (err) {
+      return console.log('Error in models', err);
+    }
+  },
 
 };
