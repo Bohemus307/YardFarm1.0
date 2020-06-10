@@ -64,7 +64,7 @@ class Second extends React.Component {
           </form>
         </div>
         <div className="chart_div">
-          <span className="chart_label_nutrients">Weekly Nutrients Avg</span>
+          <span className="chart_label_nutrients">Weekly Nutrients Average</span>
           <div id="chart4" />
         </div>
       </div>

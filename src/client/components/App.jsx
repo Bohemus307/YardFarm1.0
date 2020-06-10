@@ -3,6 +3,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import axios from 'axios';
+import ReactDOM from 'react-dom';
 
 import Menu from './Menu.jsx';
 import Navbar from './Navbar.jsx';
