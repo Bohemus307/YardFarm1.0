@@ -10,26 +10,28 @@ An in-depth paragraph about your project and overview of use.
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* Node.js
+* the rest are listed in package.json
 
 ### Installing
 
 * Github repo required
-* 
+* npm Install
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
+In development -
+* npm run seed-db
+* npm run react-dev
+* npm run server-dev
+* Open localhost:3030
 
-* seed mongo db with csv file:
-```
-mongoimport -d datamoments -c moments --type csv --file moments.csv --headerline
-```
+In Production -
+
 ## Help
 
 Any advise for common problems or issues.
+
 ```
 command to run if program contains helper info
 ```

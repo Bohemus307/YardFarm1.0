@@ -11,8 +11,6 @@ const dev = {
     host: process.env.DEV_DB_HOST || 'localhost',
     port: parseInt(process.env.DEV_DB_PORT, 10) || 5432,
     database: process.env.DEV_DB_NAME || 'dataMoments',
-    user: process.env.USER,
-    password: null,
   },
 };
 
