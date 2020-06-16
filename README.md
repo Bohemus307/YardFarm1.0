@@ -1,22 +1,27 @@
 # YardFarm1.0
 
-Simple overview of use/purpose.
+GUI for sensor system located in a small hydroponic greenhouse in my yard.
+
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+Yard Farm is a small 4' x 4' hyrdoponic greenhouse that utilized a DWC technique called 'float raft' where a piece of foam holds plants in a large reservoir of nutrient water that is aerated with an air pump, and circulated with a drain and a reservoir then recirculated with a small water pump. This Application was designed as a dashboard to collect and review data and operate some controls inside the greenhouse. The data is collected using a raspberry pi based sensor system that sends data back to my computer via bluetooth and then stored in a mongoDB database with an Express.js server to communicate with the React front-end client.
 
 ## Getting Started
+
+* Fork Repo to working directory and cd into yardfarm1.0
+* Npm install
+* .ENV file requires either dev or prod based on config.js
 
 ### Dependencies
 
 * Node.js
-* the rest are listed in package.json
-
-### Installing
-
-* Github repo required
-* npm Install
+* React
+* React-dom
+* MongoDB
+* C3
+* D3
+* Express.js
 
 ### Executing program
 
@@ -30,24 +35,14 @@ In Production -
 
 ## Help
 
-Any advise for common problems or issues.
-
-```
-command to run if program contains helper info
-```
 
 ## Authors
-
-Contributors names and contact info
 
 Joshua Scott Oxner  
 [Email](bohemus@hotmail.com)
 
 ## Version History
 
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
 * 0.1
     * Initial Release
 
@@ -57,9 +52,5 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
 * [C3 charts](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+* [D3](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
