@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const controllers = require('../server/controllers/controllers.js');
+const controllers = require('../controllers/controllers.js');
 
 router.get('/day', controllers.getDayOfData);
 

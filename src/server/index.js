@@ -1,11 +1,11 @@
-const config = require('../../config');
 
-const express = require('express')
+const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const cors = require('cors');
+const config = require('../../config');
 
-const Router = require('../router/router.js');
+const Router = require('./router/router.js');
 
 const app = express();
 

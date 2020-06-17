@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable camelcase */
 /* eslint-disable max-len */
@@ -41,7 +42,6 @@ class App extends React.Component {
       indoor_hum, indoor_temp, outdoor_hum, outdoor_temp, water_temp, far, cels,
     // eslint-disable-next-line react/destructuring-assignment
     } = this.state.currentState;
-
     return (
       <div className="grid-container">
         <div className="item1">

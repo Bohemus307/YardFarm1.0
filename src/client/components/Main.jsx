@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 import c3 from 'c3';
 import d3 from 'd3';
@@ -24,6 +25,7 @@ class Main extends React.Component {
     this.updateChart();
   }
 
+  // get day od data from database
   getDayOfData() {
     axios.get('/data/day', {
       params: {
@@ -63,9 +65,7 @@ class Main extends React.Component {
       },
       pie: {
         label: {
-          format: (value, ratio) => {
-            return `${Math.floor(value)}°`;
-          },
+          format: (value, ratio) => `${Math.floor(value)}°`,
         },
       },
       tooltip: {
@@ -134,17 +134,18 @@ class Main extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div>
-        <div className="charts">
-          <div className="chart_1" id="chart" />
-          <div className="chart_2" id="chart2" />
-          <div className="chart_3" id="chart3" />
-        </div>
         <div className="chart_label">
           <div className="label1">Daily Average Temp</div>
           <div className="label2">Weekly Average Temp</div>
           <div className="label3">Daily Humidity Average</div>
+        </div>
+        <div className="charts">
+          <div className="chart_1" id="chart" />
+          <div className="chart_2" id="chart2" />
+          <div className="chart_3" id="chart3" />
         </div>
       </div>
     );

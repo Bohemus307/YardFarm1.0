@@ -1,3 +1,6 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable no-unused-vars */
+/* eslint-disable class-methods-use-this */
 /* eslint-disable no-alert */
 import React from 'react';
 import c3 from 'c3';
@@ -11,15 +14,6 @@ class Second extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-
-  handleSubmit(event) {
-    alert(`Your notes were saved: ${this.state.value}`);
-    event.preventDefault();
-  }
-
   componentDidMount() {
     this.updateChart();
   }
@@ -28,13 +22,20 @@ class Second extends React.Component {
     this.updateChart();
   }
 
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    alert('Your notes were saved');
+    event.preventDefault();
+  }
+
   // eslint-disable-next-line class-methods-use-this
   updateChart() {
-
     const chart4 = c3.generate({
       bindto: '#chart4',
       data: {
-        // iris data from R
         columns: [
           ['Ph', 30, 200, 100, 400, 150, 250],
           ['EC', 50, 20, 10, 40, 15, 25],

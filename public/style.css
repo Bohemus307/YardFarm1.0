@@ -25,7 +25,7 @@ body {
     'menu second second second second second'
     'menu footer footer footer footer footer';
   grid-template-columns: 200px auto;
-  grid-template-rows: 80px 400px 400px 500px;
+  grid-template-rows: 100px 400px 400px 500px;
   grid-gap: 0px;
   background-color:	#A9A9A9;
   padding: 0px;
@@ -55,22 +55,21 @@ body {
 }
 
 .header_item {
-  font-size: 20px ;
+  font-size: 18px ;
   flex-direction: row;
   padding: 0px 27px;
-  position: relative;
-  right: 20px;
 }
 
 .data_wrapper {
   display: flex;
   justify-content: center;
+  padding: 0px 10px;
 }
 
 .data_text {
   flex-direction: row;
-  padding: 0px 40px;
-  font-size: 40px;
+  padding: 0px 60px;
+  font-size: 36px;
 }
 
 .middleone {
@@ -111,10 +110,11 @@ body {
   justify-content: space-evenly;
   align-items: center;
   color: black;
-  padding: 20px 50px;
+  padding: 5px 50px;
 }
 
 .chart_label {
+  padding-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
