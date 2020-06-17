@@ -39,9 +39,10 @@ class App extends React.Component {
 
   render() {
     const {
-      indoor_hum, indoor_temp, outdoor_hum, outdoor_temp, water_temp, far, cels,
+      id, indoor_hum, indoor_temp, outdoor_hum, outdoor_temp, water_temp, far, cels,
     // eslint-disable-next-line react/destructuring-assignment
     } = this.state.currentState;
+    // console.log(this.state);
     return (
       <div className="grid-container">
         <div className="item1">
@@ -54,7 +55,7 @@ class App extends React.Component {
           <Main />
         </div>
         <div className="item4">
-          <Second />
+          <Second day={id} />
         </div>
         <div className="item5">
           <Footer />

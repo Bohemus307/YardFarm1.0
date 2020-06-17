@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
 const mongoose = require('mongoose');
 const Promise = require('bluebird');
 const db = require('../connection.js');
@@ -36,6 +38,18 @@ module.exports = {
   getWeekOfMoments: async (start, end) => {
     try {
       const data = await moments.find({ date: parseInt(start, end, 0) });
+      return data;
+    } catch (err) {
+      return console.log('Error in models', err);
+    }
+  },
+
+  postNote: async (day, note) => {
+    try {
+      const data = await moments.find({ id: parseInt(day, 0) });
+      const newNote = [note];
+      data.note.push(newNote);
+      const moment = await data.save();
       return data;
     } catch (err) {
       return console.log('Error in models', err);

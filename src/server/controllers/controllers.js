@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const model = require('../../mongo/models/model.js');
 
 module.exports = {
@@ -40,5 +41,9 @@ module.exports = {
           error: err,
         }));
     }
+  },
+
+  postNoteToDb: (req, res) => { // ============> stopped here for evening pick up with data arriving at request
+    console.log(req.body);
   },
 };
