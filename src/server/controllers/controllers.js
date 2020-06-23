@@ -43,7 +43,23 @@ module.exports = {
     }
   },
 
-  postNoteToDb: (req, res) => { // ============> stopped here for evening pick up with data arriving at request
-    console.log(req.body);
+  postNoteToDb: (req, res) => {
+    const { note } = req.body;
+    const day = req.body.id;
+    if (note === undefined || day === undefined) {
+      res.status(400).json({
+        message: 'Bad request - must include date and a note',
+      });
+    } else {
+      model.postNote(day, note)
+        .then((data) => res.json({
+          message: 'Success retrieving Data',
+          moments: data,
+        }))
+        .catch((err) => res.status(400).json({
+          message: 'Failed to find Data',
+          error: err,
+        }));
+    }
   },
 };
