@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const model = require('../../mongo/models/model.js');
 
 module.exports = {
@@ -27,7 +28,7 @@ module.exports = {
 
     if (startDate === undefined || endDate === undefined) {
       res.status(400).json({
-        message: 'Bad request - must include date',
+        message: 'Bad request - must include dates',
       });
     } else {
       model.getWeekOfMoments(startDate, endDate)
@@ -37,6 +38,26 @@ module.exports = {
         }))
         .catch((err) => res.status(400).json({
           message: 'Failed to find Data',
+          error: err,
+        }));
+    }
+  },
+
+  postNoteToDb: (req, res) => {
+    const { note } = req.body;
+    const day = req.body.id;
+    if (note === undefined || day === undefined) {
+      res.status(400).json({
+        message: 'Bad request - must include date and a note',
+      });
+    } else {
+      model.postNote(day, note)
+        .then((data) => res.json({
+          message: 'Success Posting Data',
+          moments: data,
+        }))
+        .catch((err) => res.status(400).json({
+          message: 'Failed to Post Data',
           error: err,
         }));
     }

@@ -1,8 +1,10 @@
+/* eslint-disable no-console */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-unused-vars */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-alert */
 import React from 'react';
+import axios from 'axios';
 import c3 from 'c3';
 
 class Second extends React.Component {
@@ -12,6 +14,7 @@ class Second extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.postNoteToDb = this.postNoteToDb.bind(this);
   }
 
   componentDidMount() {
@@ -27,9 +30,25 @@ class Second extends React.Component {
   }
 
   handleSubmit(event) {
+    this.postNoteToDb();
     alert('Your notes were saved');
     event.preventDefault();
   }
+
+  // axios request to post notes to db
+  postNoteToDb() {
+    axios.post('/data/note', {
+      id: this.props.day,
+      note: this.state.value,
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
 
   // eslint-disable-next-line class-methods-use-this
   updateChart() {
@@ -56,6 +75,7 @@ class Second extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="second_div">
         <div>

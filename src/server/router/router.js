@@ -5,7 +5,7 @@ router.get('/day', controllers.getDayOfData);
 
 router.get('/week', controllers.getWeekOfData);
 
-// router.post('/data', );
+router.post('/note', controllers.postNoteToDb);
 
 // router.delete('/data', );
 

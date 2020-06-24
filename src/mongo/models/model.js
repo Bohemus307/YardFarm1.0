@@ -1,7 +1,10 @@
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
 const mongoose = require('mongoose');
 const Promise = require('bluebird');
 const db = require('../connection.js');
 
+// create schema for data
 const dataMoment = mongoose.Schema({
   _id: String,
   time: Number,
@@ -15,13 +18,23 @@ const dataMoment = mongoose.Schema({
   ppm: Number,
   tds: Number,
   wtemp: Number,
-  notes: Array,
 });
 
 // create model
 const moments = mongoose.model('moments', dataMoment, 'moments');
 
+// create schema for notes db
+const noteSchema = mongoose.Schema({
+  text: String,
+  date: String,
+});
+
+// create model for notes db
+const Note = mongoose.model('note', noteSchema, 'note');
+
 module.exports = {
+  noteSchema,
+  Note,
   dataMoment,
   moments,
   getDayOfMoments: async (date) => {
@@ -36,6 +49,17 @@ module.exports = {
   getWeekOfMoments: async (start, end) => {
     try {
       const data = await moments.find({ date: parseInt(start, end, 0) });
+      return data;
+    } catch (err) {
+      return console.log('Error in models', err);
+    }
+  },
+
+  postNote: async (day, note) => {
+    try {
+      const newNote = JSON.stringify(note);
+      const data = new Note({ date: parseInt(day, 0), text: newNote });
+      const saveNote = await data.save();
       return data;
     } catch (err) {
       return console.log('Error in models', err);
