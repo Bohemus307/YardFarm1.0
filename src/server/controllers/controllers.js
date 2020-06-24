@@ -28,7 +28,7 @@ module.exports = {
 
     if (startDate === undefined || endDate === undefined) {
       res.status(400).json({
-        message: 'Bad request - must include date',
+        message: 'Bad request - must include dates',
       });
     } else {
       model.getWeekOfMoments(startDate, endDate)
@@ -53,11 +53,11 @@ module.exports = {
     } else {
       model.postNote(day, note)
         .then((data) => res.json({
-          message: 'Success retrieving Data',
+          message: 'Success Posting Data',
           moments: data,
         }))
         .catch((err) => res.status(400).json({
-          message: 'Failed to find Data',
+          message: 'Failed to Post Data',
           error: err,
         }));
     }
