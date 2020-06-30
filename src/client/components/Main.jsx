@@ -52,14 +52,15 @@ class Main extends React.Component {
     const dailyAverage = Math.floor(dailyTotal / currentDay.length);
     // create low temp
     const dailyArray = currentDay.map((item) => item.intemp);
-    const min = dailyArray.reduce((acc, val) => {
-      // this is max
+    // this is min
+    const dailyMin = dailyArray.reduce((acc, val) => {
       acc[0] = (acc[0] === undefined || val < acc[0]) ? val : acc[0];
-      // this is min
-      acc[1] = (acc[1] === undefined || val > acc[1]) ? val : acc[1];
       return acc;
     }, []);
-    console.log('min: ', min);
+    const dailyMax = dailyArray.reduce((acc, val) => {
+      acc[0] = (acc[0] === undefined || val > acc[0]) ? val : acc[0];
+      return acc;
+    }, []);
     // const inTempArray = currentDay.map((item) => item.intemp);
     // const avgArray = inTempArray.unshift('Avg');
     // console.log('array: ', inTempArray);
@@ -69,9 +70,9 @@ class Main extends React.Component {
       data: {
         // iris data from R
         columns: [
-          ['Low', 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 1.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 1.2, 0.3, 5.3, 0.2, 6.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
+          ['Low', dailyMin],
           ['Avg', dailyAverage],
-          ['High', 3.5, 1.4, 2.1, 1.8, 2.2, 1.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.6, 2.3, 2.0, 1.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 2.5, 1.4, 2.3, 2.2, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3],
+          ['High', dailyMax],
         ],
         type: 'pie',
         colors: {
