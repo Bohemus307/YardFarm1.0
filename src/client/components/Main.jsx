@@ -15,6 +15,7 @@ class Main extends React.Component {
     };
     this.updateChart = this.updateChart.bind(this);
     this.getDayOfData = this.getDayOfData.bind(this);
+    this.dailyAverage = this.dailyAverage.bind(this);
   }
 
   componentDidMount() {
@@ -43,15 +44,32 @@ class Main extends React.Component {
       });
   }
 
+  dailyAverage() {
+    // create const for state
+    const { currentDay } = this.state;
+    // get temp min
+    const total = currentDay.reduce((accumulator, currentValue) => accumulator + currentValue.intemp, 0);
+    const average = Math.floor(total / currentDay.length);
+    const inTempArray = currentDay.map((item) => item.intemp);
+    console.log('array: ', inTempArray);
+    return inTempArray;
+  }
+
   // eslint-disable-next-line class-methods-use-this
   updateChart() {
+    // create const for state
+    const { currentDay } = this.state;
+    const inTempArray = currentDay.map((item) => item.intemp);
+    // const avgArray = inTempArray.unshift('Avg');
+    console.log('array: ', inTempArray);
+
     const chart = c3.generate({
       bindto: '#chart',
       data: {
         // iris data from R
         columns: [
           ['Low', 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 1.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 1.2, 0.3, 5.3, 0.2, 6.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
-          ['Avg', 1.4, 1.5, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
+          ['Avg', ...inTempArray],
           ['High', 3.5, 1.4, 2.1, 1.8, 2.2, 1.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.6, 2.3, 2.0, 1.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 2.5, 1.4, 2.3, 2.2, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3],
         ],
         type: 'pie',
@@ -135,7 +153,6 @@ class Main extends React.Component {
   }
 
   render() {
-    // console.log(this.state);
     return (
       <div>
         <div className="chart_label">
