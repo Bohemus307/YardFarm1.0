@@ -15,10 +15,12 @@ class Main extends React.Component {
     };
     this.updateChart = this.updateChart.bind(this);
     this.getDayOfData = this.getDayOfData.bind(this);
+    this.getWeekOfData = this.getWeekOfData.bind(this);
   }
 
   componentDidMount() {
     this.getDayOfData();
+    this.getWeekOfData();
     this.updateChart();
   }
 
@@ -26,7 +28,7 @@ class Main extends React.Component {
     this.updateChart();
   }
 
-  // get day od data from database
+  // get day of data from database
   getDayOfData() {
     axios.get('/data/day', {
       params: {
@@ -43,6 +45,24 @@ class Main extends React.Component {
       });
   }
 
+  // get week of data fron database
+  getWeekOfData() {
+    axios.get('/data/week', {
+      params: {
+        startDate: 1,
+        endDate: 7,
+      },
+    })
+      .then((response) => {
+        this.setState({
+          week: response.data.moments,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   // eslint-disable-next-line class-methods-use-this
   updateChart() {
     // create const for state
@@ -50,20 +70,18 @@ class Main extends React.Component {
     // Create daily average
     const dailyTotal = currentDay.reduce((accumulator, currentValue) => accumulator + currentValue.intemp, 0);
     const dailyAverage = Math.floor(dailyTotal / currentDay.length);
-    // create low temp
+    // create array of indoor temps
     const dailyArray = currentDay.map((item) => item.intemp);
-    // this is min
+    // this is min temp for day
     const dailyMin = dailyArray.reduce((acc, val) => {
       acc[0] = (acc[0] === undefined || val < acc[0]) ? val : acc[0];
       return acc;
     }, []);
+    // this is max temp for day
     const dailyMax = dailyArray.reduce((acc, val) => {
       acc[0] = (acc[0] === undefined || val > acc[0]) ? val : acc[0];
       return acc;
     }, []);
-    // const inTempArray = currentDay.map((item) => item.intemp);
-    // const avgArray = inTempArray.unshift('Avg');
-    // console.log('array: ', inTempArray);
 
     const chart = c3.generate({
       bindto: '#chart',

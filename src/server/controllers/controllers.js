@@ -23,9 +23,9 @@ module.exports = {
   },
 
   getWeekOfData: (req, res) => {
-    const startDate = req.query.start;
-    const endDate = req.query.end;
-
+    const startDate = req.query.startDate;
+    const endDate = req.query.endDate;
+    console.log(startDate, endDate);
     if (startDate === undefined || endDate === undefined) {
       res.status(400).json({
         message: 'Bad request - must include dates',
