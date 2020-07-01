@@ -47,10 +47,10 @@ class Main extends React.Component {
 
   // get week of data fron database
   getWeekOfData() {
+    const dates = [1, 2, 3, 4, 5, 6, 7];
     axios.get('/data/week', {
       params: {
-        startDate: 1,
-        endDate: 7,
+        dates,
       },
     })
       .then((response) => {
@@ -173,7 +173,7 @@ class Main extends React.Component {
   }
 
   render() {
-    console.log(this.state);
+    console.log('state in main: ', this.state);
     return (
       <div>
         <div className="chart_label">
