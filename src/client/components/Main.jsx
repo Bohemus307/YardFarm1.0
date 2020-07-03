@@ -11,7 +11,7 @@ class Main extends React.Component {
     super(props);
     this.state = {
       week: [],
-      currentDay: [],
+      currentDay: [1],
     };
     this.updateChart = this.updateChart.bind(this);
     this.getDayOfData = this.getDayOfData.bind(this);
@@ -30,9 +30,10 @@ class Main extends React.Component {
 
   // get day of data from database
   getDayOfData() {
+    const day = this.state.currentDay;
     axios.get('/data/day', {
       params: {
-        date: 1,
+        date: day,
       },
     })
       .then((response) => {
@@ -47,7 +48,11 @@ class Main extends React.Component {
 
   // get week of data fron database
   getWeekOfData() {
-    const dates = [1, 2, 3, 4, 5, 6, 7];
+    // start array at current day build array till end of week
+    const start = this.state.currentDay[0] + 6;
+    // create arrray of nubers to represent dates for one week
+    const dates = Array.from(Array(start), (_, i) => i + 1);
+
     axios.get('/data/week', {
       params: {
         dates,
