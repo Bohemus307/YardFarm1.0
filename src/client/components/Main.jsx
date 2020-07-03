@@ -171,7 +171,17 @@ class Main extends React.Component {
         width: 340,
       },
     });
+    // math for humidity
+    const dailyHumTotal = currentDay.reduce((accumulator, currentValue) => accumulator + currentValue.inhumid, 0);
+    const dailyHumAverage = Math.floor(dailyHumTotal / currentDay.length);
+    // allowe dkeys for filter
+    const allowed = ['date']
+    // need to get inhum for only times 360 thru 1080 for day humidity
+    const filterNightHum = Object.keys(currentDay)
+      .filter(key => )
+    // need to get inhum for only times 1081 to 359 the next day
 
+    // chart for daily humidity
     const chart3 = c3.generate({
       bindto: '#chart3',
       data: {
