@@ -88,6 +88,7 @@ class Main extends React.Component {
       return acc;
     }, []);
 
+    // daily temp chart
     const chart = c3.generate({
       bindto: '#chart',
       data: {
@@ -121,14 +122,30 @@ class Main extends React.Component {
         width: 340,
       },
     });
-
+    // math for weekly chart
+    const { week } = this.state;
+    const weeklyTotal = week.reduce((accumulator, currentValue) => accumulator + currentValue.intemp, 0);
+    const weeklyAverage = Math.floor(weeklyTotal / week.length);
+    // create array of indoor temps
+    const weeklyArray = week.map((item) => item.intemp);
+    // this is min temp for day
+    const weeklyMin = weeklyArray.reduce((acc, val) => {
+      acc[0] = (acc[0] === undefined || val < acc[0]) ? val : acc[0];
+      return acc;
+    }, []);
+    // this is max temp for day
+    const weeklyMax = weeklyArray.reduce((acc, val) => {
+      acc[0] = (acc[0] === undefined || val > acc[0]) ? val : acc[0];
+      return acc;
+    }, []);
+    // weekly temp chart
     const chart2 = c3.generate({
       bindto: '#chart2',
       data: {
         columns: [
-          ['Low', 0.2, 0.2, 20.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
-          ['Avg', 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
-          ['High', 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0, 2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5, 1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3, 1.9, 2.0, 2.3, 1.8],
+          ['Low', weeklyMin],
+          ['Avg', weeklyAverage],
+          ['High', weeklyMax],
         ],
         type: 'pie',
         colors: {
