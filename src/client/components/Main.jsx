@@ -174,7 +174,7 @@ class Main extends React.Component {
     // math for humidity
     const dailyHumTotal = currentDay.reduce((accumulator, currentValue) => accumulator + currentValue.inhumid, 0);
     const dailyHumAverage = Math.floor(dailyHumTotal / currentDay.length);
-    // allowe dkeys for filter
+    // allowed keys for filter
     const allowed = ['date'];
     // need to get inhum for only times 360 thru 1080 for day humidity
 
@@ -204,7 +204,6 @@ class Main extends React.Component {
   }
 
   render() {
-    console.log('state in main: ', this.state);
     return (
       <div>
         <div className="chart_label">

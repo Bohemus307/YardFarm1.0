@@ -10,29 +10,46 @@ import c3 from 'c3';
 class Second extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = {
+      value: '',
+      week: [],
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.postNoteToDb = this.postNoteToDb.bind(this);
+    this.getWeekOfData = this.getWeekOfData.bind(this);
   }
 
   componentDidMount() {
     this.updateChart();
+    this.getWeekOfData();
   }
 
   componentDidUpdate() {
     this.updateChart();
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
+  // get week of data fron database
+  getWeekOfData() {
+    // start array at current day build array till end of week
+    const start = this.props.day + 6;
+    // create arrray of nubers to represent dates for one week
+    const dates = Array.from(Array(start), (_, i) => i + 1);
 
-  handleSubmit(event) {
-    this.postNoteToDb();
-    alert('Your notes were saved');
-    event.preventDefault();
+    axios.get('/data/week', {
+      params: {
+        dates,
+      },
+    })
+      .then((response) => {
+        this.setState({
+          week: response.data.moments,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   // axios request to post notes to db
@@ -49,6 +66,15 @@ class Second extends React.Component {
       });
   }
 
+  handleSubmit(event) {
+    this.postNoteToDb();
+    alert('Your notes were saved');
+    event.preventDefault();
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
 
   // eslint-disable-next-line class-methods-use-this
   updateChart() {
@@ -75,6 +101,7 @@ class Second extends React.Component {
   }
 
   render() {
+    console.log('state in second: ', this.state);
     return (
       <div className="second_div">
         <div>
