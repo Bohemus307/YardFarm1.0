@@ -4,6 +4,7 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-alert */
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import c3 from 'c3';
 
@@ -78,6 +79,11 @@ class Second extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   updateChart() {
+    const { week } = this.state;
+    const weeklyTotal = week.reduce((accumulator, currentValue) => accumulator + currentValue.ph, 0);
+    const weeklyAverage = Math.floor(weeklyTotal / week.length);
+    // create array of indoor temps
+    const weeklyArray = week.map((item) => item.intemp);
     const chart4 = c3.generate({
       bindto: '#chart4',
       data: {
@@ -118,5 +124,8 @@ class Second extends React.Component {
     );
   }
 }
+Second.propTypes = {
+  day: PropTypes.string.isRequired,
+};
 
 export default Second;
