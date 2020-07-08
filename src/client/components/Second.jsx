@@ -83,6 +83,7 @@ class Second extends React.Component {
     const weeklyTotal = week.reduce((accumulator, currentValue) => accumulator + currentValue.ph, 0);
     const weeklyAverage = Math.floor(weeklyTotal / week.length);
     // create array of indoor temps
+    console.log(weeklyAverage);
     const weeklyArray = week.map((item) => item.intemp);
     const chart4 = c3.generate({
       bindto: '#chart4',
@@ -125,7 +126,7 @@ class Second extends React.Component {
   }
 }
 Second.propTypes = {
-  day: PropTypes.string.isRequired,
+  day: PropTypes.number.isRequired,
 };
 
 export default Second;
