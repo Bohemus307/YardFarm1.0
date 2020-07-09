@@ -73,17 +73,17 @@ class Main extends React.Component {
     // create const for state
     const { currentDay } = this.state;
     // Create daily average
-    const dailyTotal = currentDay.reduce((accumulator, currentValue) => accumulator + currentValue.intemp, 0);
-    const dailyAverage = Math.floor(dailyTotal / currentDay.length);
+    const dailyTempTotal = currentDay.reduce((accumulator, currentValue) => accumulator + currentValue.intemp, 0);
+    const dailyTempAverage = Math.floor(dailyTempTotal / currentDay.length);
     // create array of indoor temps
-    const dailyArray = currentDay.map((item) => item.intemp);
+    const dailyTempArray = currentDay.map((item) => item.intemp);
     // this is min temp for day
-    const dailyMin = dailyArray.reduce((acc, val) => {
+    const dailyMin = dailyTempArray.reduce((acc, val) => {
       acc[0] = (acc[0] === undefined || val < acc[0]) ? val : acc[0];
       return acc;
     }, []);
     // this is max temp for day
-    const dailyMax = dailyArray.reduce((acc, val) => {
+    const dailyMax = dailyTempArray.reduce((acc, val) => {
       acc[0] = (acc[0] === undefined || val > acc[0]) ? val : acc[0];
       return acc;
     }, []);
@@ -124,17 +124,17 @@ class Main extends React.Component {
     });
     // math for weekly chart
     const { week } = this.state;
-    const weeklyTotal = week.reduce((accumulator, currentValue) => accumulator + currentValue.intemp, 0);
-    const weeklyAverage = Math.floor(weeklyTotal / week.length);
+    const weeklyTempTotal = week.reduce((accumulator, currentValue) => accumulator + currentValue.intemp, 0);
+    const weeklyAverage = Math.floor(weeklyTempTotal / week.length);
     // create array of indoor temps
-    const weeklyArray = week.map((item) => item.intemp);
+    const weeklyTempArray = week.map((item) => item.intemp);
     // this is min temp for day
-    const weeklyMin = weeklyArray.reduce((acc, val) => {
+    const weeklyMin = weeklyTempArray.reduce((acc, val) => {
       acc[0] = (acc[0] === undefined || val < acc[0]) ? val : acc[0];
       return acc;
     }, []);
     // this is max temp for day
-    const weeklyMax = weeklyArray.reduce((acc, val) => {
+    const weeklyMax = weeklyTempArray.reduce((acc, val) => {
       acc[0] = (acc[0] === undefined || val > acc[0]) ? val : acc[0];
       return acc;
     }, []);

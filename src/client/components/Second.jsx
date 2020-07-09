@@ -77,14 +77,12 @@ class Second extends React.Component {
     this.setState({ value: event.target.value });
   }
 
-  // eslint-disable-next-line class-methods-use-this
   updateChart() {
     const { week } = this.state;
-    const weeklyTotal = week.reduce((accumulator, currentValue) => accumulator + currentValue.ph, 0);
-    const weeklyAverage = Math.floor(weeklyTotal / week.length);
+    const weeklyPhTotal = week.reduce((accumulator, currentValue) => accumulator + currentValue.ph, 0);
+    const weeklyPhAverage = Math.floor(weeklyPhTotal / week.length);
     // create array of indoor temps
-    console.log(weeklyAverage);
-    const weeklyArray = week.map((item) => item.intemp);
+    const weeklyPhArray = week.map((item) => item.ph);
     const chart4 = c3.generate({
       bindto: '#chart4',
       data: {
