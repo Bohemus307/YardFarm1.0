@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 import c3 from 'c3';
-import d3 from 'd3';
 import React from 'react';
 import axios from 'axios';
 
@@ -95,7 +94,7 @@ class Main extends React.Component {
         // iris data from R
         columns: [
           ['Low', dailyMin],
-          ['Avg', dailyAverage],
+          ['Avg', dailyTempAverage],
           ['High', dailyMax],
         ],
         type: 'pie',
@@ -125,7 +124,7 @@ class Main extends React.Component {
     // math for weekly chart
     const { week } = this.state;
     const weeklyTempTotal = week.reduce((accumulator, currentValue) => accumulator + currentValue.intemp, 0);
-    const weeklyAverage = Math.floor(weeklyTempTotal / week.length);
+    const weeklyTempAverage = Math.floor(weeklyTempTotal / week.length);
     // create array of indoor temps
     const weeklyTempArray = week.map((item) => item.intemp);
     // this is min temp for day
@@ -144,7 +143,7 @@ class Main extends React.Component {
       data: {
         columns: [
           ['Low', weeklyMin],
-          ['Avg', weeklyAverage],
+          ['Avg', weeklyTempAverage],
           ['High', weeklyMax],
         ],
         type: 'pie',
