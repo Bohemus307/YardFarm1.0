@@ -103,7 +103,7 @@ class TaskBoard extends React.Component {
         [newFinish.id]: newFinish,
       },
     };
-    console.log(this.state)
+    
     this.setState(newState);
   };
 
