@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import styled from 'styled-components';
 import { Droppable } from 'react-beautiful-dnd';
@@ -21,7 +22,6 @@ const TaskList = styled.div`
   flex-grow: 1;
   min-height: 100px;
 `;
-
 
 export default class Column extends React.Component {
   render() {
