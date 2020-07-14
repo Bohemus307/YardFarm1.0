@@ -1,6 +1,7 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable class-methods-use-this */
 import React from 'react';
+import TaskBoard from './d-n-d/TaskBoard.jsx';
 
 class Footer extends React.Component {
   constructor(props) {
@@ -93,6 +94,7 @@ class Footer extends React.Component {
             %
           </span>
         </div>
+        <TaskBoard />
       </div>
     );
   }
