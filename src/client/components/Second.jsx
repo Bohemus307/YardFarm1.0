@@ -45,10 +45,7 @@ class Second extends React.Component {
     this.setState({ value: event.target.value });
   }
 
-  
-
   render() {
-    console.log('state in second: ', this.state);
     return (
       <div className="second_div">
         <div>

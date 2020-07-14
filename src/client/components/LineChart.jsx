@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import c3 from 'c3';
 
 class LineChart extends React.Component {
@@ -13,7 +14,7 @@ class LineChart extends React.Component {
 
   componentDidMount() {
     this.updateChart();
-    // this.getWeekOfData();     need to fix this!!!
+    this.getWeekOfData();
   }
 
   componentDidUpdate() {
@@ -23,7 +24,7 @@ class LineChart extends React.Component {
   // get week of data fron database
   getWeekOfData() {
     // start array at current day build array till end of week
-    const start = this.props.day + 6;
+    const start = (this.props.day || 1) + 6;
     // create arrray of nubers to represent dates for one week
     const dates = Array.from(Array(start), (_, i) => i + 1);
 
@@ -44,10 +45,15 @@ class LineChart extends React.Component {
 
   updateChart() {
     const { week } = this.state;
-    const weeklyPhTotal = week.reduce((accumulator, currentValue) => accumulator + currentValue.ph, 0);
+    // math for chart
+    const weeklyPhTotal = week.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.ph, 0,
+    );
     const weeklyPhAverage = Math.floor(weeklyPhTotal / week.length);
     // create array of indoor temps
     const weeklyPhArray = week.map((item) => item.ph);
+
+    // chart itself
     const chart4 = c3.generate({
       bindto: '#chart4',
       data: {
