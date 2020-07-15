@@ -10,6 +10,7 @@ class LineChart extends React.Component {
       week: [],
     };
     this.getWeekOfData = this.getWeekOfData.bind(this);
+    this.uopdateChart = this.updateChart.bind(this);
   }
 
   componentDidMount() {
