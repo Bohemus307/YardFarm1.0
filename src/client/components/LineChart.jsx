@@ -24,7 +24,7 @@ class LineChart extends React.Component {
   // get week of data fron database
   getWeekOfData() {
     // start array at current day build array till end of week
-    const start = (this.props.day || 1) + 6;
+    const start = 1 + 6;
     // create arrray of nubers to represent dates for one week
     const dates = Array.from(Array(start), (_, i) => i + 1);
 
@@ -46,12 +46,12 @@ class LineChart extends React.Component {
   updateChart() {
     const { week } = this.state;
     // math for chart
-    const weeklyPhTotal = week.reduce(
-      (accumulator, currentValue) => accumulator + currentValue.ph, 0,
-    );
-    const weeklyPhAverage = Math.floor(weeklyPhTotal / week.length);
+    // const weeklyPhTotal = week.reduce(
+    //   (accumulator, currentValue) => accumulator + currentValue.ph, 0,
+    // );
+    // const weeklyPhAverage = Math.floor(weeklyPhTotal / week.length);
     // create array of indoor temps
-    const weeklyPhArray = week.map((item) => item.ph);
+    // const weeklyPhArray = week.map((item) => item.ph);
 
     // chart itself
     const chart4 = c3.generate({

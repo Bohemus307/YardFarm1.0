@@ -43,7 +43,7 @@ class Footer extends React.Component {
       <div className="footer-div">
         <div className="alerts_div">
           <span className="alerts_header">Alerts Center</span>
-          <Slider props={this.state} />
+          <Slider minRange={1} maxRange={100} value1={50} />
           <div>
             <span className="range_title">Set PH Alert</span>
             <div className="slidecontainer">
@@ -80,7 +80,7 @@ class Footer extends React.Component {
             </span>
           </div>
         </div>
-        <LineChart props={this.props} />
+        <LineChart day={1} />
       </div>
     );
   }

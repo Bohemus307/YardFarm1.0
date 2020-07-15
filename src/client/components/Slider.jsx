@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const Slider = (props) => {
-  console.log(props)
+const Slider = ({ minRange, maxRange, value1 }) => {
+  const [rangeValue, setValue] = useState(value1);
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
   return (
     <div>
       <div>
@@ -9,21 +14,30 @@ const Slider = (props) => {
         <div className="slidecontainer">
           <input
             type="range"
-            min="1"
-            max="100"
-            value={props.value1}
-            onChange={this.handleChange}
+            min={minRange}
+            max={maxRange}
+            value={rangeValue}
+            onChange={handleChange}
             className="slider-1"
             id="myRange"
           />
         </div>
         <span className="slider_value">
-          {props.value1}
+          {(rangeValue || 50)}
           °
         </span>
       </div>
     </div>
   );
+};
+Slider.defaultProps = {
+  value1: 50,
+};
+
+Slider.propTypes = {
+  value1: PropTypes.number,
+  minRange: PropTypes.number.isRequired,
+  maxRange: PropTypes.number.isRequired,
 };
 
 export default Slider;
