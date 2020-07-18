@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React from 'react';
+import React, { useState } from 'react';
+import Switch from "./Switch.jsx";
 
 const Menu = () => (
   <div className="Menu">
@@ -20,13 +21,7 @@ const Menu = () => (
     <div className="switch_panel">
       <div className="control_panel">
         <span className="switch_title">Farm Controls</span>
-        <div className="switch_div">
-          <label className="switch">
-            <input type="checkbox" />
-            <span className="slider round" />
-          </label>
-          <img className="fan_icon small_icon" src="/images/fan.png" alt="fan" title="Fans" />
-        </div>
+        <Switch />
         <div className="switch_div">
           <label className="switch">
             <input type="checkbox" />
