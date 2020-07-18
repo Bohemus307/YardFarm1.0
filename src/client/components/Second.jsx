@@ -13,7 +13,6 @@ class Second extends React.Component {
     super(props);
     this.state = {
       value: '',
-      week: [],
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -31,14 +30,14 @@ class Second extends React.Component {
         console.log(response);
       })
       .catch((error) => {
-        console.log(error);
+        throw new Error(error);
       });
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     this.postNoteToDb();
     alert('Your notes were saved');
-    event.preventDefault();
   }
 
   handleChange(event) {

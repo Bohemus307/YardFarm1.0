@@ -26,7 +26,7 @@ class LineChart extends React.Component {
   getWeekOfData() {
     // start array at current day build array till end of week
     const start = 1 + 6;
-    // create arrray of nubers to represent dates for one week
+    // create arrray of numbers to represent dates for one week
     const dates = Array.from(Array(start), (_, i) => i + 1);
 
     axios.get('/data/week', {
@@ -40,7 +40,7 @@ class LineChart extends React.Component {
         });
       })
       .catch((error) => {
-        console.log(error);
+        throw new Error(error);
       });
   }
 
@@ -54,7 +54,7 @@ class LineChart extends React.Component {
     // create array of indoor temps
     // const weeklyPhArray = week.map((item) => item.ph);
 
-    // chart itself
+    // chart generator
     const chart4 = c3.generate({
       bindto: '#chart4',
       data: {
@@ -79,9 +79,9 @@ class LineChart extends React.Component {
 
   render() {
     return (
-      <div className="chart_div">
+      <div id="chart4" className="chart_div">
         <span className="chart_label_nutrients">Weekly Nutrients Average</span>
-        <div id="chart4" />
+        <div />
       </div>
     );
   }

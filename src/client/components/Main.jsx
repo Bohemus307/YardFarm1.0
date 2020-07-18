@@ -1,6 +1,3 @@
-/* eslint-disable react/no-unused-state */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
 import c3 from 'c3';
 import React from 'react';
 import axios from 'axios';
@@ -29,10 +26,10 @@ class Main extends React.Component {
 
   // get day of data from database
   getDayOfData() {
-    const day = this.state.currentDay;
+    const { currentDay } = this.state;
     axios.get('/data/day', {
       params: {
-        date: day,
+        date: currentDay,
       },
     })
       .then((response) => {
@@ -41,16 +38,16 @@ class Main extends React.Component {
         });
       })
       .catch((error) => {
-        console.log(error);
+        throw new Error(error);
       });
   }
 
   // get week of data fron database
   getWeekOfData() {
     // start array at current day build array till end of week
-    const start = this.state.currentDay[0] + 6;
+    const { currentDay } = this.state + 6;
     // create arrray of nubers to represent dates for one week
-    const dates = Array.from(Array(start), (_, i) => i + 1);
+    const dates = Array.from(Array(currentDay), (_, i) => i + 1);
 
     axios.get('/data/week', {
       params: {
@@ -63,7 +60,7 @@ class Main extends React.Component {
         });
       })
       .catch((error) => {
-        console.log(error);
+        throw new Error(error);
       });
   }
 
@@ -111,21 +108,24 @@ class Main extends React.Component {
       },
       pie: {
         label: {
-          format: (value, ratio) => `${Math.floor(value)}°`,
+          format: (value, ratio) => `${Math.floor(value, ratio)}°`,
         },
       },
       tooltip: {
         format: {
-          value: (value, ratio) => `${Math.floor(value)}°`,
+          value: (value, ratio) => `${Math.floor(value, ratio)}°`,
         },
       },
       size: {
         width: 340,
       },
     });
+
     // math for weekly chart
     const { week } = this.state;
-    const weeklyTempTotal = week.reduce((accumulator, currentValue) => accumulator + currentValue.intemp, 0);
+    const weeklyTempTotal = week.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.intemp, 0,
+    );
     const weeklyTempAverage = Math.floor(weeklyTempTotal / week.length);
     // create array of indoor temps
     const weeklyTempArray = week.map((item) => item.intemp);
@@ -160,12 +160,12 @@ class Main extends React.Component {
       },
       pie: {
         label: {
-          format: (value, ratio) => `${Math.floor(value)}°`,
+          format: (value, ratio) => `${Math.floor(value, ratio)}°`,
         },
       },
       tooltip: {
         format: {
-          value: (value, ratio) => `${Math.floor(value)}°`,
+          value: (value, ratio) => `${Math.floor(value, ratio)}°`,
         },
       },
       size: {
@@ -173,7 +173,9 @@ class Main extends React.Component {
       },
     });
     // math for humidity
-    const dailyHumTotal = currentDay.reduce((accumulator, currentValue) => accumulator + currentValue.inhumid, 0);
+    const dailyHumTotal = currentDay.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.inhumid, 0,
+    );
     const dailyHumAverage = Math.floor(dailyHumTotal / currentDay.length);
     // allowed keys for filter
     const allowed = ['date'];

@@ -1,7 +1,7 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable class-methods-use-this */
 import React from 'react';
-import LineChart from './LineChart.jsx';
+// import LineChart from './LineChart.jsx';
 import Slider from './Slider.jsx';
 
 const Footer = () => (
@@ -12,7 +12,6 @@ const Footer = () => (
       <Slider minRange={1} maxRange={10} value1={5} title="Set PH Alert" unit="" />
       <Slider minRange={1} maxRange={100} value1={50} title="Set Humidity Alert" unit="%" />
     </div>
-    <LineChart day={1} />
   </div>
 );
 
