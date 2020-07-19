@@ -293,6 +293,7 @@ input:checked + .slider:before {
   display: flex;
   flex-direction: column;
 }
+
 .control_panel {
   margin-bottom: 20px;
 }
