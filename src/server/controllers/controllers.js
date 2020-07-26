@@ -1,7 +1,20 @@
 /* eslint-disable no-console */
+const axios = require('axios').default;
+const config = require('../../../config');
 const model = require('../../mongo/models/model.js');
 
 module.exports = {
+
+  getTempFromIo: (req, res) => {
+    axios.get('https://io.adafruit.com/api/feeds/1415191/data', {
+      params: {
+        'X-AIO-Key': config.app.ioKey,
+      },
+    })
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  },
+
   getDayOfData: (req, res) => {
     const { date } = req.query;
 

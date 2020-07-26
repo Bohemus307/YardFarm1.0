@@ -6,6 +6,7 @@ const dev = {
   app: {
     port: parseInt(process.env.DEV_APP_PORT, 10) || 3030,
     weather: process.env.WEATHER_API_KEY,
+    ioKey: process.env.XAIOKEY,
   },
   db: {
     host: process.env.DEV_DB_HOST || 'localhost',

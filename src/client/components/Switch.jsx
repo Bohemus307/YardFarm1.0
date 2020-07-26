@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Switch = ({
   isOn, handleToggle, image, id,
@@ -18,4 +19,10 @@ const Switch = ({
   </div>
 );
 
+Switch.propTypes = {
+  isOn: PropTypes.bool.isRequired,
+  handleToggle: PropTypes.func.isRequired,
+  image: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+};
 export default Switch;

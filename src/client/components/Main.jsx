@@ -15,6 +15,7 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
+    this.getDataFromSensor();
     this.getDayOfData();
     this.getWeekOfData();
     this.updateChart();
@@ -22,6 +23,19 @@ class Main extends React.Component {
 
   componentDidUpdate() {
     this.updateChart();
+  }
+
+  getDataFromSensor = () => {
+
+  axios.get('/data/iotempdata')
+    .then(function (response) {
+      // handle success
+      console.log(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
   }
 
   // get day of data from database

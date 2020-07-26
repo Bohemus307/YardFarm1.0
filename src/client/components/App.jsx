@@ -1,10 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable camelcase */
-/* eslint-disable max-len */
 import React from 'react';
-import axios from 'axios';
-import ReactDOM from 'react-dom';
 
 import Menu from './Menu.jsx';
 import Navbar from './Navbar.jsx';
@@ -39,14 +33,20 @@ class App extends React.Component {
 
   render() {
     const {
-      id, indoor_hum, indoor_temp, outdoor_hum, outdoor_temp, water_temp, far, cels,
-    // eslint-disable-next-line react/destructuring-assignment
-    } = this.state.currentState;
-    // console.log(this.state);
+      currentState,
+    } = this.state;
     return (
       <div className="grid-container">
         <div className="item1">
-          <Navbar intemp={indoor_temp} inhum={indoor_hum} outtemp={outdoor_temp} outhum={outdoor_hum} watertemp={water_temp} far={far} cels={cels} />
+          <Navbar
+            intemp={currentState.indoor_temp}
+            inhum={currentState.indoor_hum}
+            outtemp={currentState.outdoor_temp}
+            outhum={currentState.outdoor_hum}
+            watertemp={currentState.water_temp}
+            far={currentState.far}
+            cels={currentState.cels}
+          />
         </div>
         <div className="item2">
           <Menu />
@@ -55,7 +55,7 @@ class App extends React.Component {
           <Main />
         </div>
         <div className="item4">
-          <Second day={id} />
+          <Second day={currentState.id} />
         </div>
         <div className="item5">
           <Footer />
