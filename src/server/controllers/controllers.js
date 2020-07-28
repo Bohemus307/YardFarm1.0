@@ -11,7 +11,7 @@ module.exports = {
         'X-AIO-Key': config.app.ioKey,
       },
     })
-      .then((data) => console.log(data))
+      .then((response) => model.saveDataToDB(response))
       .catch((error) => console.log(error));
   },
 

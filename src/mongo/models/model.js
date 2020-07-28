@@ -1,9 +1,13 @@
-/* eslint-disable no-console */
-/* eslint-disable no-unused-vars */
 const mongoose = require('mongoose');
-const Promise = require('bluebird');
 const db = require('../connection.js');
 
+// schema for adafruit data
+const iotData = mongoose.Schema({
+  _Id: Number,
+  value: String,
+  createdAt: String,
+  type: String,
+});
 // create schema for data
 const dataMoment = mongoose.Schema({
   _id: String,
@@ -32,11 +36,20 @@ const noteSchema = mongoose.Schema({
 // create model for notes db
 const Note = mongoose.model('note', noteSchema, 'note');
 
+// create model for iotdata
+const IotData = mongoose.model('iotDataPoint', iotData, 'iotDataPoint');
+
 module.exports = {
   noteSchema,
   Note,
   dataMoment,
   moments,
+  saveDataToDB: async (response) => {
+    const docs = response.data.map((item) => new IotData({ value: item.value, createdAt: item.created_at, type: 'temperature',
+    }));
+    IotData.insertMany(docs, (err) => console.log(err));
+  },
+
   getDayOfMoments: async (date) => {
     try {
       const data = await moments.find({ date: parseInt(date, 0) });
