@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classes from './Menu.css';
-import Switch from '../Switch.jsx';
+import Switch from '../Switch/Switch.jsx';
+import NutrientsTable from '../NutrientsTable/NutrientsTable.jsx';
 
 const Menu = () => {
   const [value, setValue] = useState(false);
@@ -34,37 +35,21 @@ const Menu = () => {
             handleToggle={() => setValue(!value)}
             image="/images/heater.png"
           />
-          <div className="switch_div">
-            <label className="switch">
-              <input type="checkbox" />
-              <span className="slider round" />
-            </label>
-            <img className="camera_icon small_icon" src="/images/photo.png" alt="Camera" title="Camera" />
-          </div>
-          <div className="switch_div">
-            <label className="switch">
-              <input type="checkbox" />
-              <span className="slider round" />
-            </label>
-            <img className="notify_icon small_icon" src="/images/contact.png" alt="Notify" title="Notify Me" />
-          </div>
+          <Switch
+            id="switch-3"
+            isOn={value}
+            handleToggle={() => setValue(!value)}
+            image="/images/photo.png"
+          />
+          <Switch
+            id="switch-4"
+            isOn={value}
+            handleToggle={() => setValue(!value)}
+            image="/images/contact.png"
+          />
         </div>
         <hr />
-        <div className="nutrients_table">
-          <span className="nutrients_header">Current Nutrients</span>
-          <div id="progressbar">
-            <div className="progressbar_div1" />
-          </div>
-          <span className="nutrient_label">PH</span>
-          <div id="progressbar">
-            <div className="progressbar_div2" />
-          </div>
-          <span className="nutrient_label">EC</span>
-          <div id="progressbar">
-            <div className="progressbar_div3" />
-          </div>
-          <span className="nutrient_label">PPM</span>
-        </div>
+        <NutrientsTable />
       </div>
     </div>
   );

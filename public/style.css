@@ -25,7 +25,7 @@ body {
     'menu navbar navbar navbar navbar navbar'
     'menu main main main main main'
     'menu second second second second second'
-    'third third third third third third'
+    'menu third third third third third'
     'footer footer footer footer footer footer';
   grid-template-columns: 200px auto;
   grid-template-rows: 100px 400px 400px 500px;
@@ -47,6 +47,14 @@ body {
   left: 10px;
 }
 
+#progressbar {
+  margin-top: 10px;
+  width: 70%;
+  background-color: black;
+  border-radius: 13px;
+  /* (height of inner div) / 2 + padding */
+  padding: 3px;
+}
 /* menu */
 /* .menu {
   display: flex;
@@ -187,7 +195,7 @@ body {
 }
 
 /* switches in menu */
-.switch_div {
+/* .switch_div {
   margin: 30px 0px;
   padding: 10px 10px;
 }
@@ -197,14 +205,14 @@ body {
   display: inline-block;
   width: 60px;
   height: 34px;
-}
+} */
 
 /* Hide default HTML checkbox */
-.switch input {
+/* .switch input {
   opacity: 0;
   width: 0;
   height: 0;
-}
+} */
 
 /* The slider */
 .slider {
@@ -275,7 +283,7 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
-.nutrients_table {
+/* .nutrients_table {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
@@ -285,49 +293,11 @@ input:checked + .slider:before {
 .nutrients_header {
   font-size: 22px;
   margin-bottom: 20px;
-}
+} */
 
 hr {
   width: 90%;
   border: 1px solid #8888;
-}
-
-#progressbar {
-  margin-top: 10px;
-  width: 70%;
-  background-color: black;
-  border-radius: 13px;
-  /* (height of inner div) / 2 + padding */
-  padding: 3px;
-}
-
-.progressbar_div1 {
-  background-color: #90EE90;
-  width: 80%;
-  /* Adjust with JavaScript */
-  height: 20px;
-  border-radius: 10px;
-}
-
-.progressbar_div2 {
-  background-color: #2196F3;
-  width: 50%;
-  /* Adjust with JavaScript */
-  height: 20px;
-  border-radius: 10px;
-}
-.progressbar_div3 {
-  background-color: tomato;
-  width: 20%;
-  /* Adjust with JavaScript */
-  height: 20px;
-  border-radius: 10px;
-}
-
-.nutrient_label {
-  font-size: 22px;
-  position: relative;
-  left: 135px; bottom: 25px;
 }
 
 /* footer */
