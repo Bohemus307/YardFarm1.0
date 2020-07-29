@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classes from './Switch.css'
+import classes from './Switch.css';
 
 const Switch = ({
   isOn, handleToggle, image, id,
 }) => (
-  <div className={classes.Switch_div}>
+  <div className={classes.Switch_Div}>
     <label aria-label="Switch" htmlFor={id} className={classes.Switch}>
       <input
         checked={isOn}
@@ -14,9 +14,9 @@ const Switch = ({
         id={id}
         type="checkbox"
       />
-      <span className="slider round" />
+      <span className={classes.Slider} />
     </label>
-    <img className="fan_icon small_icon" src={image} alt="fan" title="Fans" />
+    <img className={classes.Small_Icon} src={image} alt="fan" title="Fans" />
   </div>
 );
 

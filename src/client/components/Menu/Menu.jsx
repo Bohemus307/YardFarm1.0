@@ -10,7 +10,7 @@ const Menu = () => {
       <div className="icon">
         <img className="logo-1" src="/images/greenhouse3.png" alt="company logo here" />
       </div>
-      <div className={classes.Logo_text}>
+      <div className={classes.Logo_Text}>
         Yard Farm
       </div>
       <div className={classes.Search_Container}>
@@ -20,9 +20,9 @@ const Menu = () => {
         </form>
       </div>
       <hr />
-      <div className="switch_panel">
-        <div className="control_panel">
-          <span className="switch_title">Farm Controls</span>
+      <div className={classes.Switch_Panel}>
+        <div className={classes.Control_Panel}>
+          <span className={classes.Switch_Title}>Farm Controls</span>
           <Switch
             id="switch-1"
             isOn={value}

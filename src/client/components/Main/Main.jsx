@@ -16,7 +16,7 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    this.getDataFromSensor();
+    // this.getDataFromSensor();
     this.getDayOfData();
     this.getWeekOfData();
     this.updateChart();

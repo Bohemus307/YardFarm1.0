@@ -4,7 +4,7 @@
   justify-content: center;
 }
 
-.Logo_text {
+.Logo_Text {
   color: black;
   font-size: 37px;
   position: relative;
@@ -16,5 +16,13 @@
   margin-bottom: 40px;
   position: relative;
   left: 10px; 
+}
+
+.Control_Panel {
+  margin-bottom: 20px;
+}
+
+.Switch_Title {
+  font-size: 27px;
 }
 

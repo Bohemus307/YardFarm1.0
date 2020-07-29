@@ -1,5 +1,5 @@
 /* switches in menu */
-.Switch_div {
+.Switch_Div {
   margin: 30px 0px;
   padding: 10px 10px;
 }
@@ -16,4 +16,58 @@
   opacity: 0;
   width: 0;
   height: 0;
+}
+
+/* The slider */
+.Slider {
+  position: absolute;
+  border-radius: 34px;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: tomato;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.Slider:before {
+  position: absolute;
+  border-radius: 50%;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .Slider {
+  background-color: #90EE90;
+}
+
+input:focus + .Slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .Slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.Switch_panel {
+  padding: 0px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Small_Icon {
+  height: 70px;
+  position: relative;
+  top: 20px; left: 30px;
+  cursor: pointer;
 }
