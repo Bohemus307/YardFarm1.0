@@ -45,8 +45,7 @@ module.exports = {
   dataMoment,
   moments,
   saveDataToDB: async (response) => {
-    const docs = response.data.map((item) => new IotData({ value: item.value, createdAt: item.created_at, type: 'temperature',
-    }));
+    const docs = response.data.map((item) => new IotData({ value: item.value, createdAt: item.created_at, type: 'temperature' }));
     IotData.insertMany(docs, (err) => console.log(err));
   },
 

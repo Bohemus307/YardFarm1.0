@@ -14,7 +14,9 @@ body {
 
 .item4 { grid-area: second; }
 
-.item5 { grid-area: footer; }
+.item5 { grid-area: third; }
+
+.item6 { grid-area: footer; }
 
 
 .grid-container {
@@ -23,7 +25,8 @@ body {
     'menu navbar navbar navbar navbar navbar'
     'menu main main main main main'
     'menu second second second second second'
-    'menu footer footer footer footer footer';
+    'third third third third third third'
+    'footer footer footer footer footer footer';
   grid-template-columns: 200px auto;
   grid-template-rows: 100px 400px 400px 500px;
   grid-gap: 0px;
@@ -44,45 +47,8 @@ body {
   left: 10px;
 }
 
-
-/* nav bar */
-
-.header_text {
-  display: flex;
-  justify-content: center;
-  padding: 5px 0px;
-  font-size: 20px;
-}
-
-.header_item {
-  font-size: 18px ;
-  flex-direction: row;
-  padding: 0px 27px;
-}
-
-.data_wrapper {
-  display: flex;
-  justify-content: center;
-  padding: 0px 10px;
-}
-
-.data_text {
-  flex-direction: row;
-  padding: 0px 60px;
-  font-size: 36px;
-}
-
-.middleone {
-  position: relative;
-  left: 37px;
-}
-
-.lasttwo {
-  position: relative;
-  left: 50px;
-}
 /* menu */
-.menu {
+/* .menu {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -100,7 +66,7 @@ body {
   margin-bottom: 40px;
   position: relative;
   left: 10px; 
-}
+} */
 
 /* main */
 
