@@ -2,8 +2,8 @@ import React from 'react';
 
 import Menu from './Menu/Menu.jsx';
 import Navbar from './NavBar/Navbar.jsx';
-import Main from './Main.jsx';
-import Second from './Second.jsx';
+import Main from './Main/Main.jsx';
+import Second from './Second/Second.jsx';
 import Footer from './Footer.jsx';
 
 class App extends React.Component {

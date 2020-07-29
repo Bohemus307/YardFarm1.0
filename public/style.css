@@ -78,7 +78,7 @@ body {
 
 /* main */
 
-.charts {
+/* .charts {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -93,65 +93,7 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-}
-
-/* second */
-
-.second_div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
-.note_pad {
-  padding: 20px 15px;
-  
-}
-
-.input_area {
-  height: 330px;
-  width: 500px;
-  font-size: 22px;
-  font-family: 'Ubuntu', sans-serif;
-  color: 	#888888;
-  border-radius: 8px;
-  border-color: #888888;
-  border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden;
-  border-bottom-style: hidden;
-  background-color: rgb(255, 255, 255);
-}
-
-.notes_button {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #87CEEB;
-  border: none;
-  color: 	#888888;
-  text-align: center;
-  font-size: 18px;
-  width: 90px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  cursor: pointer;
-  position: relative;
-  right: 100px; top: 25px;
-  transition: 0.5s;
-}
-
-.notes_button:after {
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.notes_button:hover {
-  padding-right: 45px;
-}
+} */
 
 #chart4 {
   background: #fff;
@@ -164,55 +106,6 @@ body {
   color:#888888;
   background-color: rgb(255, 255, 255);
 }
-.c3-axis-y text {
-  font-family: 'Ubuntu', sans-serif;
-  fill: #888888;
-  font-size:12px;
-}
-.c3-axis-x text {
-  font-family: 'Ubuntu', sans-serif;
-   font-size:12px;
-   fill:#888888;
-}
-.domain {
-  fill: #888888;
-}
-.c3-event-rect {
-  color:#888888;
-}
-.c3-line {
-  stroke-width: 3px;
-  fill: none;
-}
-
-.c3-circle {
-  fill: black !important;
-}
-
-.chart_label_nutrients {
-  position: relative;
-  top: 15px;
-}
-
-/* switches in menu */
-/* .switch_div {
-  margin: 30px 0px;
-  padding: 10px 10px;
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-} */
-
-/* Hide default HTML checkbox */
-/* .switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-} */
 
 /* The slider */
 .slider {
