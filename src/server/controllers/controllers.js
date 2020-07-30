@@ -5,7 +5,7 @@ const model = require('../../mongo/models/model.js');
 
 module.exports = {
 
-  getTempFromIo: (req, res) => {
+  getDataFromIo: (req, res) => {
     axios.get('https://io.adafruit.com/api/feeds/1415191/data', {
       params: {
         'X-AIO-Key': config.app.ioKey,

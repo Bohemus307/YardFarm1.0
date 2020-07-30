@@ -15,11 +15,12 @@
   display: flex;
   justify-content: center;
   padding: 0px 10px;
+  overflow-x: scroll;
 }
 
 .Data_text {
   flex-direction: row;
-  padding: 0px 60px;
+  padding: 0px 20px;
   font-size: 36px;
 }
 

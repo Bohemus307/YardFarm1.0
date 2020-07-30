@@ -7,7 +7,7 @@ router.get('/week', controllers.getWeekOfData);
 
 router.post('/note', controllers.postNoteToDb);
 
-router.get('/iotempdata', controllers.getTempFromIo);
+router.get('/iotempdata', controllers.getDataFromIo);
 
 // router.delete('/data', );
 

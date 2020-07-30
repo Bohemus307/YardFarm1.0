@@ -26,9 +26,13 @@ class Main extends React.Component {
     this.updateChart();
   }
 
-  getDataFromSensor = () => {
-
-  axios.get('/data/iotempdata')
+  getDataFromSensor = (type) => {
+  // get data from iot sensors
+  axios.get('/data/iotempdata', {
+      params: {
+        feed_id: type
+      }
+  })
     .then(function (response) {
       // handle success
       console.log(response);

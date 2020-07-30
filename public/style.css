@@ -1,6 +1,8 @@
 body {
   font-family: 'Ubuntu', sans-serif;
   color: 	#888888;
+  overflow-x: scroll;
+  height: 100%;
 }
 
 /* grid items */
@@ -68,40 +70,8 @@ body {
   background-color: rgb(255, 255, 255);
 }
 
-
-
-/* .nutrients_table {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.nutrients_header {
-  font-size: 22px;
-  margin-bottom: 20px;
-} */
-
 hr {
   width: 90%;
   border: 1px solid #8888;
-}
-
-/* footer */
-.footer-div {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-}
-
-.alerts_div {
-  margin-left: 70px;
-  width: 400px;
-  flex-direction: column;
-}
-
-.chart_div {
- position: relative;
- left: 300px;
 }
 
