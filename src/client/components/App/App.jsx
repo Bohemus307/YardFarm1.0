@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from './App.css';
 
 import Menu from '../Menu/Menu.jsx';
 import Navbar from '../NavBar/Navbar.jsx';
@@ -37,7 +38,7 @@ class App extends React.Component {
     } = this.state;
     return (
       <div className="grid-container">
-        <div className="item1">
+        <div className={classes.Item1}>
           <Navbar
             intemp={currentState.indoor_temp}
             inhum={currentState.indoor_hum}
@@ -48,16 +49,16 @@ class App extends React.Component {
             cels={currentState.cels}
           />
         </div>
-        <div className="item2">
+        <div className={classes.Item2}>
           <Menu />
         </div>
-        <div className="item3">
+        <div className={classes.Item3}>
           <Main />
         </div>
-        <div className="item4">
+        <div className={classes.Item4}>
           <Second day={currentState.id} />
         </div>
-        <div className="item5">
+        <div className={classes.Item5}>
           <Footer />
         </div>
       </div>

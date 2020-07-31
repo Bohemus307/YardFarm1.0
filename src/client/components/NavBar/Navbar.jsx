@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import classes from './Navbar.css';
 import PropTypes from 'prop-types';
 
@@ -15,8 +16,74 @@ class Navbar extends React.Component {
       uv: 1,
       altitude: 2049,
     }
-
+    this.getDataFromSensor = this.getDataFromSensor.bind(this);
   }
+
+  componentDidMount() {
+    this.getDataFromSensor('temperature');
+    this.getDataFromSensor('humidity');
+    this.getDataFromSensor('pressure');
+    this.getDataFromSensor('tvoc');
+    this.getDataFromSensor('co2');
+    this.getDataFromSensor('uv');
+    this.getDataFromSensor('altitude');
+  }
+
+  getDataFromSensor(type) {
+    let id = null
+    switch(type) {
+      case 'temperature':
+        // code block
+        id = 1415191;
+        break;
+      case 'humidity':
+        // code block
+        id = 1415192;
+        break;
+      case 'altitude':
+        // code block
+        id = 1415196;
+        break;
+      case 'pressure':
+        // code block
+        id = 1415193;
+        break;
+      case 'uv':
+        // code block
+        id = 1415197;
+        break;
+      case 'co2':
+        // code block
+        id = 1415204;
+          break;
+      case 'tvoc':
+        // code block
+        id = 1415203;
+        break;
+      default:
+        // code block
+        id = null;
+    }
+    // get data from iot sensors
+    axios.get('/data/iotdata', {
+        params: {
+          feed_id: id
+        }
+    })
+      .then((response) => {
+        // handle success
+        const value = response.data.data.value
+        console.log(value)
+        this.setState({
+          [type]: parseInt(value) || 0,
+        })
+      })
+      .catch((error) => {
+        // handle error
+        console.log(error);
+      });
+  };
+  
   
   DisplayCurrentTime = () => {
     const date = new Date();
@@ -30,6 +97,7 @@ class Navbar extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div className={classes.Nav_Bar}>
         <div className={classes.Data_wrapper}>

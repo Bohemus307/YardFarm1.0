@@ -1,0 +1,20 @@
+.Item1 {
+  grid-area: navbar;
+  /* display: flex; */
+}
+.Item2 {
+  grid-area: menu;
+  display: flex;
+}
+.Item3 {
+  grid-area: main;
+  display: flex;
+}
+.Item4 {
+  grid-area: second;
+  display: flex;
+}
+.Item5 {
+  grid-area: footer;
+  display: flex;
+}

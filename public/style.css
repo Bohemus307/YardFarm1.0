@@ -6,23 +6,10 @@ body {
 }
 
 /* grid items */
-.item1 { grid-area: navbar; }
-
-.item2 { grid-area: menu; }
-
-.item3 { grid-area: main; }
-
-.item4 { grid-area: second; }
-
-.item5 { grid-area: third; }
-
-.item6 { grid-area: footer; }
-
-
 .grid-container {
   display: grid;
   grid-template-areas:
-    'menu navbar navbar navbar navbar navbar'
+    'navbar navbar navbar navbar navbar navbar'
     'menu main main main main main'
     'menu second second second second second'
     'menu third third third third third'

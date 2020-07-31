@@ -6,13 +6,18 @@ const model = require('../../mongo/models/model.js');
 module.exports = {
 
   getDataFromIo: (req, res) => {
-    axios.get('https://io.adafruit.com/api/feeds/1415191/data', {
+    const feedId = req.query.feed_id;
+    console.log(feedId);
+    axios.get(`https://io.adafruit.com/api/feeds/${feedId}/data/last`, {
       params: {
         'X-AIO-Key': config.app.ioKey,
       },
     })
-      .then((response) => model.saveDataToDB(response))
-      .catch((error) => console.log(error));
+      .then((response) => res.json({ data: response.data }))
+      .catch((err) => res.status(400).json({
+        message: 'Failed to retrieve Data from sensor',
+        error: err,
+      }));
   },
 
   getDayOfData: (req, res) => {
