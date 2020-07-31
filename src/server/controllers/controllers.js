@@ -7,13 +7,13 @@ module.exports = {
 
   getDataFromIo: (req, res) => {
     const feedId = req.query.feed_id;
-    console.log(feedId);
+
     axios.get(`https://io.adafruit.com/api/feeds/${feedId}/data/last`, {
       params: {
         'X-AIO-Key': config.app.ioKey,
       },
     })
-      .then((response) => res.json({ data: response.data }))
+      .then((response) => res.status(200).json({ data: response.data }))
       .catch((err) => res.status(400).json({
         message: 'Failed to retrieve Data from sensor',
         error: err,
@@ -29,7 +29,7 @@ module.exports = {
       });
     } else {
       model.getDayOfMoments(date)
-        .then((data) => res.json({
+        .then((data) => res.status(200).json({
           message: 'Success retrieving Data',
           moments: data,
         }))

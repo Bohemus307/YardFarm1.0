@@ -1,9 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import classes from './Navbar.css';
-import PropTypes from 'prop-types';
 
-class Navbar extends React.Component {
+class Navbar extends React.PureComponent {
   constructor(props) {
     super(props);
     
@@ -21,67 +20,98 @@ class Navbar extends React.Component {
 
   componentDidMount() {
     this.getDataFromSensor('temperature');
+    this.tempId = setInterval(() => {this.getDataFromSensor('temperature')}, 80000); 
     this.getDataFromSensor('humidity');
+    this.humidId = setInterval(() => {this.getDataFromSensor('humidity')}, 80000); 
     this.getDataFromSensor('pressure');
+    this.pressureId = setInterval(() => {this.getDataFromSensor('pressure')}, 80000); 
     this.getDataFromSensor('tvoc');
+    this.tvocId = setInterval(() => {this.getDataFromSensor('tvoc')}, 80000); 
     this.getDataFromSensor('co2');
+    this.co2Id = setInterval(() => {this.getDataFromSensor('co2')}, 80000); 
     this.getDataFromSensor('uv');
+    this.uvId = setInterval(() => {this.getDataFromSensor('uv')}, 80000); 
     this.getDataFromSensor('altitude');
+    this.altiId = setInterval(() => {this.getDataFromSensor('altitude')}, 80000); 
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.tempId);
+    clearInterval(this.humidId);
+    clearInterval(this.pressureId);
+    clearInterval(this.tvocId);
+    clearInterval(this.co2Id);
+    clearInterval(this.uvId);
+    clearInterval(this.altitudeId);
   }
 
   getDataFromSensor(type) {
+    // switch statement assign proper feed id associated with sensor
     let id = null
     switch(type) {
       case 'temperature':
-        // code block
         id = 1415191;
         break;
       case 'humidity':
-        // code block
         id = 1415192;
         break;
       case 'altitude':
-        // code block
         id = 1415196;
         break;
       case 'pressure':
-        // code block
         id = 1415193;
         break;
       case 'uv':
-        // code block
         id = 1415197;
         break;
       case 'co2':
-        // code block
         id = 1415204;
           break;
       case 'tvoc':
-        // code block
         id = 1415203;
         break;
       default:
-        // code block
         id = null;
     }
-    // get data from iot sensors
-    axios.get('/data/iotdata', {
+    // handles case for altitude conversion needed
+    if (id === 1415196) {
+      axios.get('/data/iotdata', {
         params: {
           feed_id: id
         }
     })
       .then((response) => {
         // handle success
-        const value = response.data.data.value
-        console.log(value)
+        const value = parseInt(Math.floor(response.data.data.value * 3.28084));
+      
         this.setState({
           [type]: parseInt(value) || 0,
-        })
+        });
       })
       .catch((error) => {
         // handle error
         console.log(error);
       });
+    } else {
+      // get data from iot sensors
+      axios.get('/data/iotdata', {
+          params: {
+            feed_id: id
+          }
+      })
+        .then((response) => {
+          // handle success
+          const value = response.data.data.value;
+  
+          this.setState({
+            [type]: parseInt(value) || 0,
+          });
+        })
+        .catch((error) => {
+          // handle error
+          console.log(error);
+        });
+    }
   };
   
   
@@ -97,7 +127,6 @@ class Navbar extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className={classes.Nav_Bar}>
         <div className={classes.Data_wrapper}>
