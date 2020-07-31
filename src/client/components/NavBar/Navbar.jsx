@@ -33,18 +33,21 @@ class Navbar extends React.Component {
     return (
       <div className="navbar">
         <div className={classes.Data_wrapper}>
-          <div className={classes.Data_text}>
           <img className={classes.Nav_Icon} src="/images/thermometer.png" alt="Temperature" title="Temperature"/>
+          <div className={classes.Data_text}>
             {this.state.temperature}°
           </div>
+          <img className={classes.Nav_Icon} src="/images/humidity.png" alt="Humidity" title="Humidity"/>
           <div className={classes.Data_text}>
             {this.state.humidity}
             %
           </div>
-          <div className={`${classes.Data_text} ${classes.Middleone}`}>
+          <img className={classes.Nav_Icon} src="/images/pressure.png" alt="Pressure" title="Pressure"/>
+          <div className={classes.Data_text}>
             {this.state.pressure}
           </div>
-          <div className={`${classes.Data_text} ${classes.Middleone}`}>
+          <img className={classes.Nav_Icon} src="/images/tvoc.png" alt="VOC Gases" title="VOC Gases"/>
+          <div className={classes.Data_text}>
             {this.state.tvoc}
           </div>
           <div className={`${classes.Data_text} ${classes.Lasttwo}`}>
