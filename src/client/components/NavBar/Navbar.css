@@ -31,3 +31,9 @@
   height: 50px;
   border-radius: 6px;
 }
+
+.Sensor_text {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}

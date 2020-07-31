@@ -85,7 +85,7 @@ class Navbar extends React.PureComponent {
         const value = parseInt(Math.floor(response.data.data.value * 3.28084));
       
         this.setState({
-          [type]: parseInt(value) || 0,
+          [type]: value || 0,
         });
       })
       .catch((error) => {
@@ -114,7 +114,6 @@ class Navbar extends React.PureComponent {
     }
   };
   
-  
   DisplayCurrentTime = () => {
     const date = new Date();
     const hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
@@ -130,6 +129,11 @@ class Navbar extends React.PureComponent {
     return (
       <div className={classes.Nav_Bar}>
         <div className={classes.Data_wrapper}>
+          <div className={classes.Sensor_text}>
+            <span>Sensor: 138</span>
+            <span>Location: Farm Center</span> 
+          </div>
+          <div className={classes.Vertical_Line} />
           <img className={classes.Nav_Icon} src="/images/thermometer.png" alt="Temperature" title="Temperature"/>
           <div className={classes.Data_text}>
             {this.state.temperature}°
