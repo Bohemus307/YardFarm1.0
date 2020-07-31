@@ -37,28 +37,38 @@ class Navbar extends React.Component {
           <div className={classes.Data_text}>
             {this.state.temperature}°
           </div>
+          <div className={classes.Vertical_Line} />
           <img className={classes.Nav_Icon} src="/images/humidity.png" alt="Humidity" title="Humidity"/>
           <div className={classes.Data_text}>
             {this.state.humidity}
             %
           </div>
+          <div className={classes.Vertical_Line} />
           <img className={classes.Nav_Icon} src="/images/pressure.png" alt="Pressure" title="Pressure"/>
           <div className={classes.Data_text}>
             {this.state.pressure}
           </div>
+          <div className={classes.Vertical_Line} />
           <img className={classes.Nav_Icon} src="/images/tvoc.png" alt="VOC Gases" title="VOC Gases"/>
           <div className={classes.Data_text}>
             {this.state.tvoc}
           </div>
+          <div className={classes.Vertical_Line} />
+          <img className={classes.Nav_Icon} src="/images/co2.png" alt="CO2" title="CO2"/>
           <div className={`${classes.Data_text} ${classes.Lasttwo}`}>
             {this.state.co2}
           </div>
+          <div className={classes.Vertical_Line} />
+          <img className={classes.Nav_Icon} src="/images/uv.png" alt="UV index" title="UV index"/>
           <div className={`${classes.Data_text} ${classes.Lasttwo}`}>
             {this.state.uv}
           </div>
+          <div className={classes.Vertical_Line} />
+          <img className={classes.Nav_Icon} src="/images/altitude.png" alt="Altitude" title="Altitude"/>
           <div className={`${classes.Data_text} ${classes.Lasttwo}`}>
             {this.state.altitude}
           </div>
+          <div className={classes.Vertical_Line} />
           <div className={`${classes.Data_text} ${classes.Lasttwo}`}>
             {this.DisplayCurrentTime()}
           </div>
