@@ -1,35 +1,29 @@
-.Header_text {
-  display: flex;
-  justify-content: center;
-  padding: 5px 0px;
-  font-size: 20px;
-}
-
-.Header_item {
-  font-size: 18px ;
-  flex-direction: row;
-  padding: 0px 27px;
-}
 
 .Data_wrapper {
   display: flex;
-  justify-content: center;
-  padding: 0px 10px;
-  overflow-x: scroll;
+  flex-direction: row;
+  box-sizing: border-box;
+  justify-content: center;  
 }
 
 .Data_text {
-  flex-direction: row;
-  padding: 0px 20px;
-  font-size: 36px;
+  font-size: 50px;
+  border: solid 3px black;
+  border-radius: 14px;
 }
 
 .Middleone {
-  position: relative;
-  left: 37px;
+   /* / */
 }
 
 .Lasttwo {
-  position: relative;
-  left: 50px;
+  /* position: relative;
+  left: 50px; */
+}
+
+.Nav_Icon {
+  height: 100%;
+  width: 60px;
+  background-color: #888888;
+  border-radius: 14px;
 }

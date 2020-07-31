@@ -1,16 +1,13 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/require-default-props */
 import React from 'react';
 import classes from './Navbar.css';
 import PropTypes from 'prop-types';
-import { render } from 'react-dom';
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
     
     this.state = {
-      tenperature: 86,
+      temperature: 86,
       humidity: 34,
       pressure: 790,
       tvoc: 0,
@@ -21,7 +18,6 @@ class Navbar extends React.Component {
 
   }
   
-
   DisplayCurrentTime = () => {
     const date = new Date();
     const hours = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
@@ -33,32 +29,13 @@ class Navbar extends React.Component {
     return time;
   }
 
-  // DisplayCurrentTime();
-
-
   render() {
-    console.log(this.state)
     return (
       <div className="navbar">
-        <div className={classes.Header_text}>
-          <div className={classes.Header_item}>
-            Current Indoor Temperature / Humidity
-          </div>
-          <div className={classes.Header_item}>
-            Current Outdoor Temperature / Humidity
-          </div>
-          <div className={classes.Header_item}>
-            Current Water Temperature
-          </div>
-          <div className={classes.Header_item}>
-            Current Time
-          </div>
-        </div>
         <div className={classes.Data_wrapper}>
           <div className={classes.Data_text}>
-            {this.state.tenperature}
-            °
-            F
+          <img className={classes.Nav_Icon} src="/images/thermometer.png" alt="Temperature" title="Temperature"/>
+            {this.state.temperature}°
           </div>
           <div className={classes.Data_text}>
             {this.state.humidity}
@@ -88,15 +65,5 @@ class Navbar extends React.Component {
     );
   }
 };
-
-// Navbar.propTypes = {
-//   intemp: PropTypes.number,
-//   outtemp: PropTypes.number,
-//   inhum: PropTypes.number,
-//   outhum: PropTypes.number,
-//   watertemp: PropTypes.number,
-//   cels: PropTypes.bool,
-//   far: PropTypes.bool,
-// };
 
 export default Navbar;
