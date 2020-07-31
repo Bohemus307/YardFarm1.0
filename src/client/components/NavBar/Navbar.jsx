@@ -31,7 +31,7 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <div className="navbar">
+      <div className={classes.Nav_Bar}>
         <div className={classes.Data_wrapper}>
           <img className={classes.Nav_Icon} src="/images/thermometer.png" alt="Temperature" title="Temperature"/>
           <div className={classes.Data_text}>
@@ -73,7 +73,6 @@ class Navbar extends React.Component {
             {this.DisplayCurrentTime()}
           </div>
         </div>
-        <hr />
       </div>
     );
   }
