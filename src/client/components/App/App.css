@@ -1,6 +1,5 @@
 .Item1 {
   grid-area: navbar;
-  /* display: flex; */
 }
 .Item2 {
   grid-area: menu;
@@ -15,6 +14,10 @@
   display: flex;
 }
 .Item5 {
+  grid-area: third;
+  display: flex;
+}
+.Item6 {
   grid-area: footer;
   display: flex;
 }

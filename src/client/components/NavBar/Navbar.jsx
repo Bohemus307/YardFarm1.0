@@ -130,8 +130,9 @@ class Navbar extends React.PureComponent {
       <div className={classes.Nav_Bar}>
         <div className={classes.Data_wrapper}>
           <div className={classes.Sensor_text}>
-            <span>Sensor: 138</span>
-            <span>Location: Farm Center</span> 
+            <span>Sensor #138</span>
+            <span>Location: Farm</span> 
+            <span>Position: i:50:50</span>
           </div>
           <div className={classes.Vertical_Line} />
           <img className={classes.Nav_Icon} src="/images/thermometer.png" alt="Temperature" title="Temperature"/>

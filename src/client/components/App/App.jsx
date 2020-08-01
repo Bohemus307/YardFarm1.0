@@ -58,7 +58,8 @@ class App extends React.Component {
         <div className={classes.Item4}>
           <Second day={currentState.id} />
         </div>
-        <div className={classes.Item5}>
+        <div className={classes.Item5}>Third</div>
+        <div className={classes.Item6}>
           <Footer />
         </div>
       </div>

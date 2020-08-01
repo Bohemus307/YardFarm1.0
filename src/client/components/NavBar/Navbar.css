@@ -1,8 +1,5 @@
 .Nav_Bar {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-shrink: inherit;
 }
 
 .Data_wrapper {
