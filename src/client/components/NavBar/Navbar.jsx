@@ -81,7 +81,7 @@ class Navbar extends React.PureComponent {
         }
     })
       .then((response) => {
-        // handle success
+        // handle success and calculate for ft from meters
         const value = parseInt(Math.floor(response.data.data.value * 3.28084));
       
         this.setState({

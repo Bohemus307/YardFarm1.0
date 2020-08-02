@@ -1,7 +1,7 @@
 import c3 from 'c3';
 import React from 'react';
 import axios from 'axios';
-import classes from './Main.css'
+import classes from './Main.css';
 
 class Main extends React.Component {
   constructor(props) {
@@ -13,9 +13,11 @@ class Main extends React.Component {
     this.updateChart = this.updateChart.bind(this);
     this.getDayOfData = this.getDayOfData.bind(this);
     this.getWeekOfData = this.getWeekOfData.bind(this);
+    
   }
 
   componentDidMount() {
+    this.getDate();
     this.getDayOfData();
     this.getWeekOfData();
     this.updateChart();
@@ -23,6 +25,12 @@ class Main extends React.Component {
 
   componentDidUpdate() {
     this.updateChart();
+  }
+
+  getDate = () => {
+    const currentIsoDate = new Date(Date.now()).toISOString();
+
+    console.log(currentIsoDate);
   }
 
   // get day of data from database
