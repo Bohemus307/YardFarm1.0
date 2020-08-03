@@ -1,6 +1,5 @@
 import c3 from 'c3';
 import React from 'react';
-import axios from 'axios';
 import classes from './Main.css';
 
 class Main extends React.Component {
@@ -8,72 +7,19 @@ class Main extends React.Component {
     super(props);
     this.state = {
       week: [],
-      currentDay: [1],
+      currentDay: new Date(Date.now()).toISOString(),
     };
     this.updateChart = this.updateChart.bind(this);
-    this.getDayOfData = this.getDayOfData.bind(this);
-    this.getWeekOfData = this.getWeekOfData.bind(this);
-    
   }
 
   componentDidMount() {
-    this.getDate();
-    this.getDayOfData();
-    this.getWeekOfData();
-    this.updateChart();
+    // this.updateChart();
   }
 
   componentDidUpdate() {
-    this.updateChart();
+    // this.updateChart();
   }
 
-  getDate = () => {
-    const currentIsoDate = new Date(Date.now()).toISOString();
-
-    console.log(currentIsoDate);
-  }
-
-  // get day of data from database
-  getDayOfData() {
-    const { currentDay } = this.state;
-    axios.get('/data/day', {
-      params: {
-        date: currentDay,
-      },
-    })
-      .then((response) => {
-        this.setState({
-          currentDay: response.data.moments,
-        });
-      })
-      .catch((error) => {
-        throw new Error(error);
-      });
-  }
-
-  // get week of data fron database
-  getWeekOfData() {
-    // start array at current day build array till end of week
-    const { currentDay } = this.state + 6;
-    // create arrray of nubers to represent dates for one week
-    const dates = Array.from(Array(currentDay), (_, i) => i + 1);
-
-    axios.get('/data/week', {
-      params: {
-        dates,
-      },
-    })
-      .then((response) => {
-        this.setState({
-          week: response.data.moments,
-        });
-      })
-      .catch((error) => {
-        throw new Error(error);
-      });
-  }
-
-  // eslint-disable-next-line class-methods-use-this
   updateChart() {
     // create const for state
     const { currentDay } = this.state;

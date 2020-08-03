@@ -7,7 +7,9 @@ router.get('/week', controllers.getWeekOfData);
 
 router.post('/note', controllers.postNoteToDb);
 
-router.get('/iotdata', controllers.getDataFromIo);
+router.get('/iotData', controllers.getDataFromIo);
+
+router.get('/allFeedData', controllers.getAllDataForFeed);
 
 // router.delete('/data', );
 

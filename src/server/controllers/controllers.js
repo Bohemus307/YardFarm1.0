@@ -20,6 +20,25 @@ module.exports = {
       }));
   },
 
+  getAllDataForFeed: (req, res) => {
+    const feedId = req.query.feed_id;
+    const feedName = req.query.feed_name;
+
+    axios.get(`https://io.adafruit.com/api/feeds/${feedId}/data`, {
+      params: {
+        'X-AIO-Key': config.app.ioKey,
+      },
+    })
+      .then((response) => model.saveDataToDB(response, feedName))
+      .then(() => res.status(200).json({
+        message: 'success getting and saving data',
+      }))
+      .catch((err) => res.status(400).json({
+        message: 'Failed to retrieve Data from sensor',
+        error: err,
+      }));
+  },
+
   getDayOfData: (req, res) => {
     const { date } = req.query;
 

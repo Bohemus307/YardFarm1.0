@@ -44,9 +44,13 @@ module.exports = {
   Note,
   dataMoment,
   moments,
-  saveDataToDB: async (response) => {
-    const docs = response.data.map((item) => new IotData({ value: item.value, createdAt: item.created_at, type: 'temperature' }));
-    IotData.insertMany(docs, (err) => console.log(err));
+  saveDataToDB: async (response, feedName) => {
+    const docs = response.data.map((item) => new IotData({
+      value: item.value,
+      createdAt: item.created_at.substring(0, 10),
+      type: feedName,
+    }));
+    IotData.insertMany(docs, (err) => console.log('error in db insert', err));
   },
 
   getDayOfMoments: async (date) => {
@@ -73,7 +77,7 @@ module.exports = {
       const newNote = JSON.stringify(note);
       const data = new Note({ date: parseInt(day, 0), text: newNote });
       const saveNote = await data.save();
-      return data;
+      return saveNote;
     } catch (err) {
       return console.log('Error in models', err);
     }

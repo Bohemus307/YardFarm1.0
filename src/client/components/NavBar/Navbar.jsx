@@ -13,7 +13,7 @@ class Navbar extends React.PureComponent {
       tvoc: 0,
       co2: 400,
       uv: 1,
-      altitude: 2049,
+      altitude: 6847,
     }
     this.getDataFromSensor = this.getDataFromSensor.bind(this);
   }
@@ -75,7 +75,7 @@ class Navbar extends React.PureComponent {
     }
     // handles case for altitude conversion needed
     if (id === 1415196) {
-      axios.get('/data/iotdata', {
+      axios.get('/data/iotData', {
         params: {
           feed_id: id
         }

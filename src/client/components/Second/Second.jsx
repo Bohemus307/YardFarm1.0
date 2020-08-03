@@ -1,14 +1,9 @@
-/* eslint-disable no-console */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable no-unused-vars */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable no-alert */
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import classes from './Second.css';
 
-import TaskBoard from '../d-n-d/TaskBoard.jsx';
+// import TaskBoard from '../d-n-d/TaskBoard.jsx';
 
 class Second extends React.Component {
   constructor(props) {
@@ -60,8 +55,5 @@ class Second extends React.Component {
     );
   }
 }
-Second.propTypes = {
-  day: PropTypes.number.isRequired,
-};
 
 export default Second;
