@@ -11,6 +11,8 @@ Yard Farm is a small 4' x 4' hyrdoponic greenhouse that utilized a DWC technique
 
 * Fork Repo to working directory and cd into yardfarm1.0
 * Npm install
+* Npm start-server to start Adafruit server for sensors
+*
 * .ENV file requires either dev or prod based on config.js
 
 ### Dependencies
