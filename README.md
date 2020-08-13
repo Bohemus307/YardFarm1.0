@@ -8,12 +8,20 @@ GUI for sensor system located in a small hydroponic greenhouse in my yard.
 Yard Farm is a small 4' x 4' hyrdoponic greenhouse that utilized a DWC technique called 'float raft' where a piece of foam holds plants in a large reservoir of nutrient water that is aerated with an air pump, and circulated with a drain and a reservoir then recirculated with a small water pump. This Application was designed as a dashboard to collect and review data and operate some controls inside the greenhouse. The data is collected using a raspberry pi based sensor system that sends data back to my computer via bluetooth and then stored in a mongoDB database with an Express.js server to communicate with the React front-end client.
 
 ## Getting Started
-
+(Dev)
 * Fork Repo to working directory and cd into yardfarm1.0
 * Npm install
 * Npm start-server to start Adafruit server for sensors
-*
-* .ENV file requires either dev or prod based on config.js
+* Npm react-dev for compiler
+* Npm server-dev to start express server
+* .ENV file requires dev
+
+(Prod)
+* Fork Repo to working directory and cd into yardfarm1.0
+* Npm install
+* Npm start-server to start Adafruit server for sensors
+* .ENV file requires prod 
+
 
 ### Dependencies
 
