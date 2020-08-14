@@ -1,11 +1,10 @@
 # YardFarm1.0
 
-GUI for sensor system located in a small hydroponic greenhouse in my yard.
-
+HMI for sensor system located in a small hydroponic greenhouse in my yard.
 
 ## Description
 
-Yard Farm is a small 4' x 4' hyrdoponic greenhouse that utilized a DWC technique called 'float raft' where a piece of foam holds plants in a large reservoir of nutrient water that is aerated with an air pump, and circulated with a drain and a reservoir then recirculated with a small water pump. This Application was designed as a dashboard to collect and review data and operate some controls inside the greenhouse. The data is collected using a raspberry pi based sensor system that sends data back to my computer via bluetooth and then stored in a mongoDB database with an Express.js server to communicate with the React front-end client.
+Yard Farm is a hyrdoponic greenhouse sensor system and HMI platform that utilizes React for front-end and multiple dependencies for the Node.js back end. This Application was designed as a dashboard to collect and review data and operate some controls inside the greenhouse. The data is collected using a  Feather huzzah and a raspberry pi based sensor system that sends data back to my computer via bluetooth and then stores in a mongoDB database with an Express.js server to communicate with the client.
 
 ## Getting Started
 (Dev)
@@ -32,6 +31,7 @@ Yard Farm is a small 4' x 4' hyrdoponic greenhouse that utilized a DWC technique
 * C3
 * D3
 * Express.js
+* AdafruitIo
 
 ### Executing program
 
@@ -64,3 +64,4 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 * [C3 charts](https://github.com/matiassingers/awesome-readme)
 * [D3](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
+* [Adafruit Api](https://io.adafruit.com/)
