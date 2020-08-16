@@ -33,11 +33,10 @@ class App extends React.Component {
 
   componentDidMount() {
     // if page refresh reload all data
-    if (!this.state.dataLoaded) {
-      this.callAllFeeds();
-      this.setState({ dataLoaded: true });
-    } 
-
+    // if (!this.state.dataLoaded) {
+    //   this.callAllFeeds();
+    //   this.setState({ dataLoaded: true });
+    // } 
   }
 
   callAllFeeds = () => {
@@ -59,7 +58,7 @@ class App extends React.Component {
     })
       .then((response) => {
         this.setState({
-          currentDay: response.data.moments,
+          today: response.data.moments,
         });
       })
       .catch((error) => {

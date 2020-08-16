@@ -39,12 +39,11 @@ In development -
 * npm run seed-db
 * npm run react-dev
 * npm run server-dev
-* Open localhost:3030
+* Open browser to localhost:3030
 
 In Production -
 
 ## Help
-
 
 ## Authors
 

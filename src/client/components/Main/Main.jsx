@@ -1,5 +1,6 @@
 import c3 from 'c3';
 import React from 'react';
+import axios from 'axios';
 import classes from './Main.css';
 
 class Main extends React.Component {
@@ -7,20 +8,42 @@ class Main extends React.Component {
     super(props);
     this.state = {
       week: [],
-      currentDay: new Date(Date.now()).toISOString(),
+      today: [],
+      currentDay: 1,
+      // currentDay: new Date(Date.now()).toISOString(),
     };
     this.updateChart = this.updateChart.bind(this);
   }
 
   componentDidMount() {
-    // this.updateChart();
+    this.getDayOfData();
+    this.updateChart();
   }
 
   componentDidUpdate() {
-    // this.updateChart();
+    this.updateChart();
   }
 
-  updateChart() {
+   // get day of data from database
+   getDayOfData = () => {
+    const { currentDay } = this.state;
+
+    axios.get('/data/day', {
+      params: {
+        date: currentDay,
+      },
+    })
+      .then((response) => {
+        this.setState({
+          today: response.data.moments,
+        });
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
+  }
+
+  updateChart(props) {
     // create const for state
     const { currentDay } = this.state;
     // Create daily average
@@ -162,6 +185,7 @@ class Main extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div>
         <div className={classes.Chart_label}>

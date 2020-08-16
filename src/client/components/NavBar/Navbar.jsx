@@ -18,22 +18,22 @@ class Navbar extends React.PureComponent {
     this.getDataFromSensor = this.getDataFromSensor.bind(this);
   }
 
-  componentDidMount() {
-    this.getDataFromSensor('temperature');
-    this.tempId = setInterval(() => {this.getDataFromSensor('temperature')}, 80000); 
-    this.getDataFromSensor('humidity');
-    this.humidId = setInterval(() => {this.getDataFromSensor('humidity')}, 80000); 
-    this.getDataFromSensor('pressure');
-    this.pressureId = setInterval(() => {this.getDataFromSensor('pressure')}, 80000); 
-    this.getDataFromSensor('tvoc');
-    this.tvocId = setInterval(() => {this.getDataFromSensor('tvoc')}, 80000); 
-    this.getDataFromSensor('co2');
-    this.co2Id = setInterval(() => {this.getDataFromSensor('co2')}, 80000); 
-    this.getDataFromSensor('uv');
-    this.uvId = setInterval(() => {this.getDataFromSensor('uv')}, 80000); 
-    this.getDataFromSensor('altitude');
-    this.altiId = setInterval(() => {this.getDataFromSensor('altitude')}, 80000); 
-  }
+  // componentDidMount() {
+  //   this.getDataFromSensor('temperature');
+  //   this.tempId = setInterval(() => {this.getDataFromSensor('temperature')}, 80000); 
+  //   this.getDataFromSensor('humidity');
+  //   this.humidId = setInterval(() => {this.getDataFromSensor('humidity')}, 80000); 
+  //   this.getDataFromSensor('pressure');
+  //   this.pressureId = setInterval(() => {this.getDataFromSensor('pressure')}, 80000); 
+  //   this.getDataFromSensor('tvoc');
+  //   this.tvocId = setInterval(() => {this.getDataFromSensor('tvoc')}, 80000); 
+  //   this.getDataFromSensor('co2');
+  //   this.co2Id = setInterval(() => {this.getDataFromSensor('co2')}, 80000); 
+  //   this.getDataFromSensor('uv');
+  //   this.uvId = setInterval(() => {this.getDataFromSensor('uv')}, 80000); 
+  //   this.getDataFromSensor('altitude');
+  //   this.altiId = setInterval(() => {this.getDataFromSensor('altitude')}, 80000); 
+  // }
 
   componentWillUnmount() {
     clearInterval(this.tempId);
