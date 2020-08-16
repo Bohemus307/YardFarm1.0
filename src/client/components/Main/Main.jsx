@@ -45,16 +45,16 @@ class Main extends React.Component {
   updateChart(props) {
     // create const for state
     const { currentDay } = this.state;
-    // Create daily average
+    //create array of tempearature data
     const temps = currentDay.filter((item) => item.type === 'temperature')
-
+    
     const dailyTempTotal = temps.reduce(
       (accumulator, currentValue) => accumulator + Math.floor(currentValue.value), 0,
-    );
-     console.log(dailyTempTotal)
+      );
+      
+    // Create daily average
     const dailyTempAverage = Math.floor(dailyTempTotal / temps.length);
     // create array of indoor temps
-     console.log(dailyTempAverage)
     const dailyTempArray = temps.map((item) => item.value);
     // this is min temp for day
     const dailyMin = dailyTempArray.reduce((acc, val) => {
@@ -153,16 +153,16 @@ class Main extends React.Component {
         width: 340,
       },
     });
+    // array of humdidity data
+    const humids = currentDay.filter((item) => item.type === 'humidity')
     // math for humidity
-    const dailyHumTotal = currentDay.reduce(
-      (accumulator, currentValue) => accumulator + currentValue.inhumid, 0,
+    const dailyHumTotal = humids.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.value, 0,
     );
-    const dailyHumAverage = Math.floor(dailyHumTotal / currentDay.length);
+    const dailyHumAverage = Math.floor(dailyHumTotal / humids.length);
     // allowed keys for filter
+    console.log(humids)
     const allowed = ['date'];
-    // need to get inhum for only times 360 thru 1080 for day humidity
-
-    // need to get inhum for only times 1081 to 359 the next day
 
     // chart for daily humidity
     const chart3 = c3.generate({

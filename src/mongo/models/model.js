@@ -6,6 +6,7 @@ const iotData = mongoose.Schema({
   _Id: Number,
   value: String,
   createdAt: String,
+  time: String,
   type: String,
 });
 // create schema for data
@@ -50,6 +51,7 @@ module.exports = {
     const docs = response.data.map((item) => new IotData({
       value: item.value,
       createdAt: item.created_at.substring(0, 10),
+      time: item.created_at.substring(11, 19),
       type: feedName,
     }));
     IotData.insertMany(docs, (err) => console.log('error in db insert', err));
