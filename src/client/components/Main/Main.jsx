@@ -46,15 +46,16 @@ class Main extends React.Component {
     // create const for state
     const { currentDay } = this.state;
     // Create daily average
-    console.log(currentDay)
-    const dailyTempTotal = currentDay.reduce(
+    const temps = currentDay.filter((item) => item.type === 'temperature')
+
+    const dailyTempTotal = temps.reduce(
       (accumulator, currentValue) => accumulator + Math.floor(currentValue.value), 0,
     );
-    // console.log(dailyTempTotal)
-    const dailyTempAverage = Math.floor(dailyTempTotal / currentDay.length);
+     console.log(dailyTempTotal)
+    const dailyTempAverage = Math.floor(dailyTempTotal / temps.length);
     // create array of indoor temps
-    // console.log(dailyTempAverage)
-    const dailyTempArray = currentDay.map((item) => item.value);
+     console.log(dailyTempAverage)
+    const dailyTempArray = temps.map((item) => item.value);
     // this is min temp for day
     const dailyMin = dailyTempArray.reduce((acc, val) => {
       acc[0] = (acc[0] === undefined || val < acc[0]) ? val : acc[0];
