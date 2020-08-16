@@ -8,13 +8,13 @@ class Main extends React.Component {
     super(props);
     this.state = {
       week: [],
-      currentDay: new Date(Date.now()).toISOString(),
+      currentDay: [],
     };
     this.updateChart = this.updateChart.bind(this);
   }
 
   componentDidMount() {
-    // this.updateChart();
+    this.updateChart();
     this.getDayOfData();
   }
 
@@ -33,10 +33,9 @@ class Main extends React.Component {
       },
     })
       .then((response) => {
-        // this.setState({
-        //   today: response.data.moments,
-        // });
-        console.log(response.data);
+        this.setState({
+          currentDay: response.data.moments,
+        });
       })
       .catch((error) => {
         throw new Error(error);
@@ -47,12 +46,15 @@ class Main extends React.Component {
     // create const for state
     const { currentDay } = this.state;
     // Create daily average
+    console.log(currentDay)
     const dailyTempTotal = currentDay.reduce(
-      (accumulator, currentValue) => accumulator + currentValue.intemp, 0,
+      (accumulator, currentValue) => accumulator + Math.floor(currentValue.value), 0,
     );
+    // console.log(dailyTempTotal)
     const dailyTempAverage = Math.floor(dailyTempTotal / currentDay.length);
     // create array of indoor temps
-    const dailyTempArray = currentDay.map((item) => item.intemp);
+    // console.log(dailyTempAverage)
+    const dailyTempArray = currentDay.map((item) => item.value);
     // this is min temp for day
     const dailyMin = dailyTempArray.reduce((acc, val) => {
       acc[0] = (acc[0] === undefined || val < acc[0]) ? val : acc[0];
@@ -185,6 +187,7 @@ class Main extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div>
         <div className={classes.Chart_label}>

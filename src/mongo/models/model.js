@@ -57,7 +57,6 @@ module.exports = {
 
   getDayOfMoments: async (date) => {
     try {
-      console.log(date);
       const data = await IotData.find({ createdAt: '2020-08-03' });
       return data;
     } catch (err) {
