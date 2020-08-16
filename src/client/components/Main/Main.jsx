@@ -8,35 +8,35 @@ class Main extends React.Component {
     super(props);
     this.state = {
       week: [],
-      today: [],
-      currentDay: 1,
-      // currentDay: new Date(Date.now()).toISOString(),
+      currentDay: new Date(Date.now()).toISOString(),
     };
     this.updateChart = this.updateChart.bind(this);
   }
 
   componentDidMount() {
+    // this.updateChart();
     this.getDayOfData();
-    this.updateChart();
   }
 
   componentDidUpdate() {
     this.updateChart();
   }
 
-   // get day of data from database
-   getDayOfData = () => {
-    const { currentDay } = this.state;
-
+  // get day of data from database
+  getDayOfData = () => {
+    // const { currentDay } = this.state;
+    // let day = currentDay.substring(0,10);
+    const day = "2020-8-03";
     axios.get('/data/day', {
       params: {
-        date: currentDay,
+        date: day,
       },
     })
       .then((response) => {
-        this.setState({
-          today: response.data.moments,
-        });
+        // this.setState({
+        //   today: response.data.moments,
+        // });
+        console.log(response.data);
       })
       .catch((error) => {
         throw new Error(error);
@@ -185,7 +185,6 @@ class Main extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <div className={classes.Chart_label}>

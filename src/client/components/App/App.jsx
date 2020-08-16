@@ -47,25 +47,6 @@ class App extends React.Component {
     })
   }
 
-  // get day of data from database
-  getDayOfData() {
-    const { currentDay } = this.state;
-
-    axios.get('/data/day', {
-      params: {
-        date: currentDay,
-      },
-    })
-      .then((response) => {
-        this.setState({
-          today: response.data.moments,
-        });
-      })
-      .catch((error) => {
-        throw new Error(error);
-      });
-  }
-
   // get week of data fron database
   getWeekOfData() {
     // start array at current day build array till end of week

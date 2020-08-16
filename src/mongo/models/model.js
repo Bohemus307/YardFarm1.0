@@ -44,6 +44,8 @@ module.exports = {
   Note,
   dataMoment,
   moments,
+  IotData,
+
   saveDataToDB: async (response, feedName) => {
     const docs = response.data.map((item) => new IotData({
       value: item.value,
@@ -55,7 +57,8 @@ module.exports = {
 
   getDayOfMoments: async (date) => {
     try {
-      const data = await moments.find({ date: parseInt(date, 0) });
+      console.log(date);
+      const data = await IotData.find({ createdAt: '2020-08-03' });
       return data;
     } catch (err) {
       return console.log('Error in models', err);
