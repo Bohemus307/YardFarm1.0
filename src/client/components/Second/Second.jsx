@@ -46,11 +46,16 @@ class Second extends React.Component {
       <div className={classes.Second_div}>
         {/* <div>
           <form className={classes.Note_pad} onSubmit={this.handleSubmit}>
-            <textarea placeholder="Notes..." className={classes.Input_area} type="textarea" value={this.state.value} onChange={this.handleChange} />
+            <textarea placeholder="Notes..."
+            className={classes.Input_area}
+             type="textarea"
+             value={this.state.value}
+             onChange={this.handleChange} />
             <input className={classes.Notes_button} type="submit" value="Save" />
           </form>
         </div> */}
         <div className={classes.Drag_N_Drop}>
+          <h2 className={classes.TaskHeader}>Tasks</h2>
           <TaskBoard />
         </div>
       </div>
