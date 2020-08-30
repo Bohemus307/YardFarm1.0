@@ -1,6 +1,6 @@
 # YardFarm1.0
 
-HMI for sensor and controls system located in a small hydroponic greenhouse in my yard.
+HMI for sensor and controls system located for greenhouses and smaller CEA enviroments.
 
 ## Description
 
