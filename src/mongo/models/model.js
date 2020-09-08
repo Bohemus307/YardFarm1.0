@@ -54,8 +54,7 @@ module.exports = {
       time: item.created_at.substring(11, 19),
       type: feedName,
     }));
-    console.log(docs)
-    IotData.insertMany(docs, { ordered: false }, (err) => console.log('error in db insert many', err));
+    IotData.insertMany(docs, (err) => console.log('error in db insert many', err));
   },
 
   getDayOfMoments: async (date) => {
