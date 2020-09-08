@@ -9,6 +9,7 @@ class Main extends React.Component {
     this.state = {
       week: [],
       currentDay: [],
+      date: new Date(Date.now()).toISOString().substring(0, 10),
     };
     this.updateChart = this.updateChart.bind(this);
   }
@@ -24,12 +25,11 @@ class Main extends React.Component {
 
   // get day of data from database
   getDayOfData = () => {
-    // const { currentDay } = this.state;
-    // let day = currentDay.substring(0,10);
-    const day = "2020-8-03";
+    const { date } = this.state;
+    
     axios.get('/data/day', {
       params: {
-        date: day,
+        date: date,
       },
     })
       .then((response) => {
