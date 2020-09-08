@@ -3,7 +3,7 @@ const db = require('../connection.js');
 
 // schema for adafruit data
 const iotData = mongoose.Schema({
-  _Id: Number,
+  _id: Number,
   value: String,
   createdAt: String,
   time: String,
@@ -54,7 +54,8 @@ module.exports = {
       time: item.created_at.substring(11, 19),
       type: feedName,
     }));
-    IotData.insertMany(docs, (err) => console.log('error in db insert', err));
+    console.log(docs)
+    IotData.insertMany(docs, { ordered: false }, (err) => console.log('error in db insert many', err));
   },
 
   getDayOfMoments: async (date) => {

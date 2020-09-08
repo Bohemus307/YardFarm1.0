@@ -161,7 +161,6 @@ class Main extends React.Component {
     );
     const dailyHumAverage = Math.floor(dailyHumTotal / humids.length);
     // allowed keys for filter
-    console.log(humids)
     const allowed = ['date'];
 
     // chart for daily humidity
@@ -188,7 +187,7 @@ class Main extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log('state in main', this.state);
     return (
       <div>
         <div className={classes.Chart_label}>
