@@ -47,28 +47,6 @@ class App extends React.Component {
     })
   }
 
-  // get week of data fron database
-  getWeekOfData() {
-    // start array at current day build array till end of week
-    const { currentDay } = this.state + 6;
-    // create arrray of nubers to represent dates for one week
-    const dates = Array.from(Array(currentDay), (_, i) => i + 1);
-
-    axios.get('/data/week', {
-      params: {
-        dates,
-      },
-    })
-      .then((response) => {
-        this.setState({
-          week: response.data.moments,
-        });
-      })
-      .catch((error) => {
-        throw new Error(error);
-      });
-  }
-
   render() {
     return (
       <div className="grid-container">

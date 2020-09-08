@@ -17,6 +17,7 @@ class Main extends React.Component {
   componentDidMount() {
     this.updateChart();
     this.getDayOfData();
+    this.getWeekOfData();
   }
 
   componentDidUpdate() {
@@ -40,6 +41,30 @@ class Main extends React.Component {
       .catch((error) => {
         throw new Error(error);
       });
+  }
+
+  // get week of data fron database
+  getWeekOfData = () => {
+    // start array at current day build array till end of week
+    const { date } = this.state;
+    let end = date;
+    let begin = 
+    // create arrray of dates for past week
+    const dates = Array.from(Array(date), (_, i) => i + 1);
+    console.log(end)
+    // axios.get('/data/week', {
+    //   params: {
+    //     dates,
+    //   },
+    // })
+    //   .then((response) => {
+    //     this.setState({
+    //       week: response.data.moments,
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     throw new Error(error);
+    //   });
   }
 
   updateChart(props) {
