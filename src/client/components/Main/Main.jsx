@@ -17,7 +17,7 @@ class Main extends React.Component {
   componentDidMount() {
     this.updateChart();
     this.getDayOfData();
-    this.getWeekOfData();
+    // this.getWeekOfData(); need more data
   }
 
   componentDidUpdate() {

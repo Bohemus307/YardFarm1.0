@@ -69,7 +69,7 @@ module.exports = {
   getWeekOfMoments: async (dates) => {
     try {
       // const data = await moments.find({ date: parseInt(start, 0) });
-      const data = await moments.find({ date: { $in: dates } });
+      const data = await IotData.find({ date: { $in: dates } });
       return data;
     } catch (err) {
       return console.log('Error in models', err);

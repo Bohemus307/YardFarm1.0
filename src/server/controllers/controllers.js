@@ -61,6 +61,7 @@ module.exports = {
 
   getWeekOfData: (req, res) => {
     const { dates } = req.query;
+    console.log(dates);
     if (dates === undefined) {
       res.status(400).json({
         message: 'Bad request - must include dates',
