@@ -45,13 +45,24 @@ class Main extends React.Component {
 
   // get week of data fron database
   getWeekOfData = () => {
-    // start array at current day build array till end of week
+    // start array at current day build array till end of past week
     const { date } = this.state;
-    let end = date;
-    let begin = 
-    // create arrray of dates for past week
-    const dates = Array.from(Array(date), (_, i) => i + 1);
-    console.log(end)
+    let newDate = new Date(Date.now()).toISOString().substring(0, 10);
+    let beginDateDay = newDate.substring(8,10) - 7;
+
+    // create iso format date for begining of past week
+    String.prototype.replaceAt = function(index, replacement) {
+      if (index >= this.length) {
+        return this.valueOf();
+      }
+    
+      return this.substring(0, index) + replacement + this.substring(index + 1);
+    }
+    
+    let beginDate = newDate.replaceAt(9, beginDateDay);
+    
+    
+
     // axios.get('/data/week', {
     //   params: {
     //     dates,
