@@ -51,7 +51,7 @@ class Main extends React.Component {
     
     // create iso format date for begining of past week
     let newDate = new Date(Date.now()).toISOString().substring(0, 10);
-    let beginDateDay = newDate.substring(8,10) - 7;
+    let beginDateDay = newDate.substring(8,10) - 6;
     String.prototype.replaceAt = function(index, replacement) {
       if (index >= this.length) {
         return this.valueOf();
@@ -59,38 +59,34 @@ class Main extends React.Component {
     
       return this.substring(0, index) + replacement + this.substring(index + 1);
     }
-    
+    // begining of week date
     let beginDate = newDate.replaceAt(9, beginDateDay);
 
-    const createWeek = (start,end) => {
-      let weekArray = [];
-      let beginInt = parseInt(start.substring(8,10))
-      let endInt = parseInt(end.substring(8,10))
-
-      while (beginInt <= endInt) {
-        weekArray.push(start);
-        let newDay = beginInt += 1;
-        start = start.concat(start.substring(0,7), newDay);
-        console.log('newDate', start);
+    // creates array of days
+    const getDaysArray = (start, end) => {
+      for(var arr=[],dt=new Date(start); dt<=end; dt.setDate(dt.getDate()+1)){
+          arr.push(new Date(dt));
       }
+      return arr;
+    };
     
-    }
-
-    let week = createWeek(beginDate, endDate)
-    console.log('week', week)
-    // axios.get('/data/week', {
-    //   params: {
-    //     dates,
-    //   },
-    // })
-    //   .then((response) => {
-    //     this.setState({
-    //       week: response.data.moments,
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     throw new Error(error);
-    //   });
+    // creates array of iso formattted dates to represent past week
+    let dayList = getDaysArray(new Date(beginDate),new Date(endDate));
+    let dates = dayList.map((date)=> date.toISOString().substring(0,10))
+  
+    axios.get('/data/week', {
+      params: {
+        dates,
+      },
+    })
+      .then((response) => {
+        this.setState({
+          week: response.data.moments,
+        });
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
   }
 
   updateChart(props) {
