@@ -17,8 +17,7 @@ body {
   grid-template-columns: 200px auto;
   grid-template-rows: auto;
   grid-gap: 0px;
-  background-color:	#A9A9A9;
-  padding: 0px;
+  background-color: rgb(255, 255, 255);
   height: 100%;
   width: 100%;
   overflow: scroll;
@@ -28,6 +27,7 @@ body {
   background-color: rgb(255, 255, 255);
   font-size: 30px;
 }
+
 .logo-1 {
   height:125px;
   position: relative;
