@@ -243,9 +243,9 @@ class Main extends React.Component {
           <div className="label3">Daily Humidity Average</div>
         </div>
         <div className={classes.Charts}>
-          <div className="chart_1" id="chart" />
-          <div className="chart_2" id="chart2" />
-          <div className="chart_3" id="chart3" />
+          <div className={classes.Chart_1} id="chart" />
+          <div className={classes.Chart_2} id="chart2" />
+          <div className={classes.Chart_3} id="chart3" />
         </div>
       </div>
     );
