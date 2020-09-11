@@ -1,3 +1,7 @@
+.Main_Wrapper {
+  display: flex;
+}
+
 .Charts {
   display: flex;
   height: 100%;

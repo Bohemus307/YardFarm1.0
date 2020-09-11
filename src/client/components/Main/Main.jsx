@@ -236,15 +236,18 @@ class Main extends React.Component {
   render() {
     console.log('state in main', this.state);
     return (
-      <div>
-        <div className={classes.Chart_label}>
+      <div className={classes.Main_Wrapper}>
+        {/* <div className={classes.Chart_label}>
           <div className="label1">Daily Average Temp</div>
           <div className="label2">Weekly Average Temp</div>
           <div className="label3">Daily Humidity Average</div>
-        </div>
+        </div> */}
         <div className={classes.Charts}>
+          <span className="label1">Daily Average Temp</span>
           <div className={classes.Chart_1} id="chart" />
+          <span className="label2">Weekly Average Temp</span>
           <div className={classes.Chart_2} id="chart2" />
+          <span className="label3">Daily Humidity Average</span>
           <div className={classes.Chart_3} id="chart3" />
         </div>
       </div>

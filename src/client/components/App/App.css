@@ -8,7 +8,6 @@
 .Item3 {
   grid-area: main;
   height: 80px;
-  width: auto;
   display: flex;
 }
 .Item4 {
