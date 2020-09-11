@@ -7,7 +7,6 @@
 }
 .Item3 {
   grid-area: main;
-  height: 80px;
   display: flex;
 }
 .Item4 {
