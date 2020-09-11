@@ -1,13 +1,17 @@
 .Nutrients_table {
   display: flex;
   flex-direction: column;
-  
+  width: 70%;
+}
+
+.Table_wrappper {
+  display: flex;
+  flex-direction: row;
 }
 
 .Nutrients_header {
   font-size: 30px;
-  position: relative;
-  bottom: 60px;
+  width: 30%;
 }
 
 #progressbar {
