@@ -48,8 +48,6 @@ const Menu = () => {
             image="/images/contact.png"
           />
         </div>
-        <hr />
-        <NutrientsTable />
       </div>
     </div>
   );

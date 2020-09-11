@@ -2,6 +2,7 @@ import c3 from 'c3';
 import React from 'react';
 import axios from 'axios';
 import classes from './Main.css';
+import NutrientsTable from '../NutrientsTable/NutrientsTable.jsx';
 
 class Main extends React.Component {
   constructor(props) {
@@ -246,6 +247,9 @@ class Main extends React.Component {
           <div className={classes.Chart_1} id="chart" />
           <div className={classes.Chart_2} id="chart2" />
           <div className={classes.Chart_3} id="chart3" />
+        </div>
+        <div>
+          <NutrientsTable />
         </div>
       </div>
     );
