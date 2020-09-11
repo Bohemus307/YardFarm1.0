@@ -1,13 +1,13 @@
 .Nutrients_table {
-  margin-top: 10px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  
 }
 
 .Nutrients_header {
-  font-size: 22px;
-  margin-bottom: 20px;
+  font-size: 30px;
+  position: relative;
+  bottom: 60px;
 }
 
 #progressbar {
