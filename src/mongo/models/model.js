@@ -5,14 +5,8 @@ const db = require('../connection.js');
 const iotData = mongoose.Schema({
   _id: Number,
   value: String,
-  createdAt: {
-    type: String,
-    index: true,
-  },
-  time: {
-    type: String,
-    unique: true,
-  },
+  createdAt: String,
+  time: String,
   type: String,
 });
 // create schema for data
@@ -63,9 +57,9 @@ module.exports = {
     IotData.insertMany(docs, (err) => console.log('success'));
   },
 
-  getDayOfMoments: async (date) => {
+  getDayOfMoments: async (date, feed) => {
     try {
-      const data = await IotData.find({ createdAt: date });
+      const data = await IotData.find({ type: feed, createdAt: date });
       return data;
     } catch (err) {
       return console.log('Error in models', err);

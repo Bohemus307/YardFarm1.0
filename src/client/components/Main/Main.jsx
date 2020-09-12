@@ -28,10 +28,15 @@ class Main extends React.PureComponent {
   // get day of data from database
   getDayOfData = () => {
     const { date } = this.state;
+    const feedName = 'temperature';
+    let yesterday = parseInt(date.substring(8,10)) - 1;
+    let yesterdate = date.substring(0,8).concat(yesterday);
+    console.log('yesterday', yesterdate);
     
     axios.get('/data/day', {
       params: {
-        date: date,
+        date: yesterdate,
+        type: feedName
       },
     })
       .then((response) => {
@@ -239,7 +244,7 @@ class Main extends React.PureComponent {
     return (
       <div className={classes.Main_Wrapper}>
         <div className={classes.Chart_Label}>
-          <div className="label1">Daily Average Temp</div>
+          <div className="label1">Yesterday Average Temp</div>
           <div className="label2">Weekly Average Temp</div>
           <div className="label3">Daily Humidity Average</div>
         </div>
