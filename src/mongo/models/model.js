@@ -5,8 +5,14 @@ const db = require('../connection.js');
 const iotData = mongoose.Schema({
   _id: Number,
   value: String,
-  createdAt: String,
-  time: String,
+  createdAt: {
+    type: String,
+    index: true,
+  },
+  time: {
+    type: String,
+    unique: true,
+  },
   type: String,
 });
 // create schema for data

@@ -4,7 +4,7 @@ import axios from 'axios';
 import classes from './Main.css';
 import NutrientsTable from '../NutrientsTable/NutrientsTable.jsx';
 
-class Main extends React.Component {
+class Main extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,8 +16,8 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    this.updateChart();
     this.getDayOfData();
+    this.updateChart();
     // this.getWeekOfData(); need more data
   }
 
