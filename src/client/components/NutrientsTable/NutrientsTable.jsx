@@ -7,13 +7,14 @@ const NutrientsTable = () => (
       <span>Current Nutrient Levels</span>
     </div>
     <div className={classes.Nutrients_table}>
-      <div id="progressbar" className={classes.ProgressBar}>
+      <span className={classes.Feed_Label}>PH</span>
+      <div id="progressbar" className={classes.Progress_Bar}>
         <div className={classes.Progressbar_div1} />
       </div>
-      <div id="progressbar" className={classes.ProgressBar}>
+      <div id="progressbar" className={classes.Progress_Bar}>
         <div className={classes.Progressbar_div2} />
       </div>
-      <div id="progressbar" className={classes.ProgressBar}>
+      <div id="progressbar" className={classes.Progress_Bar}>
         <div className={classes.Progressbar_div3} />
       </div>
     </div>

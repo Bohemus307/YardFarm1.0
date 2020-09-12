@@ -1,7 +1,11 @@
 .Nutrients_table {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  align-items: flex-end;
+  width: 60%;
+  border: solid 2px #888888;
+  border-radius: 8px;
+  overflow: scroll;
 }
 
 .Table_wrappper {
@@ -18,8 +22,8 @@
   font-weight: bold;
   width: auto;
   height: min-content;
-  border: solid 2px #888888;
-  border-radius: 8px;
+  /* border: solid 2px #888888;
+  border-radius: 8px; */
   padding: 1px 5px;
 }
 
@@ -30,6 +34,9 @@
   border-radius: 13px;
   /* (height of inner div) / 2 + padding */
   padding: 3px;
+}
+.Feed_Label {
+  display: inline;
 }
 
 .Progressbar_div1 {
