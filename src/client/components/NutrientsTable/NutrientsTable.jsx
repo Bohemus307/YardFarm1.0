@@ -4,7 +4,7 @@ import classes from './NutrientsTable.css';
 const NutrientsTable = () => (
   <div className={classes.Table_wrappper}>
     <div className={classes.Nutrients_header}>
-      <span>Current Nutrient Readings</span>
+      <span>Current Nutrient Levels</span>
     </div>
     <div className={classes.Nutrients_table}>
       <div id="progressbar" className={classes.ProgressBar}>
