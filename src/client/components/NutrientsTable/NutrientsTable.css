@@ -4,27 +4,23 @@
   align-items: flex-end;
   width: 60%;
   border: solid 2px #888888;
-  border-radius: 8px;
+  border-radius: 6px;
   overflow: scroll;
 }
 
 .Table_wrappper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 200px;
 }
 
 .Nutrients_header {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: top;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
-  width: auto;
-  height: min-content;
-  /* border: solid 2px #888888;
-  border-radius: 8px; */
-  padding: 1px 5px;
 }
 
 #progressbar {
@@ -35,8 +31,21 @@
   /* (height of inner div) / 2 + padding */
   padding: 3px;
 }
-.Feed_Label {
-  display: inline;
+
+.Table_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.Feed_label {
+  font-size: 22px;
+  font-weight: bold;
+  padding:0px 10px;
+  position: relative;
+  top: 5px;
 }
 
 .Progressbar_div1 {
