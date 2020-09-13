@@ -219,7 +219,7 @@ class Main extends React.PureComponent {
       (accumulator, currentValue) => accumulator + parseInt(currentValue.value), 0,
     );
     const dailyHumAverage = Math.floor(dailyHumTotal / DayHumidityData.length);
-    console.log(dailyHumTotal)
+  
     // chart for daily humidity
     const chart3 = c3.generate({
       bindto: '#chart3',
@@ -247,17 +247,20 @@ class Main extends React.PureComponent {
     console.log('state in main', this.state);
     return (
       <div className={classes.Main_Wrapper}>
-        <div className={classes.Chart_Label}>
-          <div className="label1">Yesterday Average Temp</div>
-          <div className="label2">Weekly Average Temp</div>
-          <div className="label3">Daily Humidity Average</div>
+        <span>Cumulative Data</span>
+        <div className={classes.Charts_wrapper}>
+          <div className={classes.Chart_Label}>
+            <div className="label1">Yesterday Average Temp</div>
+            <div className="label2">Weekly Average Temp</div>
+            <div className="label3">Yesterday Average Humidity</div>
+          </div>
+          <div className={classes.Charts}>
+            <div className={classes.Chart_1} id="chart" />
+            <div className={classes.Chart_2} id="chart2" />
+            <div className={classes.Chart_3} id="chart3" />
+          </div>
         </div>
-        <div className={classes.Charts}>
-          <div className={classes.Chart_1} id="chart" />
-          <div className={classes.Chart_2} id="chart2" />
-          <div className={classes.Chart_3} id="chart3" />
-        </div>
-        <div>
+        <div className={classes.Table_wrapper}>
           <NutrientsTable />
         </div>
       </div>

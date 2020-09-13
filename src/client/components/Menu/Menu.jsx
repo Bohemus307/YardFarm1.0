@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
 import classes from './Menu.css';
 import Switch from '../Switch/Switch.jsx';
-import NutrientsTable from '../NutrientsTable/NutrientsTable.jsx';
 
 const Menu = () => {
   const [value, setValue] = useState(false);
   return (
     <div className={classes.Menu}>
-      <div className="icon">
-        <img className="logo-1" src="/images/greenhouse3.png" alt="company logo here" />
+      <div>
+        <img className={classes.Logo_1} src="/images/greenhouse3.png" alt="company logo here" />
       </div>
       <div className={classes.Logo_Text}>
         Yard Farm
       </div>
-      <div className={classes.Search_Container}>
+      {/* <div className={classes.Search_Container}>
         <form action="/action_page.php">
           <input type="text" placeholder="mm/dd/yy.." name="search" />
           <button aria-label="Search" type="submit"><i className="fa fa-search" /></button>
         </form>
-      </div>
+      </div> */}
       <hr />
       <div className={classes.Switch_Panel}>
         <div className={classes.Control_Panel}>

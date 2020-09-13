@@ -4,7 +4,7 @@
 
 .Data_wrapper {
   height: 100%;
-  width: 95%;
+  width: 100%;
   display: flex;
   border: solid 3px #888888;
   justify-content: space-evenly;

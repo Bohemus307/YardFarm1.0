@@ -28,12 +28,6 @@ body {
   font-size: 30px;
 }
 
-.logo-1 {
-  height:125px;
-  position: relative;
-  left: 10px;
-}
-
 #chart4 {
   background: #fff;
   font-family: 'Ubuntu', sans-serif;

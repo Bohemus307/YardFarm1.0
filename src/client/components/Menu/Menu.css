@@ -1,7 +1,12 @@
 .Menu {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+}
+
+.Logo_1 {
+  height:125px;
+  position: relative;
+  left: 10px;
 }
 
 .Logo_Text {
