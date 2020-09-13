@@ -9,14 +9,16 @@ class Main extends React.PureComponent {
     super(props);
     this.state = {
       week: [],
-      currentDay: [],
+      DayTempData: [],
+      DayHumidityData: [],
       date: new Date(Date.now()).toISOString().substring(0, 10),
     };
     this.updateChart = this.updateChart.bind(this);
   }
 
   componentDidMount() {
-    this.getDayOfData();
+    this.getDayOfFeedData('temperature');
+    this.getDayOfFeedData('humidity');
     this.updateChart();
     // this.getWeekOfData(); need more data
   }
@@ -26,23 +28,28 @@ class Main extends React.PureComponent {
   }
 
   // get day of data from database
-  getDayOfData = () => {
+  getDayOfFeedData = (feedType) => {
     const { date } = this.state;
-    const feedName = 'temperature';
+    // create iso date for yesterday
     let yesterday = parseInt(date.substring(8,10)) - 1;
     let yesterdate = date.substring(0,8).concat(yesterday);
-    console.log('yesterday', yesterdate);
-    
+
     axios.get('/data/day', {
       params: {
         date: yesterdate,
-        type: feedName
+        type: feedType.toString()
       },
     })
       .then((response) => {
-        this.setState({
-          currentDay: response.data.moments,
-        });
+        if (feedType === 'temperature') {
+          this.setState({
+            DayTempData: response.data.moments,
+          });
+        } else {
+          this.setState({
+            DayHumidityData: response.data.moments,
+          });
+        }
       })
       .catch((error) => {
         throw new Error(error);
@@ -97,18 +104,16 @@ class Main extends React.PureComponent {
 
   updateChart(props) {
     // create const for state
-    const { currentDay } = this.state;
-    //create array of tempearature data
-    const temps = currentDay.filter((item) => item.type === 'temperature')
+    const { DayTempData } = this.state;
     
-    const dailyTempTotal = temps.reduce(
+    const dailyTempTotal = DayTempData.reduce(
       (accumulator, currentValue) => accumulator + Math.floor(currentValue.value), 0,
       );
       
     // Create daily average
-    const dailyTempAverage = Math.floor(dailyTempTotal / temps.length);
+    const dailyTempAverage = Math.floor(dailyTempTotal / DayTempData.length);
     // create array of indoor temps
-    const dailyTempArray = temps.map((item) => item.value);
+    const dailyTempArray = DayTempData.map((item) => item.value);
     // this is min temp for day
     const dailyMin = dailyTempArray.reduce((acc, val) => {
       acc[0] = (acc[0] === undefined || val < acc[0]) ? val : acc[0];
@@ -207,15 +212,14 @@ class Main extends React.PureComponent {
       },
     });
     // array of humdidity data
-    const humids = currentDay.filter((item) => item.type === 'humidity')
+    const { DayHumidityData } = this.state;
+    // const humids = currentDay.filter((item) => item.type === 'humidity')
     // math for humidity
-    const dailyHumTotal = humids.reduce(
-      (accumulator, currentValue) => accumulator + currentValue.value, 0,
+    const dailyHumTotal = DayHumidityData.reduce(
+      (accumulator, currentValue) => accumulator + parseInt(currentValue.value), 0,
     );
-    const dailyHumAverage = Math.floor(dailyHumTotal / humids.length);
-    // allowed keys for filter
-    const allowed = ['date'];
-
+    const dailyHumAverage = Math.floor(dailyHumTotal / DayHumidityData.length);
+    console.log(dailyHumTotal)
     // chart for daily humidity
     const chart3 = c3.generate({
       bindto: '#chart3',
