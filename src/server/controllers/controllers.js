@@ -42,7 +42,7 @@ module.exports = {
   getDayOfData: (req, res) => {
     const { date } = req.query;
     const { type } = req.query;
-    console.log(date, type);
+    
     if (date === undefined) {
       res.status(400).json({
         message: 'Bad request - must include date',

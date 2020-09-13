@@ -59,7 +59,7 @@ module.exports = {
 
   getDayOfMoments: async (date, feed) => {
     try {
-      const data = await IotData.find({ type: feed, createdAt: date });
+      const data = await IotData.find({ type: feed, createdAt: date }).lean();
       return data;
     } catch (err) {
       return console.log('Error in models', err);
