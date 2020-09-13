@@ -34,15 +34,6 @@ body {
   left: 10px;
 }
 
-#progressbar {
-  margin-top: 10px;
-  width: 70%;
-  background-color: black;
-  border-radius: 13px;
-  /* (height of inner div) / 2 + padding */
-  padding: 3px;
-}
-
 #chart4 {
   background: #fff;
   font-family: 'Ubuntu', sans-serif;

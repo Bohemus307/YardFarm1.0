@@ -1,6 +1,8 @@
 import React from 'react';
 import classes from './NutrientsTable.css';
 
+// note to create map of data to render these values and allow for
+// ease of add/remove sensor readings !!!!!!!!!!!!!
 const NutrientsTable = () => (
   <div className={classes.Table_wrappper}>
     <div className={classes.Nutrients_header}>
@@ -44,7 +46,7 @@ const NutrientsTable = () => (
       </div>
       <div className={classes.Table_item}>
         <span className={classes.Feed_label}>Flow Rate</span>
-        <span className={classes.Unit_label}>16 GPM</span>
+        <span className={classes.Unit_label}>4 GPM</span>
         <div id="progressbar" className={classes.Progress_Bar}>
           <div className={classes.Progressbar_div3} />
         </div>

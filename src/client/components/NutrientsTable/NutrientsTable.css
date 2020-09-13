@@ -5,6 +5,7 @@
   width: 100%;
   border: solid 2px #888888;
   border-radius:13px;
+  padding: 2px 2px;
   overflow: scroll;
 }
 
@@ -23,9 +24,9 @@
   font-weight: bold;
 }
 
-#progressbar {
+.Progress_Bar {
   margin-top: 10px;
-  width: 70%;
+  width: 50%;
   background-color: black;
   border-radius: 13px;
   /* (height of inner div) / 2 + padding */
@@ -79,10 +80,4 @@
   /* Adjust with JavaScript */
   height: 20px;
   border-radius: 10px;
-}
-
-.Nutrient_label {
-  font-size: 22px;
-  position: relative;
-  left: 155px; bottom: 25px;
 }
