@@ -6,14 +6,15 @@ import Task from './task.jsx';
 
 const Container = styled.div`
   margin: 8px;
-  border: 1px solid lightgrey;
-  border-radius: 8px;
-  width: 320px;
+  
+  
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
 const Title = styled.h3`
   padding: 4px;
+  margin: 0px 0px;
 `;
 const TaskList = styled.div`
   padding: 8px;

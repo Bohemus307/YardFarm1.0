@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import classes from './Second.css';
 import TaskBoard from '../d-n-d/TaskBoard.jsx';
-// import TaskBoard from '../d-n-d/TaskBoard.jsx';
 
 class Second extends React.Component {
   constructor(props) {
@@ -54,8 +53,8 @@ class Second extends React.Component {
             <input className={classes.Notes_button} type="submit" value="Save" />
           </form>
         </div> */}
+        <h2 className={classes.TaskHeader}>Tasks</h2>
         <div className={classes.Drag_N_Drop}>
-          <h2 className={classes.TaskHeader}>Tasks</h2>
           <TaskBoard />
         </div>
       </div>

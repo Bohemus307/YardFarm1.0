@@ -116,7 +116,7 @@ class TaskBoard extends React.Component {
       
           return <Column key= {column.id} column={column} tasks={tasks} />;
           })}
-          </Container>
+        </Container>
       </DragDropContext>
     ); 
   }
