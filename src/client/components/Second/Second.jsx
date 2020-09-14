@@ -6,6 +6,7 @@ import TaskBoard from '../d-n-d/TaskBoard.jsx';
 import Modal from '../Modal/Modal.jsx';
 import TaskInput from '../TaskInput/TaskInput.jsx';
 
+
 class Second extends React.Component {
   constructor(props) {
     super();
@@ -13,17 +14,20 @@ class Second extends React.Component {
     this.state = {
       taskAdded: false,
     };
-    this.taskHandler = this.taskHandler.bind(this);
   }
 
-  taskHandler() {
+  closeModal = () => {
+    this.setState({ taskAdded: false });
+  }
+
+  taskHandler = () => {
     this.setState({ taskAdded: true });
   }
 
   render() {
     return (
       <div className={classes.Second_div}>
-        <Modal show={this.state.taskAdded}>
+        <Modal show={this.state.taskAdded} modalClosed={this.closeModal}>
           <TaskInput />
         </Modal>
         <div className={classes.Board_control}>
