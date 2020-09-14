@@ -6,7 +6,8 @@ import NutrientsTable from '../NutrientsTable/NutrientsTable.jsx';
 
 class Main extends React.PureComponent {
   constructor(props) {
-    super(props);
+    super();
+    
     this.state = {
       week: [],
       DayTempData: [],
