@@ -9,7 +9,7 @@ body {
 .grid-container {
   display: grid;
   grid-template-areas:
-    'navbar navbar navbar navbar navbar navbar'
+    'menu navbar navbar navbar navbar navbar'
     'menu main main main main main'
     'menu second second second second second'
     'menu third third third third third'

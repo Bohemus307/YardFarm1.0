@@ -7,18 +7,18 @@ import Task from './task.jsx';
 const Container = styled.div`
   margin: 8px;
   border: 1px solid lightgrey;
-  border-radius: 2px;
-  width: 220px;
+  border-radius: 8px;
+  width: 320px;
   display: flex;
   flex-direction: column;
 `;
 const Title = styled.h3`
-  padding: 8px;
+  padding: 4px;
 `;
 const TaskList = styled.div`
   padding: 8px;
   transisition: background-color 0.2s ease;
-  background-color: ${(props) => (props.isDraggingOver ? 'skyblue' : 'white')};
+  background-color: ${(props) => (props.isDraggingOver ? 'white' : 'white')};
   flex-grow: 1;
   min-height: 100px;
 `;

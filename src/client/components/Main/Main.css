@@ -12,9 +12,7 @@
 }
 
 .Charts_wrapper {
-  border: solid 2px #888888;
-  border-radius:13px;
-  overflow: scroll;
+  padding: 5px 5px;
 }
 
 .Chart_Label {
