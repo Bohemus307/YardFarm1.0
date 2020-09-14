@@ -9,6 +9,7 @@
 .Board_control {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .Drag_N_Drop {
@@ -23,6 +24,12 @@
   font-weight: bold;
 }
 
+.Board_icon {
+  background-color: lightgrey;
+  border-radius: 40%;
+  height: 25px;
+  margin-left: 20px;
+}
 
 .Note_pad {
   padding: 20px 5px;

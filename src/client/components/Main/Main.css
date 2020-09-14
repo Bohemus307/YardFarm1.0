@@ -13,6 +13,8 @@
 
 .Charts_wrapper {
   padding: 5px 5px;
+  border-radius: 8px;
+  border: 2px solid lightgrey;
 }
 
 .Chart_Label {
