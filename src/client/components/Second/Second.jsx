@@ -47,8 +47,10 @@ class Second extends React.Component {
           <span className={classes.Task_header}>Tasks</span>
 
           <div className={classes.Board_control}>
-            <input type="image" src="/images/add.png" name="addTask" className={classes.Add_button} alt="add task" title="Add Task" />
-            <span className={classes.Board_icon}>Add</span>
+            <input type="image" src="/images/plus.png" name="addTask" className={classes.Add_button} alt="add task" title="Add Task" />
+            <span className={classes.Board_icon}>Task</span>
+            <input type="image" src="/images/plus.png" name="addColumn" className={classes.Add_button} alt="add Column" title="Add Column" />
+            <span className={classes.Board_icon}>Column</span>
             {/* <form className={classes.Note_pad} onSubmit={this.handleSubmit}>
               <textarea
                 placeholder="Task..."

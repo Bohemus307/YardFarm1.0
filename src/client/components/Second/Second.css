@@ -32,10 +32,9 @@
 }
 
 .Board_icon {
-  background-color: lightgrey;
-  border-radius: 40%;
-  height: 25px;
-  margin-left: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0px 5px;
 }
 
 .Note_pad {
