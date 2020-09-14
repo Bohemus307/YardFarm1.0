@@ -3,49 +3,22 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import classes from './Second.css';
 import TaskBoard from '../d-n-d/TaskBoard.jsx';
+import Modal from '../Modal/Modal.jsx';
+import TaskInput from '../TaskInput/TaskInput.jsx';
 
 class Second extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {
-      value: '',
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.postNoteToDb = this.postNoteToDb.bind(this);
-  }
-
-  // axios request to post notes to db
-  postNoteToDb() {
-    axios.post('/data/note', {
-      id: this.props.day,
-      note: this.state.value,
-    })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        throw new Error(error);
-      });
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    this.postNoteToDb();
-    alert('Your notes were saved');
-  }
-
-  handleChange(event) {
-    this.setState({ value: event.target.value });
+    super();
   }
 
   render() {
     return (
       <div className={classes.Second_div}>
+        <Modal>
+          <TaskInput />
+        </Modal>
         <div className={classes.Board_control}>
           <span className={classes.Task_header}>Tasks</span>
-
           <div className={classes.Board_control}>
             <input type="image" src="/images/plus.png" name="addTask" className={classes.Add_button} alt="add task" title="Add Task" />
             <span className={classes.Board_icon}>Task</span>
