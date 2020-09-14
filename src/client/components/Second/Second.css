@@ -24,6 +24,13 @@
   font-weight: bold;
 }
 
+.Add_button {
+  background-color: lightgrey;
+  border-radius: 50%;
+  height: 25px;
+  margin-left: 20px;
+}
+
 .Board_icon {
   background-color: lightgrey;
   border-radius: 40%;
