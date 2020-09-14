@@ -49,7 +49,7 @@ class TaskInput extends React.Component {
           value={this.state.value}
           onChange={this.handleChange}
         />
-        <input className={classes.Notes_button} type="submit" value="Save" />
+        <input className={classes.Notes_button} type="submit" value="Add" />
       </form>
     );
   }
