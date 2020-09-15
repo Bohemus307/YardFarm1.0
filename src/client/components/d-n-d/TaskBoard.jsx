@@ -52,9 +52,9 @@ class TaskBoard extends React.Component {
   }
 
   taskadded = (text) => {
-    // access task coiunter integer
+    // access task counter integer
     let { taskCounter } = this.state;
-    // create new task id
+    // create new task id from counter
     let newTaskId = `task-${ taskCounter }`;
     // create new task
     const newTask = { [newTaskId]: { id: newTaskId, content: text} };
