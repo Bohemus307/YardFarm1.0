@@ -7,6 +7,7 @@ import Task from './task.jsx';
 const Container = styled.div`
   margin: 8px;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 `;

@@ -5,7 +5,7 @@ import { Draggable } from 'react-beautiful-dnd';
 const Container = styled.div`
   border: 1px solid lightgrey;
   border-radius: 8px;
-  padding: 8px;
+  padding: 4px;
   margin-bottom: 8px;
   background-color: ${(props) => (props.isDragging ? 'lightgrey' : 'white')};
 `;
@@ -23,6 +23,7 @@ export default class Task extends React.Component {
             isDragging={snapshot.isDragging}
           >
             {this.props.task.content}
+            <input type="image" src="/images/close.png" name="removeTask" alt="remove task" title="Remove Task" />
           </Container>
         )}
       </Draggable>

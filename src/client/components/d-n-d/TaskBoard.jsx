@@ -67,16 +67,16 @@ class TaskBoard extends React.Component {
     let newTaskIds = this.state.columns['column-1'].taskIds.concat(newTaskId)
     // create access to columns
     var someProperty = {...this.state.columns}
+    // set new ids array as array in columns at column 1
     someProperty['column-1'].taskIds = newTaskIds;
 
-
+    // set new state 
     this.setState({
       taskCounter: this.state.taskCounter + 1,
       tasks: newTasks,
       columns: someProperty
     })
 
-    console.log('state after change ', this.state)
     this.closeModal();
   }
 
@@ -148,11 +148,11 @@ class TaskBoard extends React.Component {
   render() {
     console.log('state in taskboard', this.state);
     return(
-      <Aux >
+      <Aux>
         <Modal show={this.state.taskAdded} modalClosed={this.closeModal}>
           <TaskInput  taskadded={this.taskadded} />
         </Modal>
-        <div className={classes.Board_control}>
+        <div>
           <span className={classes.Task_header}>TaskBoard</span>
           <div className={classes.Board_control}>
             <input type="image" src="/images/plus.png" name="addTask" className={classes.Add_button} alt="add task" title="Add Task" onClick={this.taskHandler} />
