@@ -62,17 +62,21 @@ class TaskBoard extends React.Component {
     const tasks = this.state.tasks;
     // combine task object with new task
     let newTasks = Object.assign({}, tasks, newTask)
-    // reference taskids array in column 1
-    const taskIds = this.state.columns['column-1'].taskIds;
-    // create new array of ids
-    let newTaskIds = taskIds.concat(newTaskId);
 
-    console.log('new Tasks', newTasks, 'newtaskIds' , newTaskIds)
-    const newState = 
+    // create array of current ids
+    let newTaskIds = this.state.columns['column-1'].taskIds.concat(newTaskId)
+    // create access to columns
+    var someProperty = {...this.state.columns}
+    someProperty['column-1'].taskIds = newTaskIds;
+
+
     this.setState({
-      taskCounter: +1,
+      taskCounter: this.state.taskCounter + 1,
       tasks: newTasks,
+      columns: someProperty
     })
+
+    console.log('state after change ', this.state)
     this.closeModal();
   }
 
@@ -142,6 +146,7 @@ class TaskBoard extends React.Component {
   };
 
   render() {
+    console.log('state in taskboard', this.state);
     return(
       <Aux >
         <Modal show={this.state.taskAdded} modalClosed={this.closeModal}>

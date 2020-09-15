@@ -245,7 +245,6 @@ class Main extends React.PureComponent {
   }
 
   render() {
-    console.log('state in main', this.state);
     return (
       <div className={classes.Main_Wrapper}>
         <span>Cumulative Data</span>
