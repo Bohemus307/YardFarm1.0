@@ -33,14 +33,13 @@ class TaskInput extends React.Component {
     event.preventDefault();
     const { value } = this.state;
     this.props.taskadded(value);
-    alert('Your Task was added');
   }
 
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
 
-  render(props) {
+  render() {
     return (
       <form className={classes.Note_pad} onSubmit={this.handleSubmit}>
         <textarea

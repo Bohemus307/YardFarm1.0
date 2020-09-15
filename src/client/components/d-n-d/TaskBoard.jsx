@@ -18,18 +18,15 @@ class TaskBoard extends React.Component {
     super();
 
     this.state = {
+      taskCounter: 1,
       taskAdded: false,
       tasks: {
-        'task-1': { id: 'task-1', content: 'take out the trash'},
-        'task-2': { id: 'task-2', content: 'task2'},
-        'task-3': { id: 'task-3', content: 'task3'},
-        'task-4': { id: 'task-4', content: 'task4'},
-      },
+       },
       columns: {
         'column-1': {
           id: 'column-1',
           title: 'To do',
-          taskIds: ['task-1', 'task-2', 'task-3', 'task-4'],
+          taskIds: [],
         },
         'column-2': {
           id: 'column-2',
@@ -55,9 +52,28 @@ class TaskBoard extends React.Component {
   }
 
   taskadded = (text) => {
-    const newTask = { 'task-1': { id: 'task-1', content: text} },
+    // access task coiunter integer
+    let { taskCounter } = this.state;
+    // create new task id
+    let newTaskId = `task-${ taskCounter }`;
+    // create new task
+    const newTask = { [newTaskId]: { id: newTaskId, content: text} };
+    // access tasks object
+    const tasks = this.state.tasks;
+    // combine task object with new task
+    let newTasks = Object.assign({}, tasks, newTask)
+    // reference taskids array in column 1
+    const taskIds = this.state.columns['column-1'].taskIds;
+    // create new array of ids
+    let newTaskIds = taskIds.concat(newTaskId);
+
+    console.log('new Tasks', newTasks, 'newtaskIds' , newTaskIds)
+    const newState = 
+    this.setState({
+      taskCounter: +1,
+      tasks: newTasks,
+    })
     this.closeModal();
-    console.log('task added', text)
   }
 
   onDragEnd = result => {
