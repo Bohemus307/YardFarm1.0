@@ -1,0 +1,25 @@
+
+.Board_control {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Task_header {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px 10px;
+}
+
+.Add_button {
+  background-color: lightgrey;
+  border-radius: 50%;
+  height: 25px;
+  margin-left: 20px;
+}
+
+.Board_icon {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0px 5px;
+}

@@ -6,11 +6,6 @@
   width: 100%;
 }
 
-.Board_control {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
 
 .Drag_N_Drop {
   width: 100%;
@@ -19,23 +14,6 @@
   border: 2px solid lightgrey;
 }
 
-.Task_header {
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.Add_button {
-  background-color: lightgrey;
-  border-radius: 50%;
-  height: 25px;
-  margin-left: 20px;
-}
-
-.Board_icon {
-  font-size: 18px;
-  font-weight: bold;
-  padding: 0px 5px;
-}
 
 .C3-axis-y text {
   font-family: 'Ubuntu', sans-serif;

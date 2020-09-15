@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { DragDropContext } from 'react-beautiful-dnd'; 
 import initialData from './initial-data';
+import Aux from '../Aux/Aux.jsx';
 import Column from './d-n-d-components/column.jsx';
+import Modal from '../Modal/Modal.jsx';
+import TaskInput from '../TaskInput/TaskInput.jsx';
+import classes from './TaskBoard.css';
 
 const Container = styled.div`
   display: flex;
@@ -11,9 +15,10 @@ const Container = styled.div`
 
 class TaskBoard extends React.Component {
   constructor(props) {
-    super(props)
+    super();
 
     this.state = {
+      taskAdded: false,
       tasks: {
         'task-1': { id: 'task-1', content: 'take out the trash'},
         'task-2': { id: 'task-2', content: 'task2'},
@@ -40,7 +45,15 @@ class TaskBoard extends React.Component {
       columnOrder: ['column-1', 'column-2', 'column-3'],
     }
   };
-  
+
+  taskHandler = () => {
+    this.setState({ taskAdded: true });
+  }
+
+  closeModal = () => {
+    this.setState({ taskAdded: false });
+  }
+
   onDragEnd = result => {
     const { destination, source, draggableId } = result;
 
@@ -108,16 +121,30 @@ class TaskBoard extends React.Component {
 
   render() {
     return(
-      <DragDropContext onDragEnd={this.onDragEnd}>
-        <Container>
-        {this.state.columnOrder.map(columnId => {
-          const column = this.state.columns[columnId];
-          const tasks = column.taskIds.map(taskId => this.state.tasks[taskId],);
-      
-          return <Column key= {column.id} column={column} tasks={tasks} />;
-          })}
-        </Container>
-      </DragDropContext>
+      <Aux >
+        <Modal show={this.state.taskAdded} modalClosed={this.closeModal}>
+          <TaskInput />
+        </Modal>
+        <div className={classes.Board_control}>
+          <span className={classes.Task_header}>TaskBoard</span>
+          <div className={classes.Board_control}>
+            <input type="image" src="/images/plus.png" name="addTask" className={classes.Add_button} alt="add task" title="Add Task" onClick={this.taskHandler} />
+            <span className={classes.Board_icon}>Task</span>
+            <input type="image" src="/images/plus.png" name="addColumn" className={classes.Add_button} alt="add Column" title="Add Column" />
+            <span className={classes.Board_icon}>Column</span>
+          </div>
+        </div>
+        <DragDropContext onDragEnd={this.onDragEnd}>
+          <Container>
+          {this.state.columnOrder.map(columnId => {
+            const column = this.state.columns[columnId];
+            const tasks = column.taskIds.map(taskId => this.state.tasks[taskId],);
+        
+            return <Column key= {column.id} column={column} tasks={tasks} />;
+            })}
+          </Container>
+        </DragDropContext>
+      </Aux>
     ); 
   }
 }
