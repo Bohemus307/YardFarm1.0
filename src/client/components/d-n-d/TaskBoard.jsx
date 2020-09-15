@@ -54,6 +54,12 @@ class TaskBoard extends React.Component {
     this.setState({ taskAdded: false });
   }
 
+  taskadded = (text) => {
+    const newTask = { 'task-1': { id: 'task-1', content: text} },
+    this.closeModal();
+    console.log('task added', text)
+  }
+
   onDragEnd = result => {
     const { destination, source, draggableId } = result;
 
@@ -123,7 +129,7 @@ class TaskBoard extends React.Component {
     return(
       <Aux >
         <Modal show={this.state.taskAdded} modalClosed={this.closeModal}>
-          <TaskInput />
+          <TaskInput  taskadded={this.taskadded} />
         </Modal>
         <div className={classes.Board_control}>
           <span className={classes.Task_header}>TaskBoard</span>

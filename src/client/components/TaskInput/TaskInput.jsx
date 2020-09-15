@@ -31,7 +31,8 @@ class TaskInput extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.postNoteToDb();
+    const { value } = this.state;
+    this.props.taskadded(value);
     alert('Your Task was added');
   }
 
@@ -39,7 +40,7 @@ class TaskInput extends React.Component {
     this.setState({ value: event.target.value });
   }
 
-  render() {
+  render(props) {
     return (
       <form className={classes.Note_pad} onSubmit={this.handleSubmit}>
         <textarea
