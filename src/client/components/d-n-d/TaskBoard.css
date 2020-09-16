@@ -18,3 +18,14 @@
   font-weight: bold;
   padding: 0px 5px;
 }
+
+.Trash_button {
+  padding: 5px 25px;
+  height: 40px;
+  
+}
+
+.Control_bar {
+  display: flex;
+  flex-direction: row;
+}

@@ -155,13 +155,14 @@ class TaskBoard extends React.Component {
         <Modal show={this.state.taskAdded} modalClosed={this.closeModal}>
           <TaskInput taskadded={this.taskadded} />
         </Modal>
-        <div>
+        <div className={classes.Control_bar}>
           <div className={classes.Board_control}>
             <input type="image" src="/images/plus.png" name="addTask" className={classes.Add_button} alt="add task" title="Add Task" onClick={this.taskHandler} />
             <span className={classes.Board_icon}>Task</span>
             <input type="image" src="/images/plus.png" name="addColumn" className={classes.Add_button} alt="add Column" title="Add Column" />
             <span className={classes.Board_icon}>Column</span>
           </div>
+          <input type="image" src="/images/trash.svg" name="trashTask" className={classes.Trash_button} alt="Trash Task" title="Trash Task" />
         </div>
         <DragDropContext onDragEnd={this.onDragEnd} taskRemove={this.taskRemove}>
           <Container>
