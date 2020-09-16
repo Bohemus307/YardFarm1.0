@@ -59,8 +59,9 @@ class TaskBoard extends React.Component {
     this.setState({ taskAdded: false });
   }
 
-  taskRemove = () => {
-    console.log('task removed');
+  taskRemove = (taskID) => {
+    console.log('task removed', taskID);
+    
   }
 
   taskadded = (text) => {
@@ -96,7 +97,8 @@ class TaskBoard extends React.Component {
     const { destination, source, draggableId } = result;
     console.log('result', result);
     if (destination.droppableId === 'Trash') {
-      console.log('trash');
+      this.taskRemove(draggableId);
+      return;
     }
 
     if (!destination) {
