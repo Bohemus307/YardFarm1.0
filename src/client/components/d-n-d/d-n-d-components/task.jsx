@@ -25,7 +25,7 @@ export default class Task extends React.Component {
             isDragging={snapshot.isDragging}
           >
             {this.props.task.content}
-            <input type="image" src="/images/close.png" className={classes.Close_button} name="removeTask" alt="remove task" title="Remove Task" />
+            {/* <input type="image" src="/images/close.png" className={classes.Close_button} name="removeTask" alt="remove task" title="Remove Task" /> */}
           </Container>
         )}
       </Draggable>

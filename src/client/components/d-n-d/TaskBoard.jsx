@@ -51,6 +51,10 @@ class TaskBoard extends React.Component {
     this.setState({ taskAdded: false });
   }
 
+  taskRemove = () => {
+    console.log('task removed');
+  }
+
   taskadded = (text) => {
     // access task counter integer
     let { taskCounter } = this.state;
@@ -66,15 +70,15 @@ class TaskBoard extends React.Component {
     // create array of current ids
     let newTaskIds = this.state.columns['column-1'].taskIds.concat(newTaskId)
     // create access to columns
-    var someProperty = {...this.state.columns}
+    const newColumns = {...this.state.columns}
     // set new ids array as array in columns at column 1
-    someProperty['column-1'].taskIds = newTaskIds;
+    newColumns['column-1'].taskIds = newTaskIds;
 
     // set new state 
     this.setState({
       taskCounter: this.state.taskCounter + 1,
       tasks: newTasks,
-      columns: someProperty
+      columns: newColumns
     })
 
     this.closeModal();
@@ -82,7 +86,7 @@ class TaskBoard extends React.Component {
 
   onDragEnd = result => {
     const { destination, source, draggableId } = result;
-
+    console.log('result', result);
     if (!destination) {
       return;
     }
@@ -149,7 +153,7 @@ class TaskBoard extends React.Component {
     return(
       <Aux>
         <Modal show={this.state.taskAdded} modalClosed={this.closeModal}>
-          <TaskInput  taskadded={this.taskadded} />
+          <TaskInput taskadded={this.taskadded} />
         </Modal>
         <div>
           <div className={classes.Board_control}>
@@ -159,7 +163,7 @@ class TaskBoard extends React.Component {
             <span className={classes.Board_icon}>Column</span>
           </div>
         </div>
-        <DragDropContext onDragEnd={this.onDragEnd}>
+        <DragDropContext onDragEnd={this.onDragEnd} taskRemove={this.taskRemove}>
           <Container>
           {this.state.columnOrder.map(columnId => {
             const column = this.state.columns[columnId];
