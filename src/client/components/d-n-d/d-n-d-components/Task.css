@@ -1,0 +1,8 @@
+.Close_button {
+  position: fixed;
+  bottom: 430px;
+  left: 518px;
+  height: 18px;
+  background-color: lightgrey;
+  border-radius: 50%; 
+}

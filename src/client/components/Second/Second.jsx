@@ -14,6 +14,7 @@ class Second extends React.Component {
   render() {
     return (
       <div className={classes.Second_div}>
+        <span className={classes.Task_header}>TaskBoard</span>
         <div className={classes.Drag_N_Drop}>
           <TaskBoard />
         </div>

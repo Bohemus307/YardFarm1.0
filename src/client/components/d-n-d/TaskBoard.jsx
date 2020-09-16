@@ -146,14 +146,12 @@ class TaskBoard extends React.Component {
   };
 
   render() {
-    console.log('state in taskboard', this.state);
     return(
       <Aux>
         <Modal show={this.state.taskAdded} modalClosed={this.closeModal}>
           <TaskInput  taskadded={this.taskadded} />
         </Modal>
         <div>
-          <span className={classes.Task_header}>TaskBoard</span>
           <div className={classes.Board_control}>
             <input type="image" src="/images/plus.png" name="addTask" className={classes.Add_button} alt="add task" title="Add Task" onClick={this.taskHandler} />
             <span className={classes.Board_icon}>Task</span>
