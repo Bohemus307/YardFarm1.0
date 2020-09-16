@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import { DragDropContext } from 'react-beautiful-dnd'; 
+import { DragDropContext, Droppable } from 'react-beautiful-dnd'; 
 import initialData from './initial-data';
 import Aux from '../Aux/Aux.jsx';
 import Column from './d-n-d-components/column.jsx';
@@ -11,6 +11,14 @@ import classes from './TaskBoard.css';
 
 const Container = styled.div`
   display: flex;
+`;
+
+const Trash = styled.div`
+  padding: 8px;
+  transisition: background-color 0.2s ease;
+  background-color: ${(props) => (props.isDraggingOver ? 'white' : 'white')};
+  flex-grow: 1;
+  min-height: 100px;
 `;
 
 class TaskBoard extends React.Component {
@@ -84,13 +92,17 @@ class TaskBoard extends React.Component {
     this.closeModal();
   }
 
-  onDragEnd = result => {
+  onDragEnd = (result) => {
     const { destination, source, draggableId } = result;
     console.log('result', result);
+    if (destination.droppableId === 'Trash') {
+      console.log('trash');
+    }
+
     if (!destination) {
       return;
     }
-
+    
     if (destination.droppableId === source.droppableId && 
       destination.index === source.index
     ) {
@@ -155,16 +167,13 @@ class TaskBoard extends React.Component {
         <Modal show={this.state.taskAdded} modalClosed={this.closeModal}>
           <TaskInput taskadded={this.taskadded} />
         </Modal>
-        <div className={classes.Control_bar}>
-          <div className={classes.Board_control}>
-            <input type="image" src="/images/plus.png" name="addTask" className={classes.Add_button} alt="add task" title="Add Task" onClick={this.taskHandler} />
-            <span className={classes.Board_icon}>Task</span>
-            <input type="image" src="/images/plus.png" name="addColumn" className={classes.Add_button} alt="add Column" title="Add Column" />
-            <span className={classes.Board_icon}>Column</span>
-          </div>
-          <input type="image" src="/images/trash.svg" name="trashTask" className={classes.Trash_button} alt="Trash Task" title="Trash Task" />
+        <div className={classes.Board_control}>
+          <input type="image" src="/images/plus.png" name="addTask" className={classes.Add_button} alt="add task" title="Add Task" onClick={this.taskHandler} />
+          <span className={classes.Board_icon}>Task</span>
+          {/* <input type="image" src="/images/plus.png" name="addColumn" className={classes.Add_button} alt="add Column" title="Add Column" />
+          <span className={classes.Board_icon}>Column</span> */}
         </div>
-        <DragDropContext onDragEnd={this.onDragEnd} taskRemove={this.taskRemove}>
+        <DragDropContext onDragEnd={this.onDragEnd}>
           <Container>
           {this.state.columnOrder.map(columnId => {
             const column = this.state.columns[columnId];
@@ -173,6 +182,14 @@ class TaskBoard extends React.Component {
             return <Column key= {column.id} column={column} tasks={tasks} />;
             })}
           </Container>
+          <Droppable droppableId='Trash'>
+          {(provided, snapshot) => (
+            <Trash ref={provided.innerRef} {...provided.droppableProps} isDraggingOver={snapshot.isDraggingOver}>
+              <input type="image" src="/images/trash.svg" name="trashTask" className={classes.Trash_button} alt="Trash Task" title="Trash Task" /> 
+              {provided.placeholder}
+            </Trash>
+          )}
+        </Droppable>
         </DragDropContext>
       </Aux>
     ); 
@@ -180,3 +197,5 @@ class TaskBoard extends React.Component {
 }
 
 export default TaskBoard;
+
+ 
