@@ -14,11 +14,11 @@ const Container = styled.div`
 `;
 
 const Trash = styled.div`
-  padding: 8px;
-  transisition: background-color 0.2s ease;
-  background-color: ${(props) => (props.isDraggingOver ? 'white' : 'white')};
-  flex-grow: 1;
-  min-height: 100px;
+  float: right;
+  padding: 5px 5px;
+  background-color: ${(props) => (props.isDraggingOver ? 'tomato' : 'white')};
+  position: relative;
+  bottom: 230px;
 `;
 
 class TaskBoard extends React.Component {
