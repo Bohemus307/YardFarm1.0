@@ -28,14 +28,6 @@
   display: flex;
 }
 
-.Trash_div {
-  float: right;
-  padding: 5px 5px;
-  position: relative;
-  bottom: 230px;
-  background-color: white;
-}
-
 .Trash_div:hover {
   background-color: tomato;
   border-radius: 9px;

@@ -10,6 +10,16 @@ import TaskInput from '../TaskInput/TaskInput.jsx';
 import classes from './TaskBoard.css';
 
 
+const Trash = styled.div`
+  float: right;
+  padding: 5px 0px;
+  background-color: ${(props) => (props.isDraggingOver ? 'tomato' : 'white')};
+  position: absolute;
+  height: 80px;
+  border-radius: 9px;
+  bottom: 190px; right: 40px;
+`;
+
 class TaskBoard extends React.Component {
   constructor(props) {
     super();
@@ -193,11 +203,10 @@ class TaskBoard extends React.Component {
           </div>
           <Droppable droppableId='Trash'>
           {(provided, snapshot) => (
-            <div className={classes.Trash_div} ref={provided.innerRef} {...provided.droppableProps} isDraggingOver={snapshot.isDraggingOver}>
-              
+            <Trash ref={provided.innerRef} {...provided.droppableProps} isDraggingOver={snapshot.isDraggingOver}>
               <input type="image" src="/images/trash.svg" name="trashTask" className={classes.Trash_button} alt="Trash Task" title="Trash Task" /> 
               {provided.placeholder}
-            </div>
+            </Trash>
           )}
         </Droppable>
         </DragDropContext>
