@@ -58,13 +58,27 @@ class TaskBoard extends React.Component {
     this.setState({ taskAdded: false });
   }
 
-  taskRemove = (taskId) => {
+  taskRemove = (taskId, columnId) => {
     console.log('task removed', taskId);
     // access tasks object
     let taskList = Object.assign({}, this.state.tasks);
     // delete prop with taskId
-    //delete taskList.taskId;
-    console.log(taskList.taskId);
+    delete taskList[taskId];
+    // access columns at column id
+    let columns = this.state.columns[columnId];
+    //access index of taskID
+    let deleteIndex = columns.taskIds.indexOf(taskId);
+    // delete from array using splice
+    columns.taskIds.splice(deleteIndex, 1);
+    console.log(columns)
+    //reset state with new state obj
+    this.setState({
+      tasks: taskList,
+      columns: {
+        ...this.state.columns,
+        [columns.id]: columns,
+      },
+    })
     
 
   }
@@ -102,7 +116,7 @@ class TaskBoard extends React.Component {
     const { destination, source, draggableId } = result;
     console.log('result', result);
     if (destination.droppableId === 'Trash') {
-      this.taskRemove(draggableId);
+      this.taskRemove(draggableId, source.droppableId);
       return;
     }
 
