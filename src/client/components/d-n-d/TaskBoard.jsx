@@ -28,8 +28,7 @@ class TaskBoard extends React.Component {
     this.state = {
       taskCounter: 1,
       taskAdded: false,
-      tasks: {
-       },
+      tasks: {},
       columns: {
         'column-1': {
           id: 'column-1',
@@ -59,9 +58,15 @@ class TaskBoard extends React.Component {
     this.setState({ taskAdded: false });
   }
 
-  taskRemove = (taskID) => {
-    console.log('task removed', taskID);
+  taskRemove = (taskId) => {
+    console.log('task removed', taskId);
+    // access tasks object
+    let taskList = Object.assign({}, this.state.tasks);
+    // delete prop with taskId
+    //delete taskList.taskId;
+    console.log(taskList.taskId);
     
+
   }
 
   taskadded = (text) => {
