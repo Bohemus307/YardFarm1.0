@@ -9,17 +9,6 @@ import Modal from '../Modal/Modal.jsx';
 import TaskInput from '../TaskInput/TaskInput.jsx';
 import classes from './TaskBoard.css';
 
-const Container = styled.div`
-  display: flex;
-`;
-
-const Trash = styled.div`
-  float: right;
-  padding: 5px 5px;
-  background-color: ${(props) => (props.isDraggingOver ? 'tomato' : 'white')};
-  position: relative;
-  bottom: 230px;
-`;
 
 class TaskBoard extends React.Component {
   constructor(props) {
@@ -59,19 +48,17 @@ class TaskBoard extends React.Component {
   }
 
   taskRemove = (taskId, columnId) => {
-    console.log('task removed', taskId);
     // access tasks object
     let taskList = Object.assign({}, this.state.tasks);
     // delete prop with taskId
     delete taskList[taskId];
     // access columns at column id
     let columns = this.state.columns[columnId];
-    //access index of taskID
+    // access index of taskID
     let deleteIndex = columns.taskIds.indexOf(taskId);
     // delete from array using splice
     columns.taskIds.splice(deleteIndex, 1);
-    console.log(columns)
-    //reset state with new state obj
+    // set state with new state obj
     this.setState({
       tasks: taskList,
       columns: {
@@ -114,7 +101,8 @@ class TaskBoard extends React.Component {
 
   onDragEnd = (result) => {
     const { destination, source, draggableId } = result;
-    console.log('result', result);
+    
+    // added trash can icon for removal of tasks this is conditional for it
     if (destination.droppableId === 'Trash') {
       this.taskRemove(draggableId, source.droppableId);
       return;
@@ -195,20 +183,21 @@ class TaskBoard extends React.Component {
           <span className={classes.Board_icon}>Column</span> */}
         </div>
         <DragDropContext onDragEnd={this.onDragEnd}>
-          <Container>
+          <div className={classes.Drag_div}>
           {this.state.columnOrder.map(columnId => {
             const column = this.state.columns[columnId];
             const tasks = column.taskIds.map(taskId => this.state.tasks[taskId],);
         
             return <Column key= {column.id} column={column} tasks={tasks} />;
             })}
-          </Container>
+          </div>
           <Droppable droppableId='Trash'>
           {(provided, snapshot) => (
-            <Trash ref={provided.innerRef} {...provided.droppableProps} isDraggingOver={snapshot.isDraggingOver}>
+            <div className={classes.Trash_div} ref={provided.innerRef} {...provided.droppableProps} isDraggingOver={snapshot.isDraggingOver}>
+              
               <input type="image" src="/images/trash.svg" name="trashTask" className={classes.Trash_button} alt="Trash Task" title="Trash Task" /> 
               {provided.placeholder}
-            </Trash>
+            </div>
           )}
         </Droppable>
         </DragDropContext>
