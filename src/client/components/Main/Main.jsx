@@ -21,7 +21,7 @@ class Main extends React.PureComponent {
     this.getDayOfFeedData('temperature');
     this.getDayOfFeedData('humidity');
     this.updateChart();
-    // this.getWeekOfData(); need more data
+    //this.getWeekOfData(); // need more work
   }
 
   componentDidUpdate() {
@@ -66,19 +66,25 @@ class Main extends React.PureComponent {
     // create iso format date for begining of past week
     let newDate = new Date(Date.now()).toISOString().substring(0, 10);
     let beginDateDay = newDate.substring(8,10) - 6;
+    // check for negative result and handle
+    if (beginDateDay < 0) {
+      beginDateDay = 30 + beginDateDay;
+    }
+    // replaceAt method creation
     String.prototype.replaceAt = function(index, replacement) {
       if (index >= this.length) {
         return this.valueOf();
       }
     
-      return this.substring(0, index) + replacement + this.substring(index + 1);
+      return this.substring(0, index-1) + replacement ;
     }
     // begining of week date
     let beginDate = newDate.replaceAt(9, beginDateDay);
-
+    console.log(beginDate, endDate)
     // creates array of days
     const getDaysArray = (start, end) => {
       for(var arr=[],dt=new Date(start); dt<=end; dt.setDate(dt.getDate()+1)){
+          console.log('dates in days array',new Date(dt))
           arr.push(new Date(dt));
       }
       return arr;
@@ -87,7 +93,7 @@ class Main extends React.PureComponent {
     // creates array of iso formattted dates to represent past week
     let dayList = getDaysArray(new Date(beginDate),new Date(endDate));
     let dates = dayList.map((date)=> date.toISOString().substring(0,10))
-  
+    console.log('dates in week', dayList)
     axios.get('/data/week', {
       params: {
         dates,

@@ -54,7 +54,7 @@ module.exports = {
       time: item.created_at.substring(11, 19),
       type: feedName,
     }));
-    IotData.insertMany(docs, (err) => console.log('success'));
+    IotData.insertMany(docs, (err) => console.log(err));
   },
 
   getDayOfMoments: async (date, feed) => {

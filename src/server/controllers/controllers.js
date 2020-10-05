@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 const axios = require('axios').default;
+const { response } = require('express');
 const config = require('../../../config');
 const model = require('../../mongo/models/model.js');
 
@@ -42,7 +43,7 @@ module.exports = {
   getDayOfData: (req, res) => {
     const { date } = req.query;
     const { type } = req.query;
-    
+
     if (date === undefined) {
       res.status(400).json({
         message: 'Bad request - must include date',
@@ -62,7 +63,7 @@ module.exports = {
 
   getWeekOfData: (req, res) => {
     const { dates } = req.query;
-    console.log(dates);
+    console.log('dates for week of data', req.query);
     if (dates === undefined) {
       res.status(400).json({
         message: 'Bad request - must include dates',
