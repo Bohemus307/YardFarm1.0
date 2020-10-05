@@ -5,6 +5,7 @@ import {
   Route,
   Link,
 } from 'react-router-dom';
+
 import Dashboard from '../DashBoard/Dashboard.jsx';
 
 export default function App() {
@@ -32,16 +33,16 @@ export default function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/login">
-            <About />
+            <Login />
           </Route>
           <Route path="/alerts">
-            <Dashboard />
+            <Alerts />
           </Route>
           <Route path="/controls">
-            <About />
+            <Controls />
           </Route>
           <Route path="/">
-            <Home />
+            <Dashboard />
           </Route>
         </Switch>
       </div>
@@ -49,14 +50,14 @@ export default function App() {
   );
 }
 
-function Home() {
-  return <h2>Home</h2>;
+function Login() {
+  return <h2>Login</h2>;
 }
 
-function About() {
-  return <h2>About</h2>;
+function Alerts() {
+  return <h2>Alerts</h2>;
 }
 
-function Users() {
-  return <h2>Users</h2>;
+function Controls() {
+  return <h2>Controls</h2>;
 }
