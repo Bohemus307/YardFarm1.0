@@ -2,7 +2,7 @@ import c3 from 'c3';
 import React from 'react';
 import axios from 'axios';
 import classes from './Main.css';
-import NutrientsTable from '../NutrientsTable/NutrientsTable.jsx';
+import NutrientsTable from '../../Components/NutrientsTable/NutrientsTable.jsx';
 
 class Main extends React.PureComponent {
   constructor(props) {

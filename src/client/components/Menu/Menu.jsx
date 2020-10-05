@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import classes from './Menu.css';
-import Switch from '../Switch/Switch.jsx';
+import Switch from '../UI/Switch/Switch.jsx';
+import Logo from '../Logo/Logo.jsx';
 
 const Menu = () => {
   const [value, setValue] = useState(false);
   return (
     <div className={classes.Menu}>
       <div>
-        <img className={classes.Logo_1} src="/images/greenhouse3.png" alt="company logo here" />
+        <Logo height="5%" />
       </div>
       <div className={classes.Logo_Text}>
         Yard Farm

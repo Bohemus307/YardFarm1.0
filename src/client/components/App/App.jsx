@@ -6,7 +6,7 @@ import {
   Link,
 } from 'react-router-dom';
 
-import Dashboard from '../DashBoard/Dashboard.jsx';
+import Dashboard from '../../Containers/DashBoard/Dashboard.jsx';
 import Login from '../Login/Login.jsx';
 
 export default function App() {

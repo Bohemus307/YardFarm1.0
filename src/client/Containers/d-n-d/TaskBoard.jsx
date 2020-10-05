@@ -5,7 +5,7 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import initialData from './initial-data';
 import Aux from '../../HOC/Aux/Aux.jsx';
 import Column from './d-n-d-components/column.jsx';
-import Modal from '../Modal/Modal.jsx';
+import Modal from '../../Components/UI/Modal/Modal.jsx';
 import TaskInput from '../TaskInput/TaskInput.jsx';
 import classes from './TaskBoard.css';
 

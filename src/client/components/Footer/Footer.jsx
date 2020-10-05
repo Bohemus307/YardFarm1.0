@@ -1,10 +1,8 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable class-methods-use-this */
 import React from 'react';
 import classes from './Footer.css';
 
 // import LineChart from './LineChart.jsx';
-import Slider from '../Slider/Slider.jsx';
+import Slider from '../UI/Slider/Slider.jsx';
 
 const Footer = () => (
   <div className={classes.Footer_div}>
