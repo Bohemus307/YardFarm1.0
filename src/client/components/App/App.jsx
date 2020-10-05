@@ -1,76 +1,62 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from 'react-router-dom';
+import Dashboard from '../DashBoard/Dashboard.jsx';
 
-import classes from './App.css';
-import axios from 'axios';
+export default function App() {
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <Link to="/alerts">Alerts</Link>
+            </li>
+            <li>
+              <Link to="/controls">Controls</Link>
+            </li>
+          </ul>
+        </nav>
 
-import Menu from '../Menu/Menu.jsx';
-import Navbar from '../NavBar/Navbar.jsx';
-import Main from '../Main/Main.jsx';
-import Second from '../Second/Second.jsx';
-import Footer from '../Footer/Footer.jsx';
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      id: 1,
-      dataLoaded: false,
-      dataFeeds: ['temperature', 'humidity', 'pressure', 'tvoc', 'co2', 'uv', 'altitude'],
-      dataIds: [1415191, 1415192, 1415193, 1415196, 1415197, 1415203, 1415204],
-    };
-  }
-
-  loadDataToDb = (dataId, dataFeed) => {
-    axios.get('/data/allFeedData', { 
-      params: {
-        feed_id: dataId,
-        feed_name: dataFeed
-      }
-    })
-    .then((response) => response)
-    .catch((err) => console.log(err));
-  }
-
-  componentDidMount() {
-    // if page refresh reload all data
-    if (!this.state.dataLoaded) {
-      this.callAllFeeds();
-      this.setState({ dataLoaded: true });
-    } 
-  }
-
-  callAllFeeds = () => {
-    const ids = this.state.dataIds;
-    const dataFeeds = this.state.dataFeeds;
-    ids.map((id, i) => {
-      this.loadDataToDb(id, dataFeeds[i]);
-    })
-  }
-
-  render() {
-    return (
-      <div className="grid-container">
-        <div className={classes.Item1}>
-          <Navbar />
-        </div>
-        <div className={classes.Item2}>
-          <Menu />
-        </div>
-        <div className={classes.Item3}>
-          <Main />
-        </div>
-        <div className={classes.Item4}>
-          <Second />
-        </div>
-        <div className={classes.Item5}>
-          Third
-        </div>
-        <div className={classes.Item6}>
-          <Footer />
-        </div>
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/login">
+            <About />
+          </Route>
+          <Route path="/alerts">
+            <Dashboard />
+          </Route>
+          <Route path="/controls">
+            <About />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
       </div>
-    );
-  }
+    </Router>
+  );
 }
-export default App;
+
+function Home() {
+  return <h2>Home</h2>;
+}
+
+function About() {
+  return <h2>About</h2>;
+}
+
+function Users() {
+  return <h2>Users</h2>;
+}
