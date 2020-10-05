@@ -15,10 +15,10 @@ export default function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Login</Link>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              <Link to="/dashboard">Dash Board</Link>
             </li>
             <li>
               <Link to="/alerts">Alerts</Link>
@@ -32,8 +32,8 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/login">
-            <Login />
+          <Route path="/dashboard">
+            <Dashboard />
           </Route>
           <Route path="/alerts">
             <Alerts />
@@ -41,8 +41,11 @@ export default function App() {
           <Route path="/controls">
             <Controls />
           </Route>
+          <Route path="/admin">
+            <Admin />
+          </Route>
           <Route path="/">
-            <Dashboard />
+            <Login />
           </Route>
         </Switch>
       </div>
@@ -60,4 +63,8 @@ function Alerts() {
 
 function Controls() {
   return <h2>Controls</h2>;
+}
+
+function Admin() {
+  return <h2>Admin</h2>;
 }
