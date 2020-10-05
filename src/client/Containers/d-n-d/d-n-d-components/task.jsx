@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
-import classes from './Task.css';
 
 const Container = styled.div`
   border: 1px solid lightgrey;
@@ -25,7 +24,6 @@ export default class Task extends React.Component {
             isDragging={snapshot.isDragging}
           >
             {this.props.task.content}
-            {/* <input type="image" src="/images/close.png" className={classes.Close_button} name="removeTask" alt="remove task" title="Remove Task" /> */}
           </Container>
         )}
       </Draggable>

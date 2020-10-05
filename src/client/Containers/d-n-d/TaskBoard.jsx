@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'; 
-import initialData from './initial-data';
 import Aux from '../../HOC/Aux/Aux.jsx';
 import Column from './d-n-d-components/column.jsx';
 import Modal from '../../Components/UI/Modal/Modal.jsx';
@@ -12,12 +11,10 @@ import classes from './TaskBoard.css';
 
 const Trash = styled.div`
   float: right;
-  padding: 5px 0px;
+  padding: 0px 0px;
   background-color: ${(props) => (props.isDraggingOver ? 'tomato' : 'white')};
-  position: absolute;
   height: 80px;
   border-radius: 9px;
-  bottom: 190px; right: 40px;
 `;
 
 class TaskBoard extends React.Component {
@@ -208,7 +205,7 @@ class TaskBoard extends React.Component {
               {provided.placeholder}
             </Trash>
           )}
-        </Droppable>
+          </Droppable>
         </DragDropContext>
       </Aux>
     ); 
