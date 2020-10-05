@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import Dashboard from '../DashBoard/Dashboard.jsx';
+import Login from '../Login/Login.jsx';
 
 export default function App() {
   return (
@@ -51,10 +52,6 @@ export default function App() {
       </div>
     </Router>
   );
-}
-
-function Login() {
-  return <h2>Login</h2>;
 }
 
 function Alerts() {
