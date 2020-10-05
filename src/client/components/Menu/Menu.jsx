@@ -7,9 +7,7 @@ const Menu = () => {
   const [value, setValue] = useState(false);
   return (
     <div className={classes.Menu}>
-      <div>
-        <Logo height="5%" />
-      </div>
+      <Logo height="15%" />
       <div className={classes.Logo_Text}>
         Yard Farm
       </div>
