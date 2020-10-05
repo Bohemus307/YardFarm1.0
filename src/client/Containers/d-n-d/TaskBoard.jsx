@@ -10,7 +10,6 @@ import classes from './TaskBoard.css';
 
 
 const Trash = styled.div`
-  float: right;
   padding: 0px 0px;
   background-color: ${(props) => (props.isDraggingOver ? 'tomato' : 'white')};
   height: 80px;
