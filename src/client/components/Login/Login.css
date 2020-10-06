@@ -1,9 +1,21 @@
+.Login {
+  display: flex;
+  flex-direction: row;
+  height: 1000px;
+  align-items: center;
+  justify-content: center;
+  background-color: #2196F3;
+}
+
 .Container {
   display: flex;
   flex-direction: row;
-  width: 100%;
-  align-items: center;
-
+  width: 60%;
+  border: 2px solid lightgray;
+  border-radius: 25px;
+  justify-content: space-between;
+  padding: 177px 130px 33px 95px;
+  background-color: white;
 }
 
 .Login_Form {
