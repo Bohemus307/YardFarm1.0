@@ -26,7 +26,7 @@ const Login = () => (
               <img className={classes.InputImage} src="/images/password.png" alt="password" title="password" />
             </span>
           </div>
-          <input className={classes.Submit} type="submit" value="Submit" id="submit" />
+          <input className={classes.Submit} type="submit" value="Login" id="login" />
           <div className={classes.ForgotDiv}>
             <span>
               Forgot
@@ -36,6 +36,10 @@ const Login = () => (
             </div>
           </div>
         </form>
+        <div className={classes.Create}>
+          Create Account
+          <span><img className={classes.CreateImage} src="/images/right-arrow.png" alt="create account" title="create" /></span>
+        </div>
       </div>
     </div>
   </div>
