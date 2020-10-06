@@ -13,16 +13,28 @@ const Login = () => (
         <div className={classes.Title}>Yard Farm Login</div>
         <form className={classes.Login_Form}>
           <br />
-          <input className={classes.FormInput} type="text" id="username" name="username" placeholder="Username" />
-          <span>
-            <img className={classes.InputImage} src="/images/id-card.png" alt="username" title="username" />
-          </span>
+          <div>
+            <input className={classes.FormInput} type="text" id="username" name="username" placeholder="Username" />
+            <span className={classes.InputSpan}>
+              <img className={classes.InputImage} src="/images/id-card.png" alt="username" title="username" />
+            </span>
+          </div>
           <br />
-          <input className={classes.FormInput} type="password" id="password" name="password" placeholder="Password" />
-          <span>
-            <img className={classes.InputImage} src="/images/password.png" alt="password" title="password" />
-          </span>
+          <div className={classes.Password}>
+            <input className={classes.FormInput} type="password" id="password" name="password" placeholder="Password" />
+            <span className={classes.InputSpan}>
+              <img className={classes.InputImage} src="/images/password.png" alt="password" title="password" />
+            </span>
+          </div>
           <input className={classes.Submit} type="submit" value="Submit" id="submit" />
+          <div className={classes.ForgotDiv}>
+            <span>
+              Forgot
+            </span>
+            <div className={classes.UserPass} href="#">
+              Username / Password?
+            </div>
+          </div>
         </form>
       </div>
     </div>
