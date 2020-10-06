@@ -11,3 +11,29 @@
   flex-direction: row; 
   width: 100%; 
 }
+
+.Title {
+  font-size: 50px;
+  font-weight: bold;
+  padding-bottom: 25px;
+}
+
+.FormLabel {
+  padding: 5px;
+  font-size: 22px;
+}
+
+.FormInput {
+  padding: 5px 5px;
+  border-radius: 9px;
+  border: 1px solid grey;
+}
+
+.Submit {
+  font-weight: bold;
+  color: grey;
+  background-color: white;
+  margin-left: 10px;
+  border-radius: 9px;
+  border: 1px solid grey;
+}
