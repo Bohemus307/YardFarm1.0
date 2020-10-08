@@ -30,7 +30,7 @@ module.exports = {
         'X-AIO-Key': config.app.ioKey,
       },
     })
-      .then((response) => model.saveDataToDB(response, feedName))
+      .then((data) => model.saveDataToDB(data, feedName))
       .then(() => res.status(200).json({
         message: 'success getting and saving data',
       }))

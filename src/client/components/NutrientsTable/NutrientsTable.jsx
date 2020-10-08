@@ -10,6 +10,7 @@ const NutrientsTable = () => (
     </div>
     <div className={classes.Nutrients_table}>
       <div className={classes.Table_item}>
+        <span className={classes.Feed_label}>Current Reading:</span>
         <span className={classes.Feed_label}>PH</span>
         <span className={classes.Unit_label}>6.2</span>
         <div id="progressbar" className={classes.Progress_Bar}>
@@ -17,6 +18,7 @@ const NutrientsTable = () => (
         </div>
       </div>
       <div className={classes.Table_item}>
+        <span className={classes.Feed_label}>Current Reading:</span>
         <span className={classes.Feed_label}>EC</span>
         <span className={classes.Unit_label}>1.6 mS/cm</span>
         <div id="progressbar" className={classes.Progress_Bar}>
@@ -24,6 +26,7 @@ const NutrientsTable = () => (
         </div>
       </div>
       <div className={classes.Table_item}>
+        <span className={classes.Feed_label}>Current Reading:</span>
         <span className={classes.Feed_label}>TDS</span>
         <span className={classes.Unit_label}>1100 PPM</span>
         <div id="progressbar" className={classes.Progress_Bar}>
@@ -31,6 +34,7 @@ const NutrientsTable = () => (
         </div>
       </div>
       <div className={classes.Table_item}>
+        <span className={classes.Feed_label}>Current Reading:</span>
         <span className={classes.Feed_label}>Water Temp</span>
         <span className={classes.Unit_label}>45 °F</span>
         <div id="progressbar" className={classes.Progress_Bar}>
@@ -38,6 +42,7 @@ const NutrientsTable = () => (
         </div>
       </div>
       <div className={classes.Table_item}>
+        <span className={classes.Feed_label}>Current Reading:</span>
         <span className={classes.Feed_label}>ORP</span>
         <span className={classes.Unit_label}>320 mV</span>
         <div id="progressbar" className={classes.Progress_Bar}>
@@ -45,6 +50,7 @@ const NutrientsTable = () => (
         </div>
       </div>
       <div className={classes.Table_item}>
+        <span className={classes.Feed_label}>Current Reading:</span>
         <span className={classes.Feed_label}>Flow Rate</span>
         <span className={classes.Unit_label}>4 GPM</span>
         <div id="progressbar" className={classes.Progress_Bar}>

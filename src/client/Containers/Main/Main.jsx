@@ -34,7 +34,7 @@ class Main extends React.PureComponent {
     // create iso date for yesterday
     let yesterday = parseInt(date.substring(8,10)) - 1;
     let yesterdate = date.substring(0,8).concat(yesterday);
-
+    
     axios.get('/data/day', {
       params: {
         date: yesterdate,
