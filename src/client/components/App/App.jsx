@@ -3,32 +3,16 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
 } from 'react-router-dom';
 
 import Dashboard from '../../Containers/DashBoard/Dashboard.jsx';
-
 import Login from '../Login/Login.jsx';
+import Navbar from '../NavBar/Navbar.jsx';
 
 const App = () => (
   <Router>
     <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Login</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dash Board</Link>
-          </li>
-          <li>
-            <Link to="/alerts">Alerts</Link>
-          </li>
-          <li>
-            <Link to="/controls">Controls</Link>
-          </li>
-        </ul>
-      </nav>
+      <Navbar />
       <Switch>
         <Route path="/dashboard">
           <Dashboard />

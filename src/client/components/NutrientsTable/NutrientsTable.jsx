@@ -6,7 +6,7 @@ import classes from './NutrientsTable.css';
 const NutrientsTable = () => (
   <div className={classes.Table_wrappper}>
     <div className={classes.Nutrients_header}>
-      <span>Sensor Readings</span>
+      <span>Nutrient Sensor Readings</span>
     </div>
     <div className={classes.Nutrients_table}>
       <div className={classes.Table_item}>

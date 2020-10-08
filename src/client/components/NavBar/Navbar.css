@@ -1,0 +1,18 @@
+.Item1 {
+  color: 	#888888;
+  grid-area: navbar;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 2px solid grey;
+  border-radius: 24px;
+  padding: 2px 2px;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.NavLink {
+  color: grey;
+}

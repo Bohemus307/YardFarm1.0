@@ -4,7 +4,7 @@ import classes from './Dashboard.css';
 import axios from 'axios';
 
 import Menu from '../../Components/Menu/Menu.jsx';
-import Navbar from '../NavBar/Navbar.jsx';
+import SensorBar from '../SensorBAr/SensorBar.jsx';
 import Main from '../Main/Main.jsx';
 import Second from '../Second/Second.jsx';
 import Footer from '../../Components/Footer/Footer.jsx';
@@ -51,13 +51,14 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="grid-container">
-        <div className={classes.Item1}>
-          <Navbar />
-        </div>
         <div className={classes.Item2}>
-          <Main />
+          <span>Enviromental Sensor Readings</span>
+          <SensorBar />
         </div>
         <div className={classes.Item3}>
+          <Main />
+        </div>
+        <div className={classes.Item4}>
           <Second />
         </div>
       </div>

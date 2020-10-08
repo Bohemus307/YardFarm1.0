@@ -1,11 +1,13 @@
-.Item1 {
-  grid-area: navbar;
-}
+/* grid items */
+
 .Item2 {
+  grid-area: sensor;
+}
+.Item3 {
   grid-area: first;
   display: flex;
 }
-.Item3 {
+.Item4 {
   grid-area: second;
   display: flex;
 }
