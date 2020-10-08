@@ -39,22 +39,6 @@
   font-size: 22px;
 }
 
-.FormInput {
-  appearance: textfield;
-  font-size: 20px;
-  line-height: 1.5;
-  color: #666666;
-  display: block;
-  width: 70%;
-  background: #e6e6e6;
-  height: 50px;
-  border-radius: 25px;
-  padding: 0 30px 0 68px;
-  outline: none;
-  border: none;
-  overflow: visible;
-}
-
 .Submit {
   font-weight: bold;
   font-size: 15px;
@@ -73,6 +57,7 @@
   border: none;
   position: relative;
   top: -20px;
+  cursor: pointer;
 }
 
 .InputImage {

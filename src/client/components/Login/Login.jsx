@@ -2,6 +2,7 @@ import React from 'react';
 
 import classes from './Login.css';
 import Logo from '../Logo/Logo.jsx';
+import Input from '../UI/Input/Input.jsx';
 
 const Login = () => (
   <div className={classes.Login}>
@@ -14,14 +15,14 @@ const Login = () => (
         <form className={classes.Login_Form}>
           <br />
           <div>
-            <input className={classes.FormInput} type="text" id="username" name="username" placeholder="Username" />
+            <Input className={classes.FormInput} inputType="text" inputId="username" inputName="username" placeholder="Username" />
             <span className={classes.InputSpan}>
               <img className={classes.InputImage} src="/images/id-card.png" alt="username" title="username" />
             </span>
           </div>
           <br />
           <div className={classes.Password}>
-            <input className={classes.FormInput} type="password" id="password" name="password" placeholder="Password" />
+            <Input className={classes.FormInput} inputType="password" inputId="password" inputName="password" placeholder="Password" />
             <span className={classes.InputSpan}>
               <img className={classes.InputImage} src="/images/password.png" alt="password" title="password" />
             </span>
