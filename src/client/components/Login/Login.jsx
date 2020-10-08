@@ -27,7 +27,7 @@ const Login = () => (
               <img className={classes.InputImage} src="/images/password.png" alt="password" title="password" />
             </span>
           </div>
-          <input className={classes.Submit} type="submit" value="Login" id="login" />
+          <Input className={classes.Submit} type="submit" value="Login" id="login" />
           <div className={classes.ForgotDiv}>
             <span>
               Forgot
