@@ -8,19 +8,19 @@ const Navbar = () => (
   <nav className={classes.Item1}>
     <div className={classes.LogoDiv}>
       <Logo height="50px" />
-      <span>Yard Farm</span>
+      <span style={{ fontSize: '30px', fontWeight: 'bold' }}>Yard Farm</span>
     </div>
-    <div className={classes.NavLink}>
-      <Link to="/">Login</Link>
+    <div className={classes.LinkDiv}>
+      <Link className={classes.NavLink} to="/">Login</Link>
     </div>
-    <div>
-      <Link to="/dashboard">DashBoard</Link>
+    <div className={classes.LinkDiv}>
+      <Link className={classes.NavLink} to="/dashboard">DashBoard</Link>
     </div>
-    <div>
-      <Link to="/alerts">Alerts</Link>
+    <div className={classes.LinkDiv}>
+      <Link className={classes.NavLink} to="/alerts">Alerts</Link>
     </div>
-    <div>
-      <Link to="/controls">Controls</Link>
+    <div className={classes.LinkDiv}>
+      <Link className={classes.NavLink} to="/controls">Controls</Link>
     </div>
   </nav>
 );
