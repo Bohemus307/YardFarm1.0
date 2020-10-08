@@ -189,22 +189,24 @@ class TaskBoard extends React.Component {
           <span className={classes.Board_icon}>Column</span> */}
         </div>
         <DragDropContext onDragEnd={this.onDragEnd}>
-          <div className={classes.Drag_div}>
-          {this.state.columnOrder.map(columnId => {
-            const column = this.state.columns[columnId];
-            const tasks = column.taskIds.map(taskId => this.state.tasks[taskId],);
-        
-            return <Column key= {column.id} column={column} tasks={tasks} />;
-            })}
+          <div className={classes.ColumnDiv}>
+            <div className={classes.Drag_div}>
+            {this.state.columnOrder.map(columnId => {
+              const column = this.state.columns[columnId];
+              const tasks = column.taskIds.map(taskId => this.state.tasks[taskId],);
+          
+              return <Column key= {column.id} column={column} tasks={tasks} />;
+              })}
+            </div>
+            <Droppable droppableId='Trash'>
+            {(provided, snapshot) => (
+              <Trash ref={provided.innerRef} {...provided.droppableProps} isDraggingOver={snapshot.isDraggingOver}>
+                <input type="image" src="/images/trash.svg" name="trashTask" className={classes.Trash_button} alt="Trash Task" title="Trash Task" /> 
+                {provided.placeholder}
+              </Trash>
+            )}
+            </Droppable>
           </div>
-          <Droppable droppableId='Trash'>
-          {(provided, snapshot) => (
-            <Trash ref={provided.innerRef} {...provided.droppableProps} isDraggingOver={snapshot.isDraggingOver}>
-              <input type="image" src="/images/trash.svg" name="trashTask" className={classes.Trash_button} alt="Trash Task" title="Trash Task" /> 
-              {provided.placeholder}
-            </Trash>
-          )}
-          </Droppable>
         </DragDropContext>
       </Aux>
     ); 

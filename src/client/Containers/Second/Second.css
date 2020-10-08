@@ -1,7 +1,7 @@
 .Second_div {
   display: flex;
   flex-direction: column;
-  height: 400px;
+  height: 600px;
   justify-content: space-evenly;
   width: 100%;
 }

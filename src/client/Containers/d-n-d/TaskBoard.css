@@ -27,10 +27,17 @@
 .Drag_div {
   display: flex;
   flex-direction: row;
+  height: 80%;
 }
 
-.Trash_div:hover {
+.Trash_button:hover {
   background-color: tomato;
   border-radius: 9px;
   height: 100px;
+}
+
+.ColumnDiv {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
