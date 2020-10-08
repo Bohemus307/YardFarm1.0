@@ -55,19 +55,10 @@ class Dashboard extends React.Component {
           <Navbar />
         </div>
         <div className={classes.Item2}>
-          <Menu />
-        </div>
-        <div className={classes.Item3}>
           <Main />
         </div>
-        <div className={classes.Item4}>
+        <div className={classes.Item3}>
           <Second />
-        </div>
-        <div className={classes.Item5}>
-          Third
-        </div>
-        <div className={classes.Item6}>
-          <Footer />
         </div>
       </div>
     );

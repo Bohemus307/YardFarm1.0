@@ -2,22 +2,10 @@
   grid-area: navbar;
 }
 .Item2 {
-  grid-area: menu;
+  grid-area: first;
   display: flex;
 }
 .Item3 {
-  grid-area: main;
-  display: flex;
-}
-.Item4 {
   grid-area: second;
-  display: flex;
-}
-.Item5 {
-  grid-area: third;
-  display: flex;
-}
-.Item6 {
-  grid-area: footer;
   display: flex;
 }
