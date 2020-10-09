@@ -33,6 +33,11 @@ class Main extends React.PureComponent {
     const { date } = this.state;
     // create iso date for yesterday
     let yesterday = parseInt(date.substring(8,10)) - 1;
+    // check for single digit
+    if (yesterday.length !== 2) {
+      yesterday = `0${yesterday}`;
+    }
+    
     let yesterdate = date.substring(0,8).concat(yesterday);
     
     axios.get('/data/day', {
