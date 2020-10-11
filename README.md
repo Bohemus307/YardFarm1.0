@@ -4,7 +4,7 @@ HMI for sensor and controls system located for greenhouses and smaller CEA envir
 
 ## Description
 
-Yard Farm is a hyrdoponic greenhouse sensor system and HMI platform that utilizes React for the front-end and multiple dependencies for the Node.js back end. This Application was designed as a dashboard to collect and review data and operate some controls inside the greenhouse. The data is collected using a Feather huzzah and a raspberry pi based sensor system that sends data back to my computer via bluetooth and then stores in a mongoDB database with an Express.js server to communicate with the client. 
+Yard Farm is a hyrdoponic greenhouse sensor system and HMI platform that utilizes React for the front-end and multiple dependencies for the Node.js back end. This Application was designed as a dashboard to collect and review data and operate some controls inside the farm. The data is collected using a Feather huzzah and a raspberry pi based sensor system that sends data back to my computer via wifi and then data is stored in a mongoDB database with an Express.js server to communicate with the client. 
 
 ## Getting Started
 (Dev)

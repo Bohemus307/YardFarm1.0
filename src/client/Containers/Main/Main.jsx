@@ -173,12 +173,14 @@ class Main extends React.PureComponent {
 
     // math for weekly chart
     const { week } = this.state;
+
+    let initialValue = 0;
     const weeklyTempTotal = week.reduce(
-      (accumulator, currentValue) => accumulator + currentValue.intemp, 0,
+      (accumulator, currentValue) => accumulator + Math.floor(currentValue.value), initialValue,
     );
     const weeklyTempAverage = Math.floor(weeklyTempTotal / week.length);
     // create array of indoor temps
-    const weeklyTempArray = week.map((item) => item.intemp);
+    const weeklyTempArray = week.map((item) => item.value);
     // this is min temp for day
     const weeklyMin = weeklyTempArray.reduce((acc, val) => {
       acc[0] = (acc[0] === undefined || val < acc[0]) ? val : acc[0];
@@ -190,7 +192,7 @@ class Main extends React.PureComponent {
       return acc;
     }, []);
     // weekly temp chart
-    console.log(weeklyMin, weeklyMax, weeklyTempAverage)
+    console.log(weeklyTempTotal, weeklyTempAverage, weeklyMin, weeklyMax)
     const chart2 = c3.generate({
       bindto: '#chart2',
       data: {
@@ -256,6 +258,7 @@ class Main extends React.PureComponent {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className={classes.Main_Wrapper}>
         <span>Cumulative Data</span>
