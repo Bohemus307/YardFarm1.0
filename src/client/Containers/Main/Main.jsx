@@ -3,16 +3,20 @@ import React from 'react';
 import axios from 'axios';
 import classes from './Main.css';
 import NutrientsTable from '../../Components/NutrientsTable/NutrientsTable.jsx';
+import Spinner from '../../Components/Spinner/Spinner.jsx';
 
 class Main extends React.PureComponent {
   constructor(props) {
     super();
     
     this.state = {
-      week: [],
+      weekTempData: [],
       DayTempData: [],
       DayHumidityData: [],
       date: new Date(Date.now()).toISOString().substring(0, 10),
+      Chart1Loading: true,
+      Chart2Loading: true,
+      Chart3Loading: true
     };
     this.updateChart = this.updateChart.bind(this);
   }
@@ -33,11 +37,10 @@ class Main extends React.PureComponent {
     const { date } = this.state;
     // create iso date for yesterday
     let yesterday = parseInt(date.substring(8,10)) - 1;
-    // check for single digit
-    if (yesterday.length !== 2) {
+    // check for single digit in date for yesterday
+    if (yesterday <= 10) {
       yesterday = `0${yesterday}`;
     }
-    
     let yesterdate = date.substring(0,8).concat(yesterday);
     
     axios.get('/data/day', {
@@ -49,10 +52,12 @@ class Main extends React.PureComponent {
       .then((response) => {
         if (feedType === 'temperature') {
           this.setState({
+            Chart1Loading: false,
             DayTempData: response.data.moments,
           });
         } else {
           this.setState({
+            Chart3Loading: false,
             DayHumidityData: response.data.moments,
           });
         }
@@ -105,7 +110,8 @@ class Main extends React.PureComponent {
     })
       .then((response) => {
         this.setState({
-          week: response.data.moments,
+          Chart2Loading: false,
+          weekTempData: response.data.moments,
         });
       })
       .catch((error) => {
@@ -172,15 +178,15 @@ class Main extends React.PureComponent {
     });
 
     // math for weekly chart
-    const { week } = this.state;
+    const { weekTempData } = this.state;
 
     let initialValue = 0;
-    const weeklyTempTotal = week.reduce(
+    const weeklyTempTotal = weekTempData.reduce(
       (accumulator, currentValue) => accumulator + Math.floor(currentValue.value), initialValue,
     );
-    const weeklyTempAverage = Math.floor(weeklyTempTotal / week.length);
+    const weeklyTempAverage = Math.floor(weeklyTempTotal / weekTempData.length);
     // create array of indoor temps
-    const weeklyTempArray = week.map((item) => item.value);
+    const weeklyTempArray = weekTempData.map((item) => item.value);
     // this is min temp for day
     const weeklyMin = weeklyTempArray.reduce((acc, val) => {
       acc[0] = (acc[0] === undefined || val < acc[0]) ? val : acc[0];
@@ -192,7 +198,6 @@ class Main extends React.PureComponent {
       return acc;
     }, []);
     // weekly temp chart
-    console.log(weeklyTempTotal, weeklyTempAverage, weeklyMin, weeklyMax)
     const chart2 = c3.generate({
       bindto: '#chart2',
       data: {
@@ -258,9 +263,39 @@ class Main extends React.PureComponent {
   }
 
   render() {
-    console.log(this.state)
+    let chart1 = null;
+    let chart2 = null;
+    let chart3 = null;
+
+    if (this.state.DayTempData.length > 0) {
+      chart1 =  <div className={classes.Chart_1} id="chart" />;
+    }
+
+    if (this.state.Chart1Loading) {
+      chart1 = <Spinner />;
+    }
+
+    if (this.state.weekTempData.length > 0) {
+      chart2 =  <div className={classes.Chart_2} id="chart2" />;
+    }
+
+    if (this.state.Chart2Loading) {
+      chart2 = <Spinner />;
+    }
+
+    if (this.state.DayHumidityData.length > 0) {
+      chart3 =  <div className={classes.Chart_3} id="chart3" />;
+    }
+
+    if (this.state.Chart3Loading) {
+      chart3 = <Spinner />;
+    }
+
     return (
       <div className={classes.Main_Wrapper}>
+        <div className={classes.Table_wrapper}>
+          <NutrientsTable />
+        </div>
         <span>Cumulative Data</span>
         <div className={classes.Charts_wrapper}>
           <div className={classes.Chart_Label}>
@@ -269,13 +304,10 @@ class Main extends React.PureComponent {
             <div className="label3">Yesterday Average Humidity</div>
           </div>
           <div className={classes.Charts}>
-            <div className={classes.Chart_1} id="chart" />
-            <div className={classes.Chart_2} id="chart2" />
-            <div className={classes.Chart_3} id="chart3" />
+            {chart1}
+            {chart2}
+            {chart3}
           </div>
-        </div>
-        <div className={classes.Table_wrapper}>
-          <NutrientsTable />
         </div>
       </div>
     );
