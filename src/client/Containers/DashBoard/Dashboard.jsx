@@ -3,11 +3,9 @@ import React from 'react';
 import classes from './Dashboard.css';
 import axios from 'axios';
 
-import Menu from '../../Components/Menu/Menu.jsx';
 import SensorBar from '../SensorBAr/SensorBar.jsx';
 import Main from '../Main/Main.jsx';
 import Second from '../Second/Second.jsx';
-import Footer from '../../Components/Footer/Footer.jsx';
 
 class Dashboard extends React.Component {
   constructor(props) {
