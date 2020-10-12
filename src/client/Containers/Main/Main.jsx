@@ -4,6 +4,7 @@ import axios from 'axios';
 import classes from './Main.css';
 import NutrientsTable from '../../Components/NutrientsTable/NutrientsTable.jsx';
 import Spinner from '../../Components/Spinner/Spinner.jsx';
+import LineChart from '../../Components/LineChart/LineChart.jsx';
 
 class Main extends React.PureComponent {
   constructor(props) {
