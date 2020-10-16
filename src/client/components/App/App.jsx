@@ -26,7 +26,7 @@ const App = () => (
         <Route path="/admin">
           <Admin />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <Login />
         </Route>
       </Switch>
