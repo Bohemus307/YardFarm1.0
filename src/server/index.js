@@ -14,6 +14,16 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
 
+const routes = ['/dashboard', '/alerts', '/controls'];
+// for redirect of refresh in front end
+app.get(routes, (req, res) => {
+  res.sendFile(path.join(__dirname, '/../../public/index.html'), (err) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
+
 app.use('/data', Router);
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));

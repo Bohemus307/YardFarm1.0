@@ -7,7 +7,6 @@ module.exports = {
 
   getDataFromIo: (req, res) => {
     const feedId = req.query.feed_id;
-
     axios.get(`https://io.adafruit.com/api/feeds/${feedId}/data/last`, {
       params: {
         'X-AIO-Key': config.app.ioKey,
@@ -23,7 +22,6 @@ module.exports = {
   getAllDataForFeed: (req, res) => {
     const feedId = req.query.feed_id;
     const feedName = req.query.feed_name;
-
     axios.get(`https://io.adafruit.com/api/feeds/${feedId}/data`, {
       params: {
         'X-AIO-Key': config.app.ioKey,
@@ -98,4 +96,5 @@ module.exports = {
         }));
     }
   },
+
 };
