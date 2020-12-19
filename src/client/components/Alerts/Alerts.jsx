@@ -6,7 +6,6 @@ const Alerts = () => {
 
   return (
     <div className={classes.Alerts}>
-      <div className={classes.Nav}>Nav</div>
       <div className={classes.Main}>Main</div>
       <div className={classes.Details}>Details</div>
     </div>

@@ -1,25 +1,16 @@
 .Alerts {
   display: grid;
   grid-template-areas:
-    'nav main details';
-  grid-template-columns: 150px 75%;
-}
-
-.Nav {
-  background: #282e33;
-  grid-area: nav;
-  height: 100%;
+    'main details';
+  grid-template-columns: 90% 150px;
 }
 
 .Main_Div {
   background-color: #606468;
   grid-area: main; 
-  width: 70vw;
-  height: 100%;
 }
 
 .Details {
   background: #8df78d;
   grid-area: details;
-  height: 100%;
 }
