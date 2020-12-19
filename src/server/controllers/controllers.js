@@ -1,5 +1,4 @@
 const axios = require('axios').default;
-// const { response } = require('express');
 const config = require('../../../config');
 const model = require('../../mongo/models/model.js');
 

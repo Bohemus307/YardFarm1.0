@@ -8,6 +8,7 @@ import {
 import Dashboard from '../../Containers/DashBoard/Dashboard.jsx';
 import Login from '../Login/Login.jsx';
 import Navbar from '../NavBar/Navbar.jsx';
+import Alerts from '../Alerts/Alerts.jsx';
 
 const App = () => (
   <Router>
@@ -34,9 +35,9 @@ const App = () => (
   </Router>
 );
 
-function Alerts() {
-  return <h2>Alerts</h2>;
-}
+// function Alerts() {
+//   return <h2>Alerts</h2>;
+// }
 
 function Controls() {
   return <h2>Controls</h2>;
