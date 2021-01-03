@@ -9,11 +9,10 @@ body {
 .grid-container {
   display: grid;
   grid-template-areas:
-    'navbar navbar navbar navbar navbar'
     'sensor sensor sensor sensor sensor'
     'first first first first first'
     'second second second second second';
-  grid-template-columns: 200px auto;
+  grid-template-columns: auto;
   grid-template-rows: auto;
   grid-gap: 0px;
   background-color: rgb(255, 255, 255);
@@ -24,6 +23,11 @@ body {
 .grid-container > div {
   background-color: rgb(255, 255, 255);
   font-size: 30px;
+}
+
+.Router {
+  display: flex;
+  flex-direction: row;
 }
 
 #chart4 {

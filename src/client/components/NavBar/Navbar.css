@@ -1,16 +1,11 @@
 .Item1 {
   color: 	#888888;
-  grid-area: navbar;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-evenly;
-  align-items: center;
   border: 2px solid lightgrey;
   border-radius: 24px;
-  padding: 2px 2px;
+  padding: 10px 10px;
   font-size: 20px;
-  margin-bottom: 10px;
+  width: 12%;
+  margin-right: 20px;
 }
 
 .NavLink {
@@ -18,19 +13,24 @@
   font-family: 'Ubuntu', sans-serif;
   color: black;
   text-decoration: none;
+  background: #e6e6e6;
+  border-radius: 24px;
+  padding: 2px 2px;
 }
 
 .LogoDiv {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  
+  justify-content: center;
+}
+
+.LinkList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
 }
 
 .LinkDiv {
-  display: flex;
-  justify-content: center;
-  border-radius: 24px;
-  width: 15%;
-  background: #e6e6e6;
+  margin: 40px 5px;
 }
