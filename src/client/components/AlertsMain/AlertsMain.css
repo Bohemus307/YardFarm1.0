@@ -1,0 +1,15 @@
+.AlertsHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.CardList {
+  display: flex;
+  flex-direction: row;
+}
+
+.AlertCard {
+  display: flex;
+}
