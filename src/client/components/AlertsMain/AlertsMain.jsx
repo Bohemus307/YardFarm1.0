@@ -5,7 +5,7 @@ import classes from './AlertsMain.css';
 
 const AlertsMain = () => {
   const [alerts, setAlerts] = useState({
-    nutrients: {
+    Nutrients: {
       Ph: {
         UOM: null,
         Max: 8,
@@ -25,7 +25,7 @@ const AlertsMain = () => {
         'Current Value': 0,
       },
     },
-    enviromentals: {
+    Enviromentals: {
       Temperature: {
         'Minimum Temperature': null,
         'Maximum Temperature': null,
@@ -54,7 +54,7 @@ const AlertsMain = () => {
     },
   });
 
-  const [alertGroup, setAlertGroup] = useState('nutrients');
+  const [alertGroup, setAlertGroup] = useState('Nutrients');
 
   const alertKeys = Object.keys(alerts);
 
@@ -64,8 +64,8 @@ const AlertsMain = () => {
   };
 
   const alertsDropDown = (
-    <div>
-      <select name="alertGroups" onChange={alertGroupHandler}>
+    <div className={classes.DropDownDiv}>
+      <select className={classes.selectcss} name="alertGroups" onChange={alertGroupHandler}>
         {alertKeys.map((alertTitle) => (
           <option key={alertTitle} value={alertTitle}>
             {alertTitle}

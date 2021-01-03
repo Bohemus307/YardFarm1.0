@@ -6,11 +6,11 @@
 }
 
 .Main_Div {
-  background-color: #606468;
+  background-color: whitesmoke;
   grid-area: main; 
 }
 
 .Details {
-  background: #8df78d;
+  background: white;
   grid-area: details;
 }

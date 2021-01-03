@@ -8,7 +8,7 @@ const Alerts = () => {
 
   return (
     <div className={classes.Alerts}>
-      <div className={classes.Main}>
+      <div className={classes.Main_Div}>
         <AlertsMain />
       </div>
       <div className={classes.Details}>Details</div>
