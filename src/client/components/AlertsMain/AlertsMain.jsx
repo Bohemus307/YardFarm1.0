@@ -3,7 +3,6 @@ import propTypes from 'prop-types';
 
 const AlertsMain = () => {
   const [alerts, setAlerts] = useState({
-
     Nutrients: {
       Ph: {
         max: 8,
@@ -50,14 +49,21 @@ const AlertsMain = () => {
     },
   });
 
-  const alertKeys = Object.keys(alerts);
-  const alertValues = Object.values(alerts);
+  const [displayAlerts, setDisplayAlert] = useState('nutrients');
 
-  const alertCards = (
+  const alertKeys = Object.keys(alerts);
+
+  const alertGroupHandler = (e) => {
+    const currValue = e.target.value;
+    setDisplayAlert(currValue);
+  };
+
+  const alertsDropDown = (
     <div>
-      <select>
+      <label htmlFor="alertGroups">Alert Group: </label>
+      <select name="alertGroups" onChange={alertGroupHandler}>
         {alertKeys.map((alertGroup) => (
-          <option value={alertGroup}>
+          <option key={alertGroup} value={alertGroup}>
             {alertGroup}
           </option>
         ))}
@@ -65,12 +71,11 @@ const AlertsMain = () => {
     </div>
   );
 
-  console.log(alertKeys);
   return (
     <div>
       <div>
         <h1>Alerts Overview</h1>
-        {alertCards}
+        {alertsDropDown}
       </div>
     </div>
   );
