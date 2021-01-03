@@ -7,51 +7,49 @@ const AlertsMain = () => {
   const [alerts, setAlerts] = useState({
     nutrients: {
       Ph: {
-        max: 8,
-        min: 4,
-        value: 0,
+        UOM: null,
+        Max: 8,
+        Min: 4,
+        'Current Value': 0,
       },
       Ec: {
-        max: 8,
-        min: 4,
-        value: 0,
+        UOM: 'mS/cm',
+        Max: 8,
+        Min: 4,
+        'Current Value': 0,
       },
       Do: {
-        max: 8,
-        min: 4,
-        value: 0,
-      },
-      Orp: {
-        max: 8,
-        min: 4,
-        value: 0,
+        UOM: 'mg/L',
+        Max: 8,
+        Min: 4,
+        'Current Value': 0,
       },
     },
     enviromentals: {
-      temperature: {
-        minTemp: null,
-        maxTemp: null,
-        value: 0,
+      Temperature: {
+        'Minimum Temperature': null,
+        'Maximum Temperature': null,
+        'Current Value': 0,
       },
-      humidity: {
-        minHumidity: null,
-        maxHumidity: null,
-        value: 0,
+      Humidity: {
+        'Minimum Humidity': null,
+        'Maximum Humidity': null,
+        'Current Value': 0,
       },
-      waterTemp: {
-        maxTemp: null,
-        minTemp: null,
-        value: 0,
+      'Water Temperature': {
+        'Maximum Temperature': null,
+        'Minimum Temperature': null,
+        'Current Value': 0,
       },
-      flowRateDeliver: {
-        minFLow: null,
-        maxFlow: null,
-        value: 0,
+      'Flow Rate Delivery': {
+        'Minimum Flow-rate': null,
+        'Maximum Flow-rate': null,
+        'Current Value': 0,
       },
-      flowRateReturn: {
-        minFLow: null,
-        maxFlow: null,
-        value: 0,
+      'Flow Rate Return': {
+        'Minimum Flow-rate': null,
+        'Maximum Flow-rate': null,
+        'Current Value': 0,
       },
     },
   });
@@ -97,7 +95,7 @@ const AlertsMain = () => {
       <div>
         alert image
       </div>
-      <span>{alert.id}</span>
+      <h3>{alert.id}</h3>
       <div>
         <h4>Current Alerts </h4>
         <span>

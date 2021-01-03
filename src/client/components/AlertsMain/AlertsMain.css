@@ -8,8 +8,17 @@
 .CardList {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #2196F3;
 }
 
 .AlertCard {
   display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 12px;
+  padding: 5px 5px;
+  margin: 5px 10px;
+  box-shadow: 2px 2px grey;
 }
