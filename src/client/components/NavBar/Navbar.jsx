@@ -12,16 +12,24 @@ const Navbar = () => (
     </div>
     <div className={classes.LinkList}>
       <div className={classes.LinkDiv}>
-        <Link className={classes.NavLink} to="/">Login</Link>
+        <Link className={classes.NavLink} to="/">
+          <img style={{ width: '60%' }} src="/images/user.svg" alt="Login" title="Login" />
+        </Link>
       </div>
       <div className={classes.LinkDiv}>
-        <Link className={classes.NavLink} to="/dashboard">DashBoard</Link>
+        <Link className={classes.NavLink} to="/dashboard">
+          <img style={{ width: '60%' }} src="/images/dashboard.svg" alt="Dashboard" title="Dashboard" />
+        </Link>
       </div>
       <div className={classes.LinkDiv}>
-        <Link className={classes.NavLink} to="/alerts">Alerts</Link>
+        <Link className={classes.NavLink} to="/alerts">
+          <img style={{ width: '60%' }} src="/images/alert.svg" alt="Alerts" title="Alerts" />
+        </Link>
       </div>
       <div className={classes.LinkDiv}>
-        <Link className={classes.NavLink} to="/controls">Controls</Link>
+        <Link className={classes.NavLink} to="/controls">
+          <img style={{ width: '60%' }} src="/images/controls.svg" alt="Controls" title="Controls" />
+        </Link>
       </div>
     </div>
   </nav>

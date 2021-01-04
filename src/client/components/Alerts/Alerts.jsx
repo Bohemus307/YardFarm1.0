@@ -2,7 +2,6 @@ import React from 'react';
 import propTypes from 'prop-types';
 import classes from './Alerts.css';
 
-import Aux from '../../HOC/Aux/Aux.jsx';
 import AlertsMain from '../AlertsMain/AlertsMain.jsx';
 import NavBar from '../NavBar/Navbar.jsx';
 
