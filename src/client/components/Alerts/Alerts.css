@@ -1,8 +1,12 @@
+.AlertsDiv {
+  display: flex;
+}
+
 .Alerts {
   display: grid;
   grid-template-areas:
     'main details';
-  grid-template-columns: 90% 150px;
+  grid-template-columns: 65vw auto;
 }
 
 .Main_Div {

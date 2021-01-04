@@ -13,7 +13,7 @@ import Alerts from '../Alerts/Alerts.jsx';
 const App = () => (
   <Router>
     <div className="Router">
-      <Navbar />
+      {/* <Navbar /> */}
       <Switch>
         <Route path="/dashboard">
           <Dashboard />

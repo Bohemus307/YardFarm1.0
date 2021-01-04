@@ -6,6 +6,8 @@ import axios from 'axios';
 import SensorBar from '../SensorBAr/SensorBar.jsx';
 import Main from '../Main/Main.jsx';
 import Second from '../Second/Second.jsx';
+import Aux from '../../HOC/Aux/Aux.jsx';
+import NavBar from '../../Components/NavBar/Navbar.jsx';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -48,17 +50,20 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div className="grid-container">
-        <div className={classes.Item2}>
-          <span>Enviromental Sensor Readings</span>
-          <SensorBar />
-        </div>
-        <div className={classes.Item3}>
-          <Main />
-        </div>
-        <div className={classes.Item4}>
-          <Second />
-        </div>
+      <div className={classes.Dashboard}>
+        <NavBar />
+        <div className="grid-container">
+          <div className={classes.Item2}>
+            <span>Enviromental Sensor Readings</span>
+            <SensorBar />
+          </div>
+          <div className={classes.Item3}>
+            <Main />
+          </div>
+          <div className={classes.Item4}>
+            <Second />
+          </div>
+        </div>  
       </div>
     );
   }

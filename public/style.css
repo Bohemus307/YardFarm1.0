@@ -25,11 +25,6 @@ body {
   font-size: 30px;
 }
 
-.Router {
-  display: flex;
-  flex-direction: row;
-}
-
 #chart4 {
   background: #fff;
   font-family: 'Ubuntu', sans-serif;
