@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import propTypes from 'prop-types';
 
 import classes from './AlertsMain.css';
 
@@ -12,7 +11,6 @@ const AlertsMain = () => {
         Min: 4,
         'Current Value': 0,
         'In Alarm': false,
-        image: '/images/meters.svg',
       },
       Ec: {
         UOM: 'mS/cm',
@@ -20,7 +18,6 @@ const AlertsMain = () => {
         Min: 4,
         'Current Value': 0,
         'In Alarm': false,
-        image: '/images/microchip.svg',
       },
       Do: {
         UOM: 'mg/L',
@@ -28,7 +25,6 @@ const AlertsMain = () => {
         Min: 4,
         'Current Value': 0,
         'In Alarm': false,
-        image: '/images/microchip.svg',
       },
     },
     Enviromentals: {
@@ -37,34 +33,30 @@ const AlertsMain = () => {
         'Maximum Temperature': null,
         'Current Value': 0,
         'In Alarm': false,
-        image: '/images/thermometer.png',
       },
       Humidity: {
         'Minimum Humidity': null,
         'Maximum Humidity': null,
         'Current Value': 0,
-        image: '/images/humidity.png',
+        'In Alarm': false,
       },
       'Water Temperature': {
         'Maximum Temperature': null,
         'Minimum Temperature': null,
         'Current Value': 0,
         'In Alarm': false,
-        image: '/images/watertemperature.svg',
       },
       'Flow Rate Delivery': {
         'Minimum Flow-rate': null,
         'Maximum Flow-rate': null,
         'Current Value': 0,
         'In Alarm': false,
-        image: '/images/watering.svg',
       },
       'Flow Rate Return': {
         'Minimum Flow-rate': null,
         'Maximum Flow-rate': null,
         'Current Value': 0,
         'In Alarm': false,
-        image: '/images/watering.svg',
       },
     },
   });
@@ -108,7 +100,7 @@ const AlertsMain = () => {
   const alertCards = alertsArray.map((alert) => (
     <div key={alert.id} className={classes.AlertCard}>
       <div>
-        <img style={{ width: '30%' }} src={alert.config.image} alt="Alerts" title="Alerts" />
+        <img style={{ width: '15%' }} src="/images/alert.svg" alt="Alert" title="Alert" />
       </div>
       <h3>{alert.id}</h3>
       <div>
@@ -147,10 +139,6 @@ const AlertsMain = () => {
       </div>
     </div>
   );
-};
-
-AlertsMain.propTypes = {
-// name: propTypes.string.isRequired,
 };
 
 export default AlertsMain;
