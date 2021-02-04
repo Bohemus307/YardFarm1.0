@@ -121,7 +121,7 @@ const AlertsMain = () => {
   ));
 
   return (
-    <div>
+    <div className={classes.AlertsMain}> 
       <div className={classes.AlertsHeader}>
         <h1>Alerts Overview</h1>
         {alertsDropDown}

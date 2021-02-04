@@ -1,8 +1,13 @@
+.AlertsMain {
+	background-color: white;
+}
+
 .AlertsHeader {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+	
 }
 
 .DropDownDiv {
@@ -100,6 +105,7 @@
 	padding: 5px 5px;
   border-radius: 8px;
   border: 2px solid lightgrey;
+	margin: 10px 10px;
 }
 
 .SettingsDiv {
@@ -107,4 +113,5 @@
 	padding: 5px 5px;
   border-radius: 8px;
   border: 2px solid lightgrey;
+	margin: 10px 10px;
 }
