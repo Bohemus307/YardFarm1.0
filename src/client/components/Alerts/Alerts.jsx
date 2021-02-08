@@ -14,7 +14,9 @@ const Alerts = () => {
         <div className={classes.Main_Div}>
           <AlertsMain />
         </div>
-        <div className={classes.Details}>Details</div>
+        <div className={classes.Details}>
+          Details
+        </div>
       </div>
     </div>
   );
