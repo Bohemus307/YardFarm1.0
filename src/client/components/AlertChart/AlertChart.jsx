@@ -82,18 +82,33 @@ const AlertChart = () => {
   const alertGroupHandler = (e) => {
     const currValue = e.target.value;
     setAlertGroup(currValue);
-    setData({
-      columns: [
-        ['In Alarm', 100, 150, 250, 0, 0, 220],
-        ['Out Of Alarm', 180, 50, 110, 260, 180, 60],
-      ],
-      types: {
-        'In Alarm': 'area-spline',
-        'Out Of Alarm': 'area-spline',
-        // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
-      },
-      groups: [['In Alarm', 'Out Of Alarm']],
-    });
+    if (currValue === 'Enviromentals') {
+      setData({
+        columns: [
+          ['In Alarm', 100, 150, 250, 0, 0, 220],
+          ['Out Of Alarm', 180, 50, 110, 260, 180, 60],
+        ],
+        types: {
+          'In Alarm': 'area-spline',
+          'Out Of Alarm': 'area-spline',
+          // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
+        },
+        groups: [['In Alarm', 'Out Of Alarm']],
+      });
+    } else {
+      setData({
+        columns: [
+          ['In Alarm', 300, 350, 300, 0, 0, 120],
+          ['Out Of Alarm', 130, 100, 140, 200, 150, 50],
+        ],
+        types: {
+          'In Alarm': 'area-spline',
+          'Out Of Alarm': 'area-spline',
+          // 'line', 'spline', 'step', 'area', 'area-step' are also available to stack
+        },
+        groups: [['In Alarm', 'Out Of Alarm']],
+      });
+    }
   };
 
   const updateChart = () => {
