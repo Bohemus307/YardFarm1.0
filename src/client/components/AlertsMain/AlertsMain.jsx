@@ -132,7 +132,7 @@ const AlertsMain = () => {
       </div>
       <div className={classes.SecondDiv}>
         <div className={classes.GraphDiv}>
-          <AlertChart />
+          <AlertChart alerts={alerts} />
         </div>
         <div className={classes.SettingsDiv}>
           alert settings
