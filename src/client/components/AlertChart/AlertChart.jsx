@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import propTypes from 'prop-types';
 import c3 from 'c3';
 
 import classes from './AlertChart.css';
 
-const AlertChart = ({alerts}) => {
+const AlertChart = ({ alerts }) => {
   const [data, setData] = useState({
     columns: [
       ['In Alarm', 300, 350, 300, 0, 0, 120],
@@ -81,6 +82,66 @@ const AlertChart = ({alerts}) => {
       <div style={{ height: '400px' }} id="alertsChart" />
     </div>
   );
+};
+
+AlertChart.propTypes = {
+  alerts: propTypes.shape({
+    Nutrients: propTypes.shape({
+      Ph: propTypes.shape({
+        UOM: propTypes.string || null,
+        Max: propTypes.number,
+        Min: propTypes.number,
+        'Current Value': propTypes.number,
+        'In Alarm': propTypes.bool,
+      }),
+      Ec: propTypes.shape({
+        UOM: propTypes.string || null,
+        Max: propTypes.number,
+        Min: propTypes.number,
+        'Current Value': propTypes.number,
+        'In Alarm': propTypes.bool,
+      }),
+      Do: propTypes.shape({
+        UOM: propTypes.string || null,
+        Max: propTypes.number,
+        Min: propTypes.number,
+        'Current Value': propTypes.number,
+        'In Alarm': propTypes.bool,
+      }),
+    }),
+    Enviromentals: propTypes.shape({
+      Temperature: propTypes.shape({
+        'Minimum Temperature': propTypes.number || null,
+        'Maximum Temperature': propTypes.number || null,
+        'Current Value': propTypes.number,
+        'In Alarm': propTypes.bool,
+      }),
+      Humidity: propTypes.shape({
+        'Minimum Humidity': propTypes.number || null,
+        'Maximum Humidity': propTypes.number || null,
+        'Current Value': propTypes.number,
+        'In Alarm': propTypes.bool,
+      }),
+      'Water Temperature': propTypes.shape({
+        'Minimum Temperature': propTypes.number || null,
+        'Maximum Temperature': propTypes.number || null,
+        'Current Value': propTypes.number,
+        'In Alarm': propTypes.bool,
+      }),
+      'Flow Delivery Rate': propTypes.shape({
+        'Minimum Flow-rate': propTypes.number || null,
+        'Maximum Flow-rate': propTypes.number || null,
+        'Current Value': propTypes.number,
+        'In Alarm': propTypes.bool,
+      }),
+      'Flow Rate Return': propTypes.shape({
+        'Minimum Flow-rate': propTypes.number || null,
+        'Maximum Flow-rate': propTypes.number || null,
+        'Current Value': propTypes.number,
+        'In Alarm': propTypes.bool,
+      }),
+    }),
+  }).isRequired,
 };
 
 export default AlertChart;

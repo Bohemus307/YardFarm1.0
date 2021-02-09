@@ -4,7 +4,7 @@ import AlertChart from '../AlertChart/AlertChart.jsx';
 import classes from './AlertsMain.css';
 
 const AlertsMain = () => {
-  const [alerts, setAlerts] = useState({
+  const [alertsConfig, setAlerts] = useState({
     Nutrients: {
       Ph: {
         UOM: null,
@@ -64,7 +64,7 @@ const AlertsMain = () => {
 
   const [alertGroup, setAlertGroup] = useState('Nutrients');
 
-  const alertKeys = Object.keys(alerts);
+  const alertKeys = Object.keys(alertsConfig);
 
   const alertGroupHandler = (e) => {
     const currValue = e.target.value;
@@ -83,7 +83,7 @@ const AlertsMain = () => {
     </div>
   );
 
-  const currAlerts = alerts[alertGroup];
+  const currAlerts = alertsConfig[alertGroup];
 
   const keys = Object.keys(currAlerts);
   const values = Object.values(currAlerts);
@@ -132,7 +132,7 @@ const AlertsMain = () => {
       </div>
       <div className={classes.SecondDiv}>
         <div className={classes.GraphDiv}>
-          <AlertChart alerts={alerts} />
+          <AlertChart alerts={alertsConfig} />
         </div>
         <div className={classes.SettingsDiv}>
           alert settings
