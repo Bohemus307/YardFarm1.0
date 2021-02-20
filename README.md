@@ -9,8 +9,9 @@ Yard Farm is a hyrdoponic greenhouse sensor system and HMI platform that utilize
 ## Getting Started
 (Dev)
 * Fork Repo to working directory and cd into yardfarm1.0
+* Must have MongoDB installed and running (credentials required in config.js file)
 * Npm install
-* Npm start-server to start Adafruit server for sensors
+* Npm start-server to start Adafruit server for sensors (unecessary if not using external sensors)
 * Npm react-dev for compiler
 * Npm server-dev to start express server
 * .ENV file requires dev
@@ -18,8 +19,8 @@ Yard Farm is a hyrdoponic greenhouse sensor system and HMI platform that utilize
 (Prod)
 * Fork Repo to working directory and cd into yardfarm1.0
 * Npm install
-* Npm start-server to start Adafruit server for sensors
-* .ENV file requires prod 
+* Npm start-server to start Adafruit server for sensors (unecessary if not using external sensors)
+* .ENV file requires NODE_ENV=dev
 
 
 ### Dependencies
@@ -36,6 +37,8 @@ Yard Farm is a hyrdoponic greenhouse sensor system and HMI platform that utilize
 ### Executing program
 
 In development -
+* create .env file with NODE_ENV variable 
+* check that mongoDB is turned on and running
 * npm run seed-db
 * npm run react-dev
 * npm run server-dev
