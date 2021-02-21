@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'; 
-import Aux from '../../HOC/Aux/Aux.jsx';
+import Wrapper from '../../HOC/Wrapper/Wrapper.jsx';
 import Column from './d-n-d-components/column.jsx';
 import Modal from '../../Components/UI/Modal/Modal.jsx';
 import TaskInput from '../TaskInput/TaskInput.jsx';
@@ -178,7 +178,7 @@ class TaskBoard extends React.Component {
 
   render() {
     return(
-      <Aux>
+      <Wrapper>
         <Modal show={this.state.taskAdded} modalClosed={this.closeModal}>
           <TaskInput taskadded={this.taskadded} />
         </Modal>
@@ -208,7 +208,7 @@ class TaskBoard extends React.Component {
             </Droppable>
           </div>
         </DragDropContext>
-      </Aux>
+      </Wrapper>
     ); 
   }
 }

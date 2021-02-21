@@ -6,7 +6,6 @@ import axios from 'axios';
 import SensorBar from '../SensorBAr/SensorBar.jsx';
 import Main from '../Main/Main.jsx';
 import Second from '../Second/Second.jsx';
-import Aux from '../../HOC/Aux/Aux.jsx';
 import NavBar from '../../Components/NavBar/Navbar.jsx';
 
 class Dashboard extends React.Component {
