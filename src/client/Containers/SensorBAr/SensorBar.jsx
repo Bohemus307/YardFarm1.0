@@ -16,6 +16,8 @@ class SensorBar extends React.PureComponent {
       altitude: 6847,
     }
     this.getDataFromSensor = this.getDataFromSensor.bind(this);
+    // face data method
+    this.getfakeDataFromSensor = this.getFakeDataFromSensor.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +35,22 @@ class SensorBar extends React.PureComponent {
     this.uvId = setInterval(() => {this.getDataFromSensor('uv')}, 80000); 
     this.getDataFromSensor('altitude');
     this.altiId = setInterval(() => {this.getDataFromSensor('altitude')}, 80000); 
+    // fake data block uncomment this one and commment out above call to comptdidmount
+
+    // this.getFakeDataFromSensor('temperature');
+    // this.tempId = setInterval(() => {this.getFakeDataFromSensor('temperature')}, 80000); 
+    // this.getFakeDataFromSensor('humidity');
+    // this.humidId = setInterval(() => {this.getFakeDataFromSensor('humidity')}, 80000); 
+    // this.getFakeDataFromSensor('pressure');
+    // this.pressureId = setInterval(() => {this.getFakeDataFromSensor('pressure')}, 80000); 
+    // this.getFakeDataFromSensor('tvoc');
+    // this.tvocId = setInterval(() => {this.getFakeDataFromSensor('tvoc')}, 80000); 
+    // this.getFakeDataFromSensor('co2');
+    // this.co2Id = setInterval(() => {this.getFakeDataFromSensor('co2')}, 80000); 
+    // this.getFakeDataFromSensor('uv');
+    // this.uvId = setInterval(() => {this.getFakeDataFromSensor('uv')}, 80000); 
+    // this.getFakeDataFromSensor('altitude');
+    // this.altiId = setInterval(() => {this.getFakeDataFromSensor('altitude')}, 80000); 
   }
 
   componentWillUnmount() {
@@ -96,6 +114,47 @@ class SensorBar extends React.PureComponent {
       axios.get('/data/iotdata', {
           params: {
             feed_id: id
+          }
+      })
+        .then((response) => {
+          // handle success
+          const value = response.data.data.value;
+          this.setState({
+            [type]: parseInt(value) || 0,
+          });
+        })
+        .catch((error) => {
+          // handle error
+          console.log(error);
+        });
+    }
+  };
+
+  // used for fake data from random number
+  getFakeDataFromSensor(type) {
+    // handles case for altitude conversion needed
+    if (type === 'altitude') {
+      axios.get('/data/iotRandomData', {
+        params: {
+          feed_id: type,
+        }
+    })
+      .then((response) => {
+        // handle success and calculate for ft from meters
+        const value = parseInt(Math.floor(response.data.data.value * 3.28084));
+        this.setState({
+          [type]: value || 0,
+        });
+      })
+      .catch((error) => {
+        // handle error
+        console.log(error);
+      });
+    } else {
+      // get data from iot sensors
+      axios.get('/data/iotRandomdata', {
+          params: {
+            feed_id: type
           }
       })
         .then((response) => {

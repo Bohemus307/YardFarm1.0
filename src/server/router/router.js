@@ -11,6 +11,7 @@ router.get('/iotData', controllers.getDataFromIo);
 
 router.get('/allFeedData', controllers.getAllDataForFeed);
 
-// router.delete('/data', );
+// use for fake data
+router.get('/iotRandomData', controllers.useFakeDataGenerator);
 
 module.exports = router;

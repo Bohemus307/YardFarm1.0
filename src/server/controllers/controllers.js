@@ -1,8 +1,19 @@
 const axios = require('axios').default;
 const config = require('../../../config');
 const model = require('../../mongo/models/model.js');
+const generator = require('../generators/generators.js');
 
 module.exports = {
+
+  useFakeDataGenerator: async (req, res) => {
+    const feedId = req.query.feed_id;
+    generator.createDataForEnviromentals(feedId)
+      .then((response) => res.status(200).json({ data: response.data }))
+      .catch((err) => res.status(400).json({
+        message: 'Failed to retrieve Data from sensor',
+        error: err,
+      }));
+  },
 
   getDataFromIo: (req, res) => {
     const feedId = req.query.feed_id;
