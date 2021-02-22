@@ -4,13 +4,13 @@ const model = require('../../mongo/models/model.js');
 const generator = require('../generators/generators.js');
 
 module.exports = {
-
+  // fake data response
   useFakeDataGenerator: async (req, res) => {
     const feedId = req.query.feed_id;
     generator.createDataForEnviromentals(feedId)
       .then((response) => res.status(200).json({ data: response.data }))
       .catch((err) => res.status(400).json({
-        message: 'Failed to retrieve Data from sensor',
+        message: 'Failed to retrieve Fake Data from Generator',
         error: err,
       }));
   },
