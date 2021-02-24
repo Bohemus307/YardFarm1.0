@@ -14,7 +14,7 @@ const iotFakeData = mongoose.Schema({
 const IotFakeData = mongoose.model('iotFakeDataPoint', iotFakeData, 'iotFakeDataPoint');
 
 module.exports = {
-  IotData,
+  IotFakeData,
 
   saveFakeDataToDB: async (response, feedName) => {
     const docs = response.data.map((item) => new IotFakeData({

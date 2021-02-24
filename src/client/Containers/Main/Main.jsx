@@ -4,6 +4,7 @@ import axios from 'axios';
 import classes from './Main.css';
 import NutrientsTable from '../../Components/NutrientsTable/NutrientsTable.jsx';
 import Spinner from '../../Components/UI/Spinner/Spinner.jsx';
+import fakeWeekOfData from '../../../../fakeWeekofData.js';
 
 
 class Main extends React.PureComponent {
@@ -12,6 +13,8 @@ class Main extends React.PureComponent {
     
     this.state = {
       weekTempData: [],
+      // if u uncomment this u will have a graph for week of data but u must comment out all marked lines below
+      // fakeWeekData: fakeWeekOfData  
       DayTempData: [],
       DayHumidityData: [],
       date: new Date(Date.now()).toISOString().substring(0, 10),
@@ -23,10 +26,10 @@ class Main extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.getDayOfFeedData('temperature');
-    this.getDayOfFeedData('humidity');
+    this.getDayOfFeedData('temperature'); // comment out everything but update chart
+    this.getDayOfFeedData('humidity'); // <---- this
     this.updateChart();
-    this.getWeekOfData(); // need more work
+    this.getWeekOfData(); // <---- this
   }
 
   componentDidUpdate() {
@@ -34,7 +37,7 @@ class Main extends React.PureComponent {
   }
 
   // get day of data from database
-  getDayOfFeedData = (feedType) => {
+  getDayOfFeedData = (feedType) => {       // <---- all of this method
     const { date } = this.state;
     // create iso date for yesterday
     let yesterday = parseInt(date.substring(8,10)) - 1;
@@ -66,10 +69,10 @@ class Main extends React.PureComponent {
       .catch((error) => {
         throw new Error(error);
       });
-  }
+  }   // <---- to here
 
   // get week of data fron database
-  getWeekOfData = () => {
+  getWeekOfData = () => {  // <---- also this one
     // start array at current day build new array of dates till end of past week
     const { date } = this.state;
     let endDate = date;
@@ -118,7 +121,7 @@ class Main extends React.PureComponent {
       .catch((error) => {
         throw new Error(error);
       });
-  }
+  }                       // <---- to here as well
 
   updateChart(props) {
     // create const for state
