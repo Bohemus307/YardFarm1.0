@@ -4,7 +4,7 @@ import axios from 'axios';
 import classes from './Main.css';
 import NutrientsTable from '../../Components/NutrientsTable/NutrientsTable.jsx';
 import Spinner from '../../Components/UI/Spinner/Spinner.jsx';
-import fakeWeekOfData from '../../../../fakeWeekofData.js';
+// import fakeWeekOfData from '../../../../fakeWeekofData.js';  // uncomment this after u have unzipped ur fake data file
 
 
 class Main extends React.PureComponent {
