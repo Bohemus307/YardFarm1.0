@@ -70,13 +70,13 @@ module.exports = {
   },
 
   getWeekOfData: (req, res) => {
-    const { dates } = req.query;
+    const { dates, type } = req.query;
     if (dates === undefined) {
       res.status(400).json({
         message: 'Bad request - must include dates',
       });
     } else {
-      model.getWeekOfMoments(dates)
+      model.getWeekOfMoments(dates, type)
         .then((data) => res.json({
           message: 'Success retrieving Data',
           moments: data,

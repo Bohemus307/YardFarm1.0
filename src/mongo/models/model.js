@@ -66,10 +66,10 @@ module.exports = {
     }
   },
 
-  getWeekOfMoments: async (dates) => {
+  getWeekOfMoments: async (dates, type) => {
     try {
       const data = await IotData.find(
-        { createdAt: { $gte: dates[0], $lt: dates[dates.length - 1] } },
+        { type, createdAt: { $gte: dates[0], $lt: dates[dates.length - 1] } },
       ).lean();
       return data;
     } catch (err) {

@@ -79,7 +79,7 @@ class Main extends React.PureComponent {
     
     // create iso format date for begining of past week
     let newDate = new Date(Date.now()).toISOString().substring(0, 10);
-    let beginDateDay = newDate.substring(8,10) - 7;
+    let beginDateDay = newDate.substring(8,10) - 6;
     // check for negative result and handle
     if (beginDateDay < 0) {
       beginDateDay = 30 + beginDateDay;
@@ -110,6 +110,7 @@ class Main extends React.PureComponent {
     axios.get('/data/week', {
       params: {
         dates,
+        type: 'temperature'
       },
     })
       .then((response) => {
@@ -183,7 +184,6 @@ class Main extends React.PureComponent {
 
     // math for weekly chart
     const { weekTempData } = this.state;
-
     let initialValue = 0;
     const weeklyTempTotal = weekTempData.reduce(
       (accumulator, currentValue) => accumulator + Math.floor(currentValue.value), initialValue,
