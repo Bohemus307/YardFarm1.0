@@ -4,7 +4,8 @@ import axios from 'axios';
 import classes from './Main.css';
 import NutrientsTable from '../../Components/NutrientsTable/NutrientsTable.jsx';
 import Spinner from '../../Components/UI/Spinner/Spinner.jsx';
-// import fakeWeekOfData from '../../../../fakeWeekofData.js';  // uncomment this after u have unzipped ur fake data file
+import PieChart from '../../Components/PieChart/PieChart.jsx';
+
 
 
 class Main extends React.PureComponent {
@@ -310,12 +311,16 @@ class Main extends React.PureComponent {
           <div className={classes.Charts}>
             {chart1}
             {chart2}
-            {chart3}
+            {/* {chart3} */}
+            <PieChart />
           </div>
         </div>
       </div>
     );
   }
 }
+
+// section for temporary chart data for nonsensor use
+
 
 export default Main;
