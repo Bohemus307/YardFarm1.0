@@ -26,16 +26,16 @@ class Main extends React.PureComponent {
     this.updateChart = this.updateChart.bind(this);
   }
 
-  componentDidMount() {
-    this.getDayOfFeedData('temperature'); // comment out everything but update chart
-    this.getDayOfFeedData('humidity'); // <---- this
-    this.updateChart();
-    this.getWeekOfData(); // <---- this
-  }
+  // componentDidMount() {
+  //   // this.getDayOfFeedData('temperature'); // comment out everything but update chart
+  //   // this.getDayOfFeedData('humidity'); // <---- this
+  //   this.updateChart();
+  //   // this.getWeekOfData(); // <---- this
+  // }
 
-  componentDidUpdate() {
-    this.updateChart();
-  }
+  // componentDidUpdate() {
+  //   this.updateChart();
+  // }
 
   // get day of data from database
   getDayOfFeedData = (feedType) => {       // <---- all of this method
@@ -268,33 +268,33 @@ class Main extends React.PureComponent {
   }
 
   render() {
-    let chart1 = null;
-    let chart2 = null;
-    let chart3 = null;
+    // let chart1 = null;
+    // let chart2 = null;
+    // let chart3 = null;
 
-    if (this.state.DayTempData.length > 0) {
-      chart1 =  <div className={classes.Chart_1} id="chart" />;
-    }
+    // if (this.state.DayTempData.length > 0) {
+    //   chart1 =  <div className={classes.Chart_1} id="chart" />;
+    // }
 
-    if (this.state.Chart1Loading) {
-      chart1 = <Spinner />;
-    }
+    // if (this.state.Chart1Loading) {
+    //   chart1 = <Spinner />;
+    // }
 
-    if (this.state.weekTempData.length > 0) {
-      chart2 =  <div className={classes.Chart_2} id="chart2" />;
-    }
+    // if (this.state.weekTempData.length > 0) {
+    //   chart2 =  <div className={classes.Chart_2} id="chart2" />;
+    // }
 
-    if (this.state.Chart2Loading) {
-      chart2 = <Spinner />;
-    }
+    // if (this.state.Chart2Loading) {
+    //   chart2 = <Spinner />;
+    // }
 
-    if (this.state.DayHumidityData.length > 0) {
-      chart3 =  <div className={classes.Chart_3} id="chart3" />;
-    }
+    // if (this.state.DayHumidityData.length > 0) {
+    //   chart3 =  <div className={classes.Chart_3} id="chart3" />;
+    // }
 
-    if (this.state.Chart3Loading) {
-      chart3 = <Spinner />;
-    }
+    // if (this.state.Chart3Loading) {
+    //   chart3 = <Spinner />;
+    // }
 
     return (
       <div className={classes.Main_Wrapper}>
@@ -309,10 +309,12 @@ class Main extends React.PureComponent {
             <div className="label3">Yesterday Average Humidity</div>
           </div>
           <div className={classes.Charts}>
-            {chart1}
-            {chart2}
+            {/* {chart1} */}
+            {/* <PieChart type='humidity' /> */}
+            {/* {chart2} */}
+            {/* <PieChart type='weekTemperature' /> */}
             {/* {chart3} */}
-            <PieChart />
+            <PieChart type='temperature' />
           </div>
         </div>
       </div>
