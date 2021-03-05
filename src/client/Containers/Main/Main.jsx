@@ -310,11 +310,11 @@ class Main extends React.PureComponent {
           </div>
           <div className={classes.Charts}>
             {/* {chart1} */}
-            <PieChart type='humidity' id='pieChart1' />
+            <PieChart type='temperature' id='pieChart3' />
             {/* {chart2} */}
             <PieChart type='weekTemperature' id='pieChart2' />
             {/* {chart3} */}
-            <PieChart type='temperature' id='pieChart3' />
+            <PieChart type='humidity' id='pieChart1' />
           </div>
         </div>
       </div>

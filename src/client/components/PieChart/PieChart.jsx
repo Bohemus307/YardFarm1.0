@@ -2,21 +2,16 @@ import React, { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 import c3 from 'c3';
 
-import classes from './PieChart.css';
-
 const PieChart = ({ type, id }) => {
-  const [data, setData] = useState([]);
-  const [colors, setColors] = useState([{
-    Day: '#F4A460',
-    Night: '#87CEEB',
-  }]);
+  const [chartData, setData] = useState([]);
+  const [colors, setColors] = useState({});
 
   const updateChart = (chartId) => {
     const pieChart = c3.generate({
-      bindto: chartId,
+      bindto: `#${chartId}`,
       data: {
-        columns: data,
-        type: 'donut',
+        columns: chartData,
+        type: 'pie',
         colors,
       },
       size: {
@@ -35,8 +30,9 @@ const PieChart = ({ type, id }) => {
   const chart = () => {
     if (type === 'temperature') {
       setColors({
-        Day: '#F4A460',
-        Night: '#87CEEB',
+        High: '#F4A460',
+        Avg: '#90EE90',
+        Low: '#87CEEB',
       });
       setData([
         ['Low', 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
@@ -47,8 +43,9 @@ const PieChart = ({ type, id }) => {
 
     if (type === 'weekTemperature') {
       setColors({
-        Day: '#F4A460',
-        Night: '#87CEEB',
+        High: '#F4A460',
+        Avg: '#90EE90',
+        Low: '#87CEEB',
       });
       setData([
         ['Low', 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
@@ -59,8 +56,8 @@ const PieChart = ({ type, id }) => {
 
     if (type === 'humidity') {
       setColors({
-        Day: '#272343',
-        Night: '#2196F3',
+        Day: '#2196F3',
+        Night: '#272343',
       });
 
       setData([
@@ -71,7 +68,6 @@ const PieChart = ({ type, id }) => {
   };
 
   useEffect(() => {
-    // Update the chart
     chart();
   }, []);
 
@@ -83,6 +79,8 @@ const PieChart = ({ type, id }) => {
 };
 
 PieChart.propTypes = {
+  type: propTypes.string.isRequired,
+  id: propTypes.string.isRequired,
 };
 
 export default PieChart;
