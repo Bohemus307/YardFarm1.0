@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import AlertChart from '../AlertChart/AlertChart.jsx';
+import AlertsSettings from '../AlertSettings/AlertSettings.jsx';
 import classes from './AlertsMain.css';
 
 const AlertsMain = () => {
@@ -135,7 +136,7 @@ const AlertsMain = () => {
           <AlertChart alerts={alertsConfig} />
         </div>
         <div className={classes.SettingsDiv}>
-          alert settings
+          <AlertsSettings alerts={alertsConfig} />
         </div>
       </div>
     </div>
