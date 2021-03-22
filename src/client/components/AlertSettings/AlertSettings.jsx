@@ -6,167 +6,34 @@ import React, {
 
 import propTypes from 'prop-types';
 // import classes from './Alerts.css';
-import RangeSlider from '../Slider/Slider.jsx';
 
-const AlertsSettings = (
-  { alerts },
-  // { type, unitOfMeasure, minValue, maxValue }
-) => {
-  const [sliders, setSliders] = useState([
-    {
-      key: 'MinSlider',
-      unit: unitOfMeasure,
-      divKey: 1,
-      min: 0,
-      max: 10,
-      value: minValue,
-      step: 0.10,
-      label: 'Min',
-      locked: true,
-      alarm: false,
-      valueChanged: false,
-    },
-    {
-      key: 'MaxSlider',
-      unit: unitOfMeasure,
-      divKey: 2,
-      min: 0,
-      max: 10,
-      value: maxValue,
-      step: 0.10,
-      label: 'Max',
-      locked: true,
-      alarm: false,
-      valueChanged: false,
-    },
-  ]);
-
-  const lockSlider = useCallback((label) => {
-    // get index of item with key = label
-    const index = sliders.map((slider) => slider.label).indexOf(label);
-    const expr = sliders[index].locked;
-    const newSliders = [...sliders];
-    // swtich for true false
-    switch (expr) {
-      case true:
-        newSliders[index].locked = false;
-        break;
-      case false:
-        newSliders[index].locked = true;
-        break;
-      default:
-        newSliders[index].locked = true;
-    }
-    setSliders(newSliders);
-  },
-  [sliders]);
-
-  const sliderValueChanged = useCallback((val, key) => {
-    // console.log('NEW VALUE', val, key);
-    // change value in sliders based on label and new value
-    const index = sliders.map((slider) => slider.label).indexOf(key);
-    const newSliders = [...sliders];
-    newSliders[index].value = parseFloat(val);
-    newSliders[index].valueChanged = true;
-    setSliders(newSliders);
-  },
-  [sliders]);
-
-  const sliderList = (
-    sliders.map((slider) => {
-      const slideProps = useMemo(
-        () => ({
-          divkey: slider.divKey,
-          min: slider.min,
-          max: slider.max,
-          value: slider.value,
-          step: slider.step,
-          label: slider.label,
-          onChange: (e, key) => sliderValueChanged(e, key),
-        }),
-        [
-          slider.divKey,
-          slider.min,
-          slider.max,
-          slider.step,
-          slider.value,
-          slider.label,
-        ],
-      );
-      return (
-        <div className={classes.Value_Div} key={slideProps.divkey}>
-          <RangeSlider
-            classes={classes.Slider}
-            type={type}
-            key={slider.label}
-            UOM={unitOfMeasure}
-            {...slideProps}
-            disabled={slider.locked}
-          />
-          <button
-            aria-label="lock slider"
-            className={classes.Lock_Button}
-            style={{
-              backgroundImage: 'url( /images/padlock.svg )',
-              backgroundPosition: 'center',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              backgroundColor: '#282e33',
-            }}
-            type="button"
-            name="Lock"
-            onClick={() => lockSlider(slideProps.label)}
-          />
-        </div>
-      );
-    })
-  );
-
-  const groupBy = (property, label) => sliders.reduce((acc, obj) => {
-    const value = obj[property];
-    const key = obj[label];
-    if (!acc[key]) {
-      acc[key] = value;
-    }
-    // acc[key].push(obj);
-    return acc;
-  }, {});
-
-  const values = groupBy('value', 'label');
-  const valueChecker = sliders.reduce((acc, obj) => {
-    const value = obj.valueChanged;
-    const key = 'valueChanged';
-    if (!acc[key]) {
-      acc[key] = value;
-    }
-    return acc;
-  }, {});
-
+const AlertsSettings = ({ alerts }) => {
+  // parse alert obj to array of alert groups
+  const alertKeys = Object.keys(alerts);
+  const alertValues = Object.values(alerts);
+  // array of objects from alerts
+  const alertsGroupArray = alertKeys.reduce((arr, key, idx) => {
+    const object = {
+      id: key,
+      config: alertValues[idx],
+    };
+    arr.push(object);
+    return arr;
+  }, []);
+  console.log(alertsGroupArray);
   return (
-    <div className={classes.Alerts}>
-      <h4>Set Alerts</h4>
-      <div className={classes.List_Div}>
-        {sliderList}
-        <AlertsHandler
-          sensorType={type}
-          minValue={values.Min}
-          maxValue={values.Max}
-          valueChanged={valueChecker.valueChanged}
-        />
-      </div>
+    <div>
+      <ul>
+        <li>alerts sliders</li>
+      </ul>
     </div>
   );
 };
 
 AlertsSettings.propTypes = {
-  type: propTypes.string.isRequired,
-  unitOfMeasure: propTypes.string,
-  minValue: propTypes.number.isRequired,
-  maxValue: propTypes.number.isRequired,
 };
 
 AlertsSettings.defaultProps = {
-  unitOfMeasure: null,
 };
 
 export default AlertsSettings;
