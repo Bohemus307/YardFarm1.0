@@ -20,11 +20,24 @@ const AlertsSettings = ({ alerts }) => {
     arr.push(object);
     return arr;
   }, []);
+
+  const alertsSections = alertsGroupArray.map((alert) => (
+    <div key={alert.id}>
+      <div>
+        <img style={{ width: '10%' }} src="/images/alert.svg" alt="Alert" title="Alert" />
+      </div>
+      <h3>{alert.id}</h3>
+      <div>
+        slider
+      </div>
+    </div>
+  ));
+
   console.log(alertsGroupArray);
   return (
     <div>
       <ul>
-        <li>alerts sliders</li>
+        {alertsSections}
       </ul>
     </div>
   );
