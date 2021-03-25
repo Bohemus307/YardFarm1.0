@@ -6,8 +6,8 @@ import React, {
 
 import propTypes from 'prop-types';
 // import classes from './Alerts.css';
-import AlertSliders from '../AlertSlider/AlertSlider.jsx';
-import AlertSlider from '../AlertSlider/AlertSlider.jsx';
+import AlertSliders from '../AlertSliders/AlertSliders.jsx';
+import AlertSlider from '../AlertSliders/AlertSliders.jsx';
 
 const AlertsSettings = ({ alerts }) => {
   // parse alert obj to array of alert groups
