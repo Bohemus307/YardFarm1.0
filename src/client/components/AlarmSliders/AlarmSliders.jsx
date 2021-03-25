@@ -10,8 +10,9 @@ import RangeSlider from '../Slider/Slider.jsx';
 // import AlertsHandler from '../AlertsHandler/AlertsHandler.jsx';
 
 const Alerts = ({
-  type, unitOfMeasure, minValue, maxValue,
+  id, unitOfMeasure, minValue, maxValue, alertConfig,
 }) => {
+  console.log(alertConfig);
   const [sliders, setSliders] = useState([
     {
       key: 'MinSlider',
@@ -97,7 +98,7 @@ const Alerts = ({
         <div className={classes.Value_Div} key={slideProps.divkey}>
           <RangeSlider
             classes={classes.Slider}
-            type={type}
+            type={id}
             key={slider.label}
             UOM={unitOfMeasure}
             {...slideProps}
@@ -158,15 +159,15 @@ const Alerts = ({
   );
 };
 
-Alerts.propTypes = {
-  type: propTypes.string.isRequired,
-  unitOfMeasure: propTypes.string,
-  minValue: propTypes.number.isRequired,
-  maxValue: propTypes.number.isRequired,
-};
+// Alerts.propTypes = {
+//   type: propTypes.string.isRequired,
+//   unitOfMeasure: propTypes.string,
+//   minValue: propTypes.number.isRequired,
+//   maxValue: propTypes.number.isRequired,
+// };
 
-Alerts.defaultProps = {
-  unitOfMeasure: null,
-};
+// Alerts.defaultProps = {
+//   unitOfMeasure: null,
+// };
 
 export default Alerts;
