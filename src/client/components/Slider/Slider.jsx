@@ -57,7 +57,7 @@ const RangeSlider = ({
         {...slideProps}
         className={classes}
         id="myRange"
-        onChange={changeCallback}
+        onChange={() => changeCallback}
         onMouseDown={() => setMouseState('down')} // When mouse down set the mouseState to 'down'
         onMouseUp={() => setMouseState('up')}
       />

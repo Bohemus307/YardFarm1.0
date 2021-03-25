@@ -7,7 +7,6 @@ import React, {
 import propTypes from 'prop-types';
 // import classes from './Alerts.css';
 import AlertSliders from '../AlertSliders/AlertSliders.jsx';
-import AlertSlider from '../AlertSliders/AlertSliders.jsx';
 
 const AlertsSettings = ({ alerts }) => {
   // parse alert obj to array of alert groups
@@ -30,7 +29,7 @@ const AlertsSettings = ({ alerts }) => {
       </div>
       <h3>{alert.id}</h3>
       <div>
-        <AlertSlider config={Object.keys(alert.config).reduce((arr, key, idx) => {
+        <AlertSliders alertsArray={Object.keys(alert.config).reduce((arr, key, idx) => {
           const object = {
             id: key,
             config: Object.values(alert.config)[idx],
@@ -43,7 +42,6 @@ const AlertsSettings = ({ alerts }) => {
     </div>
   ));
 
-  //console.log(alertsGroupArray);
   return (
     <div>
       <ul>
