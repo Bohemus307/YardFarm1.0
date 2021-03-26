@@ -12,7 +12,7 @@ import RangeSlider from '../Slider/Slider.jsx';
 const Alerts = ({
   id, unitOfMeasure, minValue, maxValue, alertConfig,
 }) => {
-  console.log(alertConfig);
+  //console.log(alertConfig);
   const [sliders, setSliders] = useState([
     {
       key: 'MinSlider',
