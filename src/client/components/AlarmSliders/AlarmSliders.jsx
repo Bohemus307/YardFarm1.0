@@ -5,22 +5,22 @@ import React, {
 } from 'react';
 
 import propTypes from 'prop-types';
-import classes from './Alarms.css';
+import classes from './AlarmsSliders.css';
 import RangeSlider from '../Slider/Slider.jsx';
 // import AlertsHandler from '../AlertsHandler/AlertsHandler.jsx';
 
 const Alerts = ({
-  id, unitOfMeasure, minValue, maxValue, alertConfig,
+  alertConfig,
 }) => {
-  //console.log(alertConfig);
+  console.log('alertconfig in sliders', alertConfig);
   const [sliders, setSliders] = useState([
     {
       key: 'MinSlider',
-      unit: unitOfMeasure,
+      unit: alertConfig.config.UOM,
       divKey: 1,
       min: 0,
       max: 10,
-      value: minValue,
+      value: alertConfig.config.Min,
       step: 0.10,
       label: 'Min',
       locked: true,
@@ -29,11 +29,11 @@ const Alerts = ({
     },
     {
       key: 'MaxSlider',
-      unit: unitOfMeasure,
+      unit: alertConfig.config.UOM,
       divKey: 2,
       min: 0,
       max: 10,
-      value: maxValue,
+      value: alertConfig.config.Max,
       step: 0.10,
       label: 'Max',
       locked: true,
@@ -98,9 +98,9 @@ const Alerts = ({
         <div className={classes.Value_Div} key={slideProps.divkey}>
           <RangeSlider
             classes={classes.Slider}
-            type={id}
+            type={alertConfig.id}
             key={slider.label}
-            UOM={unitOfMeasure}
+            UOM={alertConfig.config.UOM}
             {...slideProps}
             disabled={slider.locked}
           />
@@ -112,7 +112,7 @@ const Alerts = ({
               backgroundPosition: 'center',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              backgroundColor: '#282e33',
+              // backgroundColor: '#282e33',
             }}
             type="button"
             name="Lock"
@@ -129,7 +129,6 @@ const Alerts = ({
     if (!acc[key]) {
       acc[key] = value;
     }
-    // acc[key].push(obj);
     return acc;
   }, {});
 
@@ -145,7 +144,6 @@ const Alerts = ({
 
   return (
     <div className={classes.Alerts}>
-      <h4>Set Alerts</h4>
       <div className={classes.List_Div}>
         {sliderList}
         {/* <AlertsHandler

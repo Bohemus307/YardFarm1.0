@@ -35,9 +35,12 @@ const AlertsSettings = ({ alerts, group }) => {
 
   return (
     <div>
-      <ul>
-        {alertsSections}
-      </ul>
+      <h4>Set Alert Alarms</h4>
+      <div>
+        <ul>
+          {alertsSections}
+        </ul>
+      </div>
     </div>
   );
 };
