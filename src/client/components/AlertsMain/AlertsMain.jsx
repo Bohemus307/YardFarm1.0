@@ -133,10 +133,10 @@ const AlertsMain = () => {
       </div>
       <div className={classes.SecondDiv}>
         <div className={classes.GraphDiv}>
-          <AlertChart alerts={alertsConfig} />
+          <AlertChart alerts={alertsConfig} group={alertGroup} />
         </div>
         <div className={classes.SettingsDiv}>
-          <AlertsSettings alerts={alertsConfig} />
+          <AlertsSettings alerts={alertsConfig} group={alertGroup} />
         </div>
       </div>
     </div>

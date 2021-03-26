@@ -4,7 +4,7 @@ import c3 from 'c3';
 
 import classes from './AlertChart.css';
 
-const AlertChart = ({ alerts }) => {
+const AlertChart = ({ alerts, group }) => {
   const [data, setData] = useState({
     columns: [
       ['In Alarm', 300, 350, 300, 0, 0, 120],
@@ -18,14 +18,13 @@ const AlertChart = ({ alerts }) => {
     groups: [['In Alarm', 'Out Of Alarm']],
   });
 
-  const [alertGroup, setAlertGroup] = useState('Nutrients');
+  const [currentAlertGroup, setAlertGroup] = useState(group);
 
-  const alertKeys = Object.keys(alerts);
+  // const alertKeys = Object.keys(alerts);
 
-  const alertGroupHandler = (e) => {
-    const currValue = e.target.value;
-    setAlertGroup(currValue);
-    if (currValue === 'Enviromentals') {
+  const alertGroupHandler = (alertGroup) => {
+    setAlertGroup(alertGroup);
+    if (alertGroup === 'Enviromentals') {
       setData({
         columns: [
           ['In Alarm', 100, 150, 250, 0, 0, 220],
@@ -64,27 +63,19 @@ const AlertChart = ({ alerts }) => {
   };
 
   useEffect(() => {
-    // Update the chart
+    alertGroupHandler(group);
     updateChart();
-  });
+  }, [group]);
 
   return (
     <div>
-      <div className={classes.DropDownDiv}>
-        <select className={classes.selectcss} name="alertGroups" onChange={alertGroupHandler}>
-          {alertKeys.map((alertTitle) => (
-            <option key={alertTitle} value={alertTitle}>
-              {alertTitle}
-            </option>
-          ))}
-        </select>
-      </div>
       <div style={{ height: '400px' }} id="alertsChart" />
     </div>
   );
 };
 
 AlertChart.propTypes = {
+  group: propTypes.string.isRequired,
   alerts: propTypes.shape({
     Nutrients: propTypes.shape({
       Ph: propTypes.shape({
