@@ -5,7 +5,7 @@ import React, {
 } from 'react';
 
 import propTypes from 'prop-types';
-// import classes from './Alerts.css';
+import classes from './AlertSettings.css';
 import AlarmSliders from '../AlarmSliders/AlarmSliders.jsx';
 
 const AlertsSettings = ({ alerts, group }) => {
@@ -34,7 +34,7 @@ const AlertsSettings = ({ alerts, group }) => {
   ));
 
   return (
-    <div>
+    <div className={classes.SettingsWrapper}>
       <h4>Set Alert Alarms</h4>
       <div>
         <ul>
