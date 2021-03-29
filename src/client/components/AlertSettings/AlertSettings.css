@@ -1,4 +1,12 @@
 .SettingsWrapper {
+  width: 100%;
   height: 50vh;
   overflow-y: scroll;
+}
+
+.SliderRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

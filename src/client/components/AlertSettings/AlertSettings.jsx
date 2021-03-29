@@ -23,11 +23,8 @@ const AlertsSettings = ({ alerts, group }) => {
   }, []);
   const alertsSections = alertsGroupArray.map((alert) => (
     <div key={alert.id}>
-      <div>
-        <img style={{ width: '10%' }} src="/images/alert.svg" alt="Alert" title="Alert" />
-      </div>
-      <h3>{alert.id}</h3>
-      <div>
+      <div className={classes.SliderRow}>
+        <h3>{alert.id}</h3>
         <AlarmSliders alertConfig={alert} group />
       </div>
     </div>
@@ -35,9 +32,9 @@ const AlertsSettings = ({ alerts, group }) => {
 
   return (
     <div className={classes.SettingsWrapper}>
-      <h4>Set Alert Alarms</h4>
+      <h4>Set Alerts Alarms</h4>
       <div>
-        <ul>
+        <ul style={{ paddingLeft: '5px' }}>
           {alertsSections}
         </ul>
       </div>
