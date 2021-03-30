@@ -6,7 +6,7 @@
   display: grid;
   grid-template-areas:
     'main details';
-  grid-template-columns: 65vw auto;
+  grid-template-columns: 75vw auto;
 }
 
 .Main_Div {

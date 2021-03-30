@@ -24,7 +24,7 @@ const AlertsSettings = ({ alerts, group }) => {
   const alertsSections = alertsGroupArray.map((alert) => (
     <div key={alert.id}>
       <div className={classes.SliderRow}>
-        <h3>{alert.id}</h3>
+        <h2>{alert.id}</h2>
         <AlarmSliders alertConfig={alert} group />
       </div>
     </div>

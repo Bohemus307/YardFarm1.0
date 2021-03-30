@@ -35,7 +35,7 @@ const RangeSlider = ({
     <div className={styles.Slider_Div}>
       <div className={styles.Label_Div}>
         <p style={{
-          fontSize: '15px',
+          fontSize: '13px',
           padding: '5px 5px',
         }}
         >
