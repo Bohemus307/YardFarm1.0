@@ -1,0 +1,13 @@
+.Details {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid lightgrey;
+  border-radius: 12px;
+  padding: 5px 5px;
+  margin: 5px 10px;
+  box-shadow: 2px 2px whitesmoke;
+}

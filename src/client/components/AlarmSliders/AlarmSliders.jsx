@@ -12,7 +12,6 @@ import RangeSlider from '../Slider/Slider.jsx';
 const Alerts = ({
   alertConfig,
 }) => {
-  console.log('alertconfig in sliders', alertConfig);
   const [sliders, setSliders] = useState([
     {
       key: 'MinSlider',

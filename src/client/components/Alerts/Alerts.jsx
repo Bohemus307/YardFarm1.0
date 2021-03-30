@@ -3,6 +3,7 @@ import propTypes from 'prop-types';
 import classes from './Alerts.css';
 
 import AlertsMain from '../AlertsMain/AlertsMain.jsx';
+import AlertsDetails from '../AlertsDetails/AlertsDetails.jsx';
 import NavBar from '../NavBar/Navbar.jsx';
 
 const Alerts = () => {
@@ -15,7 +16,7 @@ const Alerts = () => {
           <AlertsMain />
         </div>
         <div className={classes.Details}>
-          Details
+          <AlertsDetails />
         </div>
       </div>
     </div>
