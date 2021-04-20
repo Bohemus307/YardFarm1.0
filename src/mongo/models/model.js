@@ -59,13 +59,15 @@ const noteSchema = mongoose.Schema({
 // create model for notes db
 const Note = mongoose.model('note', noteSchema, 'note');
 
+const Alert = mongoose.model('alert', alert, 'alert');
+
 // create model for iotdata
 const IotData = mongoose.model('iotDataPoint', iotData, 'iotDataPoint');
 
 module.exports = {
   noteSchema,
   Note,
-  alert,
+  Alert,
   dataMoment,
   moments,
   IotData,
