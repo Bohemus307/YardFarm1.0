@@ -25,6 +25,28 @@ const dataMoment = mongoose.Schema({
   wtemp: Number,
 });
 
+const alert = mongoose.Schema({
+  id: {
+    type: String,
+    index: true,
+    unique: true,
+  },
+  alertid: {
+    type: String,
+    index: true,
+    unique: true,
+  },
+  alertName: {
+    type: String,
+    index: true,
+    unique: true,
+  },
+  updated: { type: Date },
+  created: { type: Date, default: Date.now },
+  minimum: Number,
+  maximum: Number,
+});
+
 // create model
 const moments = mongoose.model('moments', dataMoment, 'moments');
 
@@ -43,6 +65,7 @@ const IotData = mongoose.model('iotDataPoint', iotData, 'iotDataPoint');
 module.exports = {
   noteSchema,
   Note,
+  alert,
   dataMoment,
   moments,
   IotData,
